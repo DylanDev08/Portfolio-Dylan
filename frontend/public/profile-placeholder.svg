@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06101f"/><stop offset="1" stop-color="#0d54c8"/></linearGradient></defs>
+<rect width="600" height="700" rx="42" fill="url(#g)"/>
+<circle cx="300" cy="260" r="115" fill="#a9c9ff" opacity=".28"/>
+<path d="M115 650c14-152 88-228 185-228s171 76 185 228" fill="#a9c9ff" opacity=".28"/>
+<text x="300" y="645" text-anchor="middle" fill="#dbeafe" font-family="Arial" font-size="25">INSERTAR FOTO DE PERFIL</text>
+</svg>

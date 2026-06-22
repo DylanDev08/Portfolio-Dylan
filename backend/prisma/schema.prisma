@@ -1,0 +1,164 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+}
+
+enum SkillCategory {
+  FRONTEND
+  BACKEND
+  DATABASE
+  TOOLS
+  SOFT_SKILL
+}
+
+enum RequestStatus {
+  PENDING
+  CONTACTED
+  IN_PROGRESS
+  CLOSED
+  REJECTED
+}
+
+enum ProjectType {
+  PORTFOLIO
+  LANDING_PAGE
+  ECOMMERCE
+  WEB_SYSTEM
+  MAINTENANCE
+  OTHER
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(ADMIN)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Profile {
+  id           Int      @id @default(1)
+  firstName    String
+  lastName     String
+  age          Int
+  headline     String
+  bio          String   @db.Text
+  location     String
+  email        String
+  phone        String
+  whatsappUrl  String
+  githubUrl    String
+  linkedinUrl  String
+  profileImage String?
+  openToWork   Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Skill {
+  id        Int           @id @default(autoincrement())
+  name      String
+  category  SkillCategory
+  level     Int           @default(70)
+  order     Int           @default(0)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@unique([name, category])
+}
+
+model Project {
+  id           Int                 @id @default(autoincrement())
+  title        String
+  slug         String              @unique
+  description  String              @db.Text
+  coverImage   String
+  liveUrl      String
+  githubUrl    String
+  featured     Boolean             @default(false)
+  order        Int                 @default(0)
+  technologies ProjectTechnology[]
+  createdAt    DateTime            @default(now())
+  updatedAt    DateTime            @updatedAt
+}
+
+model Technology {
+  id       Int                 @id @default(autoincrement())
+  name     String              @unique
+  projects ProjectTechnology[]
+}
+
+model ProjectTechnology {
+  projectId    Int
+  technologyId Int
+  project      Project    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  technology   Technology @relation(fields: [technologyId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, technologyId])
+}
+
+model WorkExperience {
+  id            Int    @id @default(autoincrement())
+  company       String
+  role          String
+  durationLabel String
+  description   String @db.Text
+  order         Int    @default(0)
+}
+
+model Education {
+  id          Int     @id @default(autoincrement())
+  institution String
+  title       String
+  period      String
+  description String? @db.Text
+  order       Int     @default(0)
+}
+
+model ContactRequest {
+  id          String        @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  company     String?
+  projectType ProjectType
+  message     String        @db.Text
+  budget      String?
+  status      RequestStatus @default(PENDING)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([status, createdAt])
+}
+
+model Visit {
+  id        String   @id @default(cuid())
+  path      String
+  referrer  String?
+  userAgent String?
+  ip        String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+model LoginEvent {
+  id        String   @id @default(cuid())
+  email     String
+  success   Boolean
+  ip        String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([success, createdAt])
+}

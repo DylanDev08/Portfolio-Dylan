@@ -1,0 +1,2 @@
+import * as service from "./skills.service.js";
+export async function list(request,response){response.json(await service.listSkills())} export async function create(request,response){response.status(201).json(await service.createSkill(request.body))} export async function update(request,response){response.json(await service.updateSkill(Number(request.params.id),request.body))} export async function remove(request,response){await service.deleteSkill(Number(request.params.id));response.status(204).end()}

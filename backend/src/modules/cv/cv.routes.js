@@ -1,0 +1,1 @@
+import { Router } from "express"; import { requireAdmin,requireAuth } from "../../middleware/auth.js"; import { download,upload } from "./cv.controller.js"; import { cvUpload } from "./cv.upload.js"; const router=Router();router.get("/download",download);router.post("/upload",requireAuth,requireAdmin,cvUpload,upload);export default router;
