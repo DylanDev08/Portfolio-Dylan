@@ -1,4 +1,4 @@
-﻿import "dotenv/config";
+import "dotenv/config";
 import bcrypt from "bcryptjs";
 import { PrismaClient } from "@prisma/client";
 
@@ -85,7 +85,7 @@ async function main() {
     },
   ];
 
-  if (await prisma.workExperience.count() === 0) await prisma.workExperience.createMany({ data: experiences });
+  if ((await prisma.workExperience.count()) === 0) await prisma.workExperience.createMany({ data: experiences });
 
   const education = [
     { period: "2026 - Actualidad", title: "Ingenieria en Sistemas Informaticos", institution: "Universidad Abierta Interamericana - Sede Rosario", order: 1 },
@@ -94,52 +94,74 @@ async function main() {
     { period: "Marzo de 2024 - Diciembre de 2024", title: "Diseno y desarrollo de paginas web", institution: "Digital House", order: 4 },
   ];
 
-  if (await prisma.education.count() === 0) await prisma.education.createMany({ data: education });
+  if ((await prisma.education.count()) === 0) await prisma.education.createMany({ data: education });
 
   const projects = [
     {
-      title: "Fortaleza Construcciones Portfolio",
-      slug: "fortaleza-construcciones-portfolio",
-      description: "Portfolio corporativo desarrollado para presentar servicios, obras, identidad visual y canales de contacto.",
-      coverImage: "/projects/fortaleza.svg",
-      liveUrl: "https://fortalezaconstrucciones-port.vercel.app",
-      githubUrl: "https://github.com/DylanDev08/Fortaleza-Portfolio",
-      featured: true,
-      order: 1,
-      technologies: ["React", "CSS", "JavaScript"],
-    },
-    {
-      title: "Fortaleza Construcciones E-Commerce",
-      slug: "fortaleza-construcciones-ecommerce",
-      description: "E-commerce de materiales con catalogo, interfaz responsiva y organizacion de productos para la empresa.",
-      coverImage: "/projects/ecommerce.svg",
-      liveUrl: "https://materiales-fzac-sciy.vercel.app",
-      githubUrl: "https://github.com/DylanDev08/Materiales-FZAC",
-      featured: true,
-      order: 2,
-      technologies: ["React", "CSS", "JavaScript"],
-    },
-    {
-      title: "Tienda Nube",
-      slug: "tienda-nube",
-      description: "Tienda de ropa personalizada inspirada en series, deportes, peliculas y cultura pop, creada sobre Tienda Nube.",
-      coverImage: "/projects/barber.svg",
-      liveUrl: "https://fuckthesys2.mitiendanube.com",
-      githubUrl: "#",
-      featured: false,
-      order: 3,
-      technologies: ["Tienda Nube", "E-commerce", "CSS"],
-    },
-    {
-      title: "InnovaClick",
-      slug: "innovaclick-wordpress",
-      description: "Agencia de marketing digital con servicios de diseno web, SEO, Meta Ads y presencia profesional online.",
-      coverImage: "/projects/manga.svg",
+      title: "Innova Click",
+      slug: "innova-click",
+      description: "Sitio profesional para una agencia de marketing digital, orientado a presencia online, servicios, conversion y comunicacion comercial.",
+      coverImage: "/projects/innova-click.svg",
       liveUrl: "https://innovaclick.com.ar",
       githubUrl: "#",
+      featured: true,
+      order: 1,
+      technologies: ["WordPress", "SEO", "CSS", "Marketing digital"],
+    },
+    {
+      title: "FuckTheSys",
+      slug: "fuckthesys",
+      description: "E-commerce de indumentaria personalizada desarrollado sobre Tienda Nube, con identidad visual, catalogo y experiencia de compra online.",
+      coverImage: "/projects/fuckthesys.svg",
+      liveUrl: "https://fuckthesys2.mitiendanube.com",
+      githubUrl: "#",
+      featured: true,
+      order: 2,
+      technologies: ["Tienda Nube", "E-commerce", "CSS", "Branding"],
+    },
+    {
+      title: "Materiales FZAC",
+      slug: "materiales-fzac",
+      description: "E-commerce para materiales de Fortaleza Construcciones. Proyecto preparado para carga completa de productos, dominio y deploy publico final.",
+      coverImage: "/projects/materiales-fzac.svg",
+      liveUrl: "#",
+      githubUrl: "https://github.com/DylanDev08/Materiales-FZAC",
+      featured: true,
+      order: 3,
+      technologies: ["React", "Node.js", "Express.js", "SQL", "Prisma"],
+    },
+    {
+      title: "Mangas MaxDy",
+      slug: "mangas-maxdy",
+      description: "Plataforma full stack de mangas y comics con catalogo, ranking, lector, usuarios, comentarios y panel administrativo.",
+      coverImage: "/projects/mangas-maxdy.svg",
+      liveUrl: "#",
+      githubUrl: "https://github.com/DylanDev08/Comics-Manga-MaxDy",
       featured: false,
       order: 4,
-      technologies: ["WordPress", "CSS", "Web"],
+      technologies: ["React", "Node.js", "Express.js", "Prisma", "Supabase"],
+    },
+    {
+      title: "Portfolio FZAC",
+      slug: "portfolio-fzac",
+      description: "Portfolio institucional de Fortaleza Construcciones con obras, servicios, trabajos, galerias, panel privado y administracion de contenido.",
+      coverImage: "/projects/portfolio-fzac.svg",
+      liveUrl: "https://fortalezaconstrucciones-port.vercel.app",
+      githubUrl: "https://github.com/DylanDev08/FZAC-Portfolio",
+      featured: true,
+      order: 5,
+      technologies: ["React", "Supabase", "Prisma", "Express.js", "Render"],
+    },
+    {
+      title: "PrismaERP",
+      slug: "prisma-erp",
+      description: "ERP en desarrollo para centralizar procesos, datos operativos, gestion interna y modulos administrativos. Acceso bloqueado hasta publicar una version estable.",
+      coverImage: "/projects/prisma-erp.svg",
+      liveUrl: "#",
+      githubUrl: "#",
+      featured: false,
+      order: 6,
+      technologies: ["React", "Node.js", "Express.js", "Prisma", "PostgreSQL"],
     },
   ];
 
