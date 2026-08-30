@@ -22,8 +22,11 @@ async function main() {
   await prisma.profile.upsert({
     where: { id: 1 },
     update: {
+      headline: "Programador Full Stack",
+      bio: "Estudiante de Ingenieria en Sistemas Informaticos y programador Full Stack. Desarrollo portfolios, e-commerce, ERP, dashboards y automatizaciones con React, TypeScript, Node.js, Express.js, SQL, Supabase, Prisma, Docker, Git/GitHub, n8n, Excel y Google Sheets.",
       githubUrl: "https://github.com/DylanDev08",
       linkedinUrl: "https://www.linkedin.com/in/dylan-salcedo-26205a34a/",
+      profileImage: "/profile-dylan-portfolio.svg",
     },
     create: {
       id: 1,
@@ -31,31 +34,40 @@ async function main() {
       lastName: "Salcedo",
       age: 18,
       headline: "Programador Full Stack",
-      bio: "Estudiante de Ingenieria en Sistemas Informaticos y desarrollador web enfocado en crear soluciones claras, funcionales y sostenibles.",
+      bio: "Estudiante de Ingenieria en Sistemas Informaticos y programador Full Stack. Desarrollo portfolios, e-commerce, ERP, dashboards y automatizaciones con React, TypeScript, Node.js, Express.js, SQL, Supabase, Prisma, Docker, Git/GitHub, n8n, Excel y Google Sheets.",
       location: "Rosario, Santa Fe, Argentina",
       email: "dylansalcedo333@gmail.com",
       phone: "+54 341 741 5857",
       whatsappUrl: "https://wa.me/543417415857",
       githubUrl: "https://github.com/DylanDev08",
       linkedinUrl: "https://www.linkedin.com/in/dylan-salcedo-26205a34a/",
-      profileImage: "/profile-dylan.jpeg",
+      profileImage: "/profile-dylan-portfolio.svg",
     },
   });
 
   const skills = [
-    ["React", "FRONTEND", 82, 1],
-    ["CSS", "FRONTEND", 86, 2],
-    ["JavaScript", "FRONTEND", 80, 3],
-    ["Node.js", "BACKEND", 76, 4],
-    ["Express.js", "BACKEND", 76, 5],
-    ["SQL", "DATABASE", 74, 6],
-    ["PostgreSQL", "DATABASE", 72, 7],
-    ["Prisma", "DATABASE", 68, 8],
-    ["Git", "TOOLS", 82, 9],
-    ["GitHub", "TOOLS", 82, 10],
-    ["Trabajo en equipo", "SOFT_SKILL", 86, 11],
-    ["Comunicacion", "SOFT_SKILL", 84, 12],
-    ["Aprendizaje continuo", "SOFT_SKILL", 90, 13],
+    ["React", "FRONTEND", 84, 1],
+    ["TypeScript", "FRONTEND", 74, 2],
+    ["JavaScript", "FRONTEND", 82, 3],
+    ["CSS", "FRONTEND", 86, 4],
+    ["Node.js", "BACKEND", 78, 5],
+    ["Express.js", "BACKEND", 78, 6],
+    ["SQL", "DATABASE", 76, 7],
+    ["PostgreSQL", "DATABASE", 74, 8],
+    ["Supabase", "DATABASE", 74, 9],
+    ["Prisma", "DATABASE", 72, 10],
+    ["Docker", "TOOLS", 68, 11],
+    ["Git", "TOOLS", 84, 12],
+    ["GitHub", "TOOLS", 84, 13],
+    ["n8n", "TOOLS", 72, 14],
+    ["Scripts", "TOOLS", 76, 15],
+    ["Excel", "TOOLS", 82, 16],
+    ["Google Sheets", "TOOLS", 82, 17],
+    ["Dashboards", "TOOLS", 74, 18],
+    ["Automatizacion de datos", "TOOLS", 76, 19],
+    ["Trabajo en equipo", "SOFT_SKILL", 88, 20],
+    ["Comunicacion", "SOFT_SKILL", 84, 21],
+    ["Aprendizaje continuo", "SOFT_SKILL", 92, 22],
   ];
 
   for (const [name, category, level, order] of skills) {
@@ -66,26 +78,27 @@ async function main() {
     });
   }
 
-  const experiences = [
-    {
-      company: "Fortaleza Construcciones",
-      role: "Desarrollador web y soporte administrativo / Data Entry",
-      durationLabel: "3 meses",
-      description:
-        "Desarrollo de portfolio corporativo y e-commerce, organizacion de informacion, manejo de Excel, validaciones, control de solicitudes, rate limiting, Git y GitHub.",
-      order: 1,
-    },
-    {
-      company: "Proyectos independientes",
-      role: "Desarrollador Web Freelancer",
-      durationLabel: "1 ano y medio aproximadamente",
-      description:
-        "Desarrollo de interfaces responsivas, portfolios, landing pages, e-commerce y sistemas web con React, Node.js, Express.js y SQL.",
-      order: 2,
-    },
-  ];
-
-  if ((await prisma.workExperience.count()) === 0) await prisma.workExperience.createMany({ data: experiences });
+  await prisma.workExperience.deleteMany({});
+  await prisma.workExperience.createMany({
+    data: [
+      {
+        company: "Fortaleza Construcciones",
+        role: "Desarrollador Web Full Stack y Soporte Administrativo",
+        durationLabel: "8 meses",
+        description:
+          "Desarrollo de portfolio, e-commerce y ERP interno. Automatizacion de datos con scripts, n8n, APIs, Excel y Google Sheets. Creacion de dashboards, control de informacion, rate limiting, Supabase, Prisma, Docker, Git y GitHub.",
+        order: 1,
+      },
+      {
+        company: "Proyectos independientes",
+        role: "Desarrollador Web Freelancer",
+        durationLabel: "1 ano y medio aproximadamente",
+        description:
+          "Desarrollo de interfaces responsivas, portfolios, landing pages, e-commerce y sistemas web con React, Node.js, Express.js y SQL.",
+        order: 2,
+      },
+    ],
+  });
 
   const education = [
     { period: "2026 - Actualidad", title: "Ingenieria en Sistemas Informaticos", institution: "Universidad Abierta Interamericana - Sede Rosario", order: 1 },
@@ -122,13 +135,13 @@ async function main() {
     {
       title: "Materiales FZAC",
       slug: "materiales-fzac",
-      description: "E-commerce para materiales de Fortaleza Construcciones. Proyecto preparado para carga completa de productos, dominio y deploy publico final.",
+      description: "E-commerce para materiales de Fortaleza Construcciones. Proyecto preparado para carga completa de productos, compra de dominio y deploy publico final.",
       coverImage: "/projects/materiales-fzac.svg",
       liveUrl: "#",
       githubUrl: "https://github.com/DylanDev08/Materiales-FZAC",
       featured: true,
       order: 3,
-      technologies: ["React", "Node.js", "Express.js", "SQL", "Prisma"],
+      technologies: ["React", "TypeScript", "Node.js", "Express.js", "SQL", "Prisma"],
     },
     {
       title: "Mangas MaxDy",
@@ -155,13 +168,13 @@ async function main() {
     {
       title: "PrismaERP",
       slug: "prisma-erp",
-      description: "ERP en desarrollo para centralizar procesos, datos operativos, gestion interna y modulos administrativos. Acceso bloqueado hasta publicar una version estable.",
+      description: "ERP en desarrollo para centralizar procesos, datos operativos, dashboards, automatizaciones y modulos administrativos. Acceso bloqueado hasta publicar una version estable.",
       coverImage: "/projects/prisma-erp.svg",
       liveUrl: "#",
       githubUrl: "#",
       featured: false,
       order: 6,
-      technologies: ["React", "Node.js", "Express.js", "Prisma", "PostgreSQL"],
+      technologies: ["React", "TypeScript", "Node.js", "Express.js", "Prisma", "PostgreSQL"],
     },
   ];
 
