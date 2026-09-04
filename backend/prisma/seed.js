@@ -22,8 +22,6 @@ async function main() {
   await prisma.profile.upsert({
     where: { id: 1 },
     update: {
-      headline: "Programador Full Stack",
-      bio: "Estudiante de Ingenieria en Sistemas Informaticos y programador Full Stack. Desarrollo portfolios, e-commerce, ERP, dashboards y automatizaciones con React, TypeScript, Node.js, Express.js, SQL, Supabase, Prisma, Docker, Git/GitHub, n8n, Excel y Google Sheets.",
       githubUrl: "https://github.com/DylanDev08",
       linkedinUrl: "https://www.linkedin.com/in/dylan-salcedo-26205a34a/",
       profileImage: "/profile-dylan-portfolio.svg",
@@ -34,7 +32,7 @@ async function main() {
       lastName: "Salcedo",
       age: 18,
       headline: "Programador Full Stack",
-      bio: "Estudiante de Ingenieria en Sistemas Informaticos y programador Full Stack. Desarrollo portfolios, e-commerce, ERP, dashboards y automatizaciones con React, TypeScript, Node.js, Express.js, SQL, Supabase, Prisma, Docker, Git/GitHub, n8n, Excel y Google Sheets.",
+      bio: "Estudiante de Ingenieria en Sistemas Informaticos y programador Full Stack. Desarrollo portfolios, e-commerce, ERP, dashboards, automatizaciones, documentacion tecnica y chatbots comerciales con React, TypeScript, Node.js, Express.js, SQL, Supabase, Prisma, Docker, Git/GitHub, n8n, Excel y Google Sheets.",
       location: "Rosario, Santa Fe, Argentina",
       email: "dylansalcedo333@gmail.com",
       phone: "+54 341 741 5857",
@@ -78,27 +76,26 @@ async function main() {
     });
   }
 
-  await prisma.workExperience.deleteMany({});
-  await prisma.workExperience.createMany({
-    data: [
-      {
-        company: "Fortaleza Construcciones",
-        role: "Desarrollador Web Full Stack y Soporte Administrativo",
-        durationLabel: "8 meses",
-        description:
-          "Desarrollo de portfolio, e-commerce y ERP interno. Automatizacion de datos con scripts, n8n, APIs, Excel y Google Sheets. Creacion de dashboards, control de informacion, rate limiting, Supabase, Prisma, Docker, Git y GitHub.",
-        order: 1,
-      },
-      {
-        company: "Proyectos independientes",
-        role: "Desarrollador Web Freelancer",
-        durationLabel: "1 ano y medio aproximadamente",
-        description:
-          "Desarrollo de interfaces responsivas, portfolios, landing pages, e-commerce y sistemas web con React, Node.js, Express.js y SQL.",
-        order: 2,
-      },
-    ],
-  });
+  const experiences = [
+    {
+      company: "Fortaleza Construcciones",
+      role: "Desarrollador Web Full Stack y Soporte Administrativo",
+      durationLabel: "8 meses",
+      description:
+        "Desarrollo de portfolio, e-commerce y ERP interno. Automatizacion de datos con scripts, n8n, APIs, Excel y Google Sheets. Creacion de dashboards, control de informacion, rate limiting, Supabase, Prisma, Docker, Git y GitHub.",
+      order: 1,
+    },
+    {
+      company: "Proyectos independientes",
+      role: "Desarrollador Web Freelancer",
+      durationLabel: "1 ano y medio aproximadamente",
+      description:
+        "Sitios responsivos, portfolios, sistemas, automatizaciones, chatbots y e-commerce adaptados a cada proyecto.",
+      order: 2,
+    },
+  ];
+
+  if ((await prisma.workExperience.count()) === 0) await prisma.workExperience.createMany({ data: experiences });
 
   const education = [
     { period: "2026 - Actualidad", title: "Ingenieria en Sistemas Informaticos", institution: "Universidad Abierta Interamericana - Sede Rosario", order: 1 },
@@ -113,7 +110,7 @@ async function main() {
     {
       title: "Innova Click",
       slug: "innova-click",
-      description: "Sitio profesional para una agencia de marketing digital, orientado a presencia online, servicios, conversion y comunicacion comercial.",
+      description: "Sitio profesional para una agencia de marketing digital, orientado a presencia online, servicios, SEO, conversion y comunicacion comercial. Tipo: WordPress.",
       coverImage: "/projects/innova-click.svg",
       liveUrl: "https://innovaclick.com.ar",
       githubUrl: "#",
@@ -124,18 +121,18 @@ async function main() {
     {
       title: "FuckTheSys",
       slug: "fuckthesys",
-      description: "E-commerce de indumentaria personalizada desarrollado sobre Tienda Nube, con identidad visual, catalogo y experiencia de compra online.",
+      description: "E-commerce de indumentaria personalizada desarrollado sobre TiendaNube, con identidad visual, catalogo y experiencia de compra online.",
       coverImage: "/projects/fuckthesys.svg",
       liveUrl: "https://fuckthesys2.mitiendanube.com",
       githubUrl: "#",
       featured: true,
       order: 2,
-      technologies: ["Tienda Nube", "E-commerce", "CSS", "Branding"],
+      technologies: ["TiendaNube", "E-commerce", "CSS", "Branding"],
     },
     {
       title: "Materiales FZAC",
       slug: "materiales-fzac",
-      description: "E-commerce para materiales de Fortaleza Construcciones. Proyecto preparado para carga completa de productos, compra de dominio y deploy publico final.",
+      description: "E-commerce para materiales de Fortaleza Construcciones. Proyecto preparado para carga completa de productos, compra de dominio y deploy publico final. Tipo: codigo propio.",
       coverImage: "/projects/materiales-fzac.svg",
       liveUrl: "#",
       githubUrl: "https://github.com/DylanDev08/Materiales-FZAC",
@@ -146,7 +143,7 @@ async function main() {
     {
       title: "Mangas MaxDy",
       slug: "mangas-maxdy",
-      description: "Plataforma full stack de mangas y comics con catalogo, ranking, lector, usuarios, comentarios y panel administrativo.",
+      description: "Plataforma full stack de mangas y comics con catalogo, ranking, lector, usuarios, comentarios y panel administrativo. Tipo: codigo propio y codigo base full stack.",
       coverImage: "/projects/mangas-maxdy.svg",
       liveUrl: "#",
       githubUrl: "https://github.com/DylanDev08/Comics-Manga-MaxDy",
@@ -157,7 +154,7 @@ async function main() {
     {
       title: "Portfolio FZAC",
       slug: "portfolio-fzac",
-      description: "Portfolio institucional de Fortaleza Construcciones con obras, servicios, trabajos, galerias, panel privado y administracion de contenido.",
+      description: "Portfolio institucional de Fortaleza Construcciones con obras, servicios, trabajos, galerias, panel privado y administracion de contenido. Tipo: codigo propio.",
       coverImage: "/projects/portfolio-fzac.svg",
       liveUrl: "https://fortalezaconstrucciones-port.vercel.app",
       githubUrl: "https://github.com/DylanDev08/FZAC-Portfolio",
