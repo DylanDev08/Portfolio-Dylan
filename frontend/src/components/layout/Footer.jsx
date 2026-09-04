@@ -8,25 +8,29 @@ export function Footer({ profile }) {
           <Link className="brand" to="/">
             <span>DS</span>Dylan Salcedo
           </Link>
-          <p>Portfolio personal Full Stack para empresas, reclutadores y equipos de desarrollo.</p>
+          <p>Portfolio personal Full Stack para empresas, reclutadores, clientes y equipos de desarrollo.</p>
         </div>
         <div>
-          <h3>Pantallas</h3>
-          <Link to="/sobre-mi">Sobre mi</Link>
-          <Link to="/skills">Skills</Link>
+          <h3>Portfolio</h3>
+          <Link to="/servicios">Servicios</Link>
           <Link to="/proyectos">Proyectos</Link>
+          <Link to="/automatizaciones">Workflows</Link>
+          <Link to="/documentacion">Documentacion</Link>
         </div>
         <div>
           <h3>Contacto</h3>
           <a href={profile.githubUrl} target="_blank" rel="noreferrer noopener">GitHub</a>
           <a href={profile.linkedinUrl} target="_blank" rel="noreferrer noopener">LinkedIn</a>
+          <a href={profile.whatsappUrl} target="_blank" rel="noreferrer noopener">WhatsApp</a>
           <a href={`mailto:${profile.email}`}>Gmail</a>
           <a href="/cv/CV_Dylan_Salcedo.pdf" download>Descargar CV</a>
         </div>
         <div>
-          <h3>Legal</h3>
+          <h3>Codigo</h3>
+          <a href={profile.portfolioUrl || profile.githubUrl} target="_blank" rel="noreferrer noopener">Portfolio en GitHub</a>
+          <Link to="/skills">Skills</Link>
+          <Link to="/contacto">Contacto profesional</Link>
           <Link to="/legal">Terminos legales</Link>
-          <Link to="/legal">Condiciones</Link>
         </div>
       </div>
       <div className="container footer-bottom" id="terminos">
