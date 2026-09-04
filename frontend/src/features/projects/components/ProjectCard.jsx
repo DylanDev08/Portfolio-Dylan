@@ -31,6 +31,12 @@ export function ProjectCard({ project }) {
           <h3>{project.title}</h3>
           <small>{cardStatus}</small>
         </div>
+
+        <div className="project-meta">
+          {project.category && <span>{project.category}</span>}
+          {project.sourceType && <span>{project.sourceType}</span>}
+        </div>
+
         <p>{project.description}</p>
         <div className="badges">
           {(project.technologies || []).map((technology) => (
