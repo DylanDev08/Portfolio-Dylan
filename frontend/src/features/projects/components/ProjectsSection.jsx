@@ -7,8 +7,8 @@ export function ProjectsSection({ projects }) {
       <div className="container">
         <SectionTitle
           eyebrow="Proyectos"
-          title="Experiencia aplicada en proyectos reales."
-          description="Una seleccion de trabajos para empresas, practica profesional y desarrollo web con foco en interfaces claras."
+          title="Trabajos reales, plataformas y sistemas en desarrollo."
+          description="Una seleccion de apps web, portfolios, e-commerce, WordPress, TiendaNube, codigo propio y codigo base full stack para mostrar variedad tecnica y criterio de producto."
         />
         <div className="projects-grid">
           {projects.map((project) => (

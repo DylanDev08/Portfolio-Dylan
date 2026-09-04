@@ -1,4 +1,4 @@
-﻿import "dotenv/config";
+import "dotenv/config";
 import bcrypt from "bcryptjs";
 import { PrismaClient } from "@prisma/client";
 
@@ -19,43 +19,50 @@ async function main() {
     create: { email, passwordHash },
   });
 
+  const profileData = {
+    firstName: "Dylan",
+    lastName: "Salcedo",
+    age: 18,
+    headline: "Programador Full Stack",
+    bio: "Estudiante de Ingeniería en Sistemas Informáticos y programador Full Stack orientado a soluciones digitales para negocios. Creo portfolios, e-commerce, ERP, dashboards, automatizaciones, documentación técnica y chatbots comerciales para ordenar procesos, reducir tareas manuales y mejorar la forma en que clientes y equipos gestionan la información.",
+    location: "Rosario, Santa Fe, Argentina",
+    email: "dylansalcedo333@gmail.com",
+    phone: "+54 341 741 5857",
+    whatsappUrl: "https://wa.me/543417415857",
+    githubUrl: "https://github.com/DylanDev08",
+    linkedinUrl: "https://www.linkedin.com/in/dylan-salcedo-26205a34a/",
+    profileImage: "/profile-dylan-portfolio.svg",
+  };
+
   await prisma.profile.upsert({
     where: { id: 1 },
-    update: {
-      githubUrl: "https://github.com/DylanDev08",
-      linkedinUrl: "https://www.linkedin.com/in/dylan-salcedo-26205a34a/",
-    },
-    create: {
-      id: 1,
-      firstName: "Dylan",
-      lastName: "Salcedo",
-      age: 18,
-      headline: "Programador Full Stack",
-      bio: "Estudiante de Ingenieria en Sistemas Informaticos y desarrollador web enfocado en crear soluciones claras, funcionales y sostenibles.",
-      location: "Rosario, Santa Fe, Argentina",
-      email: "dylansalcedo333@gmail.com",
-      phone: "+54 341 741 5857",
-      whatsappUrl: "https://wa.me/543417415857",
-      githubUrl: "https://github.com/DylanDev08",
-      linkedinUrl: "https://www.linkedin.com/in/dylan-salcedo-26205a34a/",
-      profileImage: "/profile-dylan.jpeg",
-    },
+    update: profileData,
+    create: { id: 1, ...profileData },
   });
 
   const skills = [
-    ["React", "FRONTEND", 82, 1],
-    ["CSS", "FRONTEND", 86, 2],
-    ["JavaScript", "FRONTEND", 80, 3],
-    ["Node.js", "BACKEND", 76, 4],
-    ["Express.js", "BACKEND", 76, 5],
-    ["SQL", "DATABASE", 74, 6],
-    ["PostgreSQL", "DATABASE", 72, 7],
-    ["Prisma", "DATABASE", 68, 8],
-    ["Git", "TOOLS", 82, 9],
-    ["GitHub", "TOOLS", 82, 10],
-    ["Trabajo en equipo", "SOFT_SKILL", 86, 11],
-    ["Comunicacion", "SOFT_SKILL", 84, 12],
-    ["Aprendizaje continuo", "SOFT_SKILL", 90, 13],
+    ["React", "FRONTEND", 84, 1],
+    ["TypeScript", "FRONTEND", 74, 2],
+    ["JavaScript", "FRONTEND", 82, 3],
+    ["CSS", "FRONTEND", 86, 4],
+    ["Node.js", "BACKEND", 78, 5],
+    ["Express.js", "BACKEND", 78, 6],
+    ["SQL", "DATABASE", 76, 7],
+    ["PostgreSQL", "DATABASE", 74, 8],
+    ["Supabase", "DATABASE", 74, 9],
+    ["Prisma", "DATABASE", 72, 10],
+    ["Docker", "TOOLS", 68, 11],
+    ["Git", "TOOLS", 84, 12],
+    ["GitHub", "TOOLS", 84, 13],
+    ["n8n", "TOOLS", 72, 14],
+    ["Scripts", "TOOLS", 76, 15],
+    ["Excel", "TOOLS", 82, 16],
+    ["Google Sheets", "TOOLS", 82, 17],
+    ["Dashboards", "TOOLS", 74, 18],
+    ["Automatización de datos", "TOOLS", 76, 19],
+    ["Trabajo en equipo", "SOFT_SKILL", 88, 20],
+    ["Comunicación", "SOFT_SKILL", 84, 21],
+    ["Aprendizaje continuo", "SOFT_SKILL", 92, 22],
   ];
 
   for (const [name, category, level, order] of skills) {
@@ -69,77 +76,106 @@ async function main() {
   const experiences = [
     {
       company: "Fortaleza Construcciones",
-      role: "Desarrollador web y soporte administrativo / Data Entry",
-      durationLabel: "3 meses",
+      role: "Soluciones digitales y soporte administrativo",
+      durationLabel: "7 meses",
       description:
-        "Desarrollo de portfolio corporativo y e-commerce, organizacion de informacion, manejo de Excel, validaciones, control de solicitudes, rate limiting, Git y GitHub.",
+        "Creación de soluciones para ordenar procesos internos y comerciales: portfolio, e-commerce, ERP, automatización de datos con scripts y n8n, control de información con Excel y Google Sheets, dashboards, rate limiting, Supabase, Prisma, Docker, Git y GitHub.",
       order: 1,
     },
     {
       company: "Proyectos independientes",
       role: "Desarrollador Web Freelancer",
-      durationLabel: "1 ano y medio aproximadamente",
+      durationLabel: "1 año y medio aproximadamente",
       description:
-        "Desarrollo de interfaces responsivas, portfolios, landing pages, e-commerce y sistemas web con React, Node.js, Express.js y SQL.",
+        "Soluciones responsivas para portfolios, sistemas, automatizaciones, chatbots y e-commerce adaptadas a las necesidades de cada proyecto.",
       order: 2,
     },
   ];
 
-  if (await prisma.workExperience.count() === 0) await prisma.workExperience.createMany({ data: experiences });
+  for (const item of experiences) {
+    const existing = await prisma.workExperience.findFirst({ where: { company: item.company } });
+    if (existing) {
+      await prisma.workExperience.update({ where: { id: existing.id }, data: item });
+    } else {
+      await prisma.workExperience.create({ data: item });
+    }
+  }
 
   const education = [
-    { period: "2026 - Actualidad", title: "Ingenieria en Sistemas Informaticos", institution: "Universidad Abierta Interamericana - Sede Rosario", order: 1 },
-    { period: "Finalizado en 2025", title: "Bachiller en Informatica y Robotica", institution: "Colegio Secundario Tesla", order: 2 },
-    { period: "Abril de 2025 - Diciembre de 2025", title: "Formacion Frontend y Backend", institution: "Cuatro Vientos", order: 3 },
-    { period: "Marzo de 2024 - Diciembre de 2024", title: "Diseno y desarrollo de paginas web", institution: "Digital House", order: 4 },
+    { period: "2026 - Actualidad", title: "Ingeniería en Sistemas Informáticos", institution: "Universidad Abierta Interamericana - Sede Rosario", order: 1 },
+    { period: "Finalizado en 2025", title: "Bachiller en Informática y Robótica", institution: "Colegio Secundario Tesla", order: 2 },
+    { period: "Abril de 2025 - Diciembre de 2025", title: "Formación Frontend y Backend", institution: "Cuatro Vientos", order: 3 },
+    { period: "Marzo de 2024 - Diciembre de 2024", title: "Diseño y desarrollo de páginas web", institution: "Digital House", order: 4 },
   ];
 
-  if (await prisma.education.count() === 0) await prisma.education.createMany({ data: education });
+  if ((await prisma.education.count()) === 0) await prisma.education.createMany({ data: education });
 
   const projects = [
     {
-      title: "Fortaleza Construcciones Portfolio",
-      slug: "fortaleza-construcciones-portfolio",
-      description: "Portfolio corporativo desarrollado para presentar servicios, obras, identidad visual y canales de contacto.",
-      coverImage: "/projects/fortaleza.svg",
-      liveUrl: "https://fortalezaconstrucciones-port.vercel.app",
-      githubUrl: "https://github.com/DylanDev08/Fortaleza-Portfolio",
-      featured: true,
-      order: 1,
-      technologies: ["React", "CSS", "JavaScript"],
-    },
-    {
-      title: "Fortaleza Construcciones E-Commerce",
-      slug: "fortaleza-construcciones-ecommerce",
-      description: "E-commerce de materiales con catalogo, interfaz responsiva y organizacion de productos para la empresa.",
-      coverImage: "/projects/ecommerce.svg",
-      liveUrl: "https://materiales-fzac-sciy.vercel.app",
-      githubUrl: "https://github.com/DylanDev08/Materiales-FZAC",
-      featured: true,
-      order: 2,
-      technologies: ["React", "CSS", "JavaScript"],
-    },
-    {
-      title: "Tienda Nube",
-      slug: "tienda-nube",
-      description: "Tienda de ropa personalizada inspirada en series, deportes, peliculas y cultura pop, creada sobre Tienda Nube.",
-      coverImage: "/projects/barber.svg",
-      liveUrl: "https://fuckthesys2.mitiendanube.com",
-      githubUrl: "#",
-      featured: false,
-      order: 3,
-      technologies: ["Tienda Nube", "E-commerce", "CSS"],
-    },
-    {
-      title: "InnovaClick",
-      slug: "innovaclick-wordpress",
-      description: "Agencia de marketing digital con servicios de diseno web, SEO, Meta Ads y presencia profesional online.",
-      coverImage: "/projects/manga.svg",
+      title: "Innova Click",
+      slug: "innova-click",
+      description: "Sitio profesional para agencia de marketing digital, orientado a presencia online, servicios, SEO, conversión y contacto comercial. Tipo: WordPress.",
+      coverImage: "/projects/innova-click.svg",
       liveUrl: "https://innovaclick.com.ar",
       githubUrl: "#",
+      featured: true,
+      order: 1,
+      technologies: ["WordPress", "SEO", "CSS", "Marketing digital"],
+    },
+    {
+      title: "FuckTheSys",
+      slug: "fuckthesys",
+      description: "Tienda online de indumentaria personalizada sobre TiendaNube, con identidad visual, catálogo y experiencia de compra.",
+      coverImage: "/projects/fuckthesys.svg",
+      liveUrl: "https://fuckthesys2.mitiendanube.com",
+      githubUrl: "#",
+      featured: true,
+      order: 2,
+      technologies: ["TiendaNube", "E-commerce", "CSS", "Branding"],
+    },
+    {
+      title: "Materiales FZAC",
+      slug: "materiales-fzac",
+      description: "Solución e-commerce para materiales de Fortaleza Construcciones. Preparada para carga completa de productos, compra de dominio y deploy público final. Tipo: código propio.",
+      coverImage: "/projects/materiales-fzac.svg",
+      liveUrl: "#",
+      githubUrl: "https://github.com/DylanDev08/Materiales-FZAC",
+      featured: true,
+      order: 3,
+      technologies: ["React", "TypeScript", "Node.js", "Express.js", "SQL", "Prisma"],
+    },
+    {
+      title: "Mangas MaxDy",
+      slug: "mangas-maxdy",
+      description: "Plataforma full stack de mangas y cómics con catálogo, ranking, lector, usuarios, comentarios y panel administrativo. Tipo: código propio y código base full stack.",
+      coverImage: "/projects/mangas-maxdy.svg",
+      liveUrl: "#",
+      githubUrl: "https://github.com/DylanDev08/Comics-Manga-MaxDy",
       featured: false,
       order: 4,
-      technologies: ["WordPress", "CSS", "Web"],
+      technologies: ["React", "Node.js", "Express.js", "Prisma", "Supabase"],
+    },
+    {
+      title: "Portfolio FZAC",
+      slug: "portfolio-fzac",
+      description: "Solución institucional para Fortaleza Construcciones con obras, servicios, galerías, panel privado y administración de contenido. Tipo: código propio.",
+      coverImage: "/projects/portfolio-fzac.svg",
+      liveUrl: "https://fortalezaconstrucciones-port.vercel.app",
+      githubUrl: "https://github.com/DylanDev08/FZAC-Portfolio",
+      featured: true,
+      order: 5,
+      technologies: ["React", "Supabase", "Prisma", "Express.js", "Render"],
+    },
+    {
+      title: "PrismaERP",
+      slug: "prisma-erp",
+      description: "ERP en desarrollo para centralizar procesos, datos operativos, dashboards, automatizaciones y módulos administrativos. Acceso bloqueado hasta publicar una versión estable.",
+      coverImage: "/projects/prisma-erp.svg",
+      liveUrl: "#",
+      githubUrl: "#",
+      featured: false,
+      order: 6,
+      technologies: ["React", "TypeScript", "Node.js", "Express.js", "Prisma", "PostgreSQL"],
     },
   ];
 

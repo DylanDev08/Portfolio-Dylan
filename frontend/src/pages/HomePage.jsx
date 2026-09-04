@@ -8,10 +8,14 @@ import { HeroSection } from "../features/profile/components/HeroSection";
 
 const menu = [
   ["Sobre mi", "/sobre-mi", "Perfil, objetivo laboral y forma de trabajar."],
+  ["Servicios", "/servicios", "Apps web, automatizaciones, chatbots, documentacion y dashboards."],
   ["Skills", "/skills", "Tecnologias, herramientas y habilidades."],
-  ["Proyectos", "/proyectos", "Portada previa y archivo de trabajos reales."],
+  ["Proyectos", "/proyectos", "Trabajos reales: codigo propio, WordPress, TiendaNube y sistemas."],
+  ["Workflows", "/automatizaciones", "n8n, WhatsApp, Instagram, Google Sheets y flujos sanitizados."],
+  ["Documentacion", "/documentacion", "Arquitectura, APIs, deploy, manuales y procesos."],
   ["Experiencia", "/experiencia", "Fortaleza Construcciones y freelance."],
   ["Formacion", "/formacion", "Carrera, cursos y base academica."],
+  ["Contacto", "/contacto", "GitHub, LinkedIn, WhatsApp, Gmail y CV."],
 ];
 
 export function HomePage() {

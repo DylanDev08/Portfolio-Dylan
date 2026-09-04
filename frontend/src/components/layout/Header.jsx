@@ -4,10 +4,14 @@ import { Link, NavLink } from "react-router-dom";
 const links = [
   ["Inicio", "/"],
   ["Sobre mi", "/sobre-mi"],
+  ["Servicios", "/servicios"],
   ["Skills", "/skills"],
   ["Proyectos", "/proyectos"],
+  ["Automatizaciones", "/automatizaciones"],
+  ["Docs", "/documentacion"],
   ["Experiencia", "/experiencia"],
   ["Formacion", "/formacion"],
+  ["Contacto", "/contacto"],
 ];
 
 export function Header() {

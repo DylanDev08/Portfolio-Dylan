@@ -1,0 +1,12 @@
+{
+  "name": "Control de datos con Google Sheets - ejemplo sanitizado",
+  "description": "Flujo demostrativo para recibir datos, validarlos, registrarlos en una planilla y preparar informacion para dashboards.",
+  "sanitized": true,
+  "warning": "No contiene credenciales, IDs reales de planillas ni informacion privada.",
+  "nodes": [
+    { "name": "Entrada de datos", "type": "formOrWebhook", "notes": "Origen reemplazado por placeholder" },
+    { "name": "Validar campos", "type": "logic", "rules": ["campos obligatorios", "formato email", "estado valido"] },
+    { "name": "Guardar fila", "type": "googleSheets", "notes": "Spreadsheet ID sanitizado" },
+    { "name": "Actualizar dashboard", "type": "dataTransform", "notes": "Metricas agregadas sin datos sensibles" }
+  ]
+}

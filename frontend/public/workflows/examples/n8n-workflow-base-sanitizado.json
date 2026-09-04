@@ -1,0 +1,13 @@
+{
+  "name": "Workflow n8n base - ejemplo sanitizado",
+  "description": "Estructura base para documentar automatizaciones comerciales, administrativas o de datos sin exponer infraestructura real.",
+  "sanitized": true,
+  "warning": "Usar solo como ejemplo publico. Reemplazar credenciales y endpoints en entornos privados.",
+  "nodes": [
+    { "name": "Trigger", "type": "manualOrWebhook", "notes": "Sin URL real" },
+    { "name": "Normalizar datos", "type": "set", "notes": "Campos de ejemplo" },
+    { "name": "Decision", "type": "if", "branches": ["valido", "requiere_revision"] },
+    { "name": "Notificar", "type": "httpRequest", "notes": "Endpoint y token eliminados" },
+    { "name": "Registrar evento", "type": "databaseOrSheet", "notes": "Destino sanitizado" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "WhatsApp consultas - ejemplo sanitizado",
+  "description": "Flujo demostrativo para clasificar consultas, responder preguntas frecuentes y derivar a contacto humano sin credenciales reales.",
+  "sanitized": true,
+  "warning": "No contiene tokens, webhooks reales, numeros privados ni datos de clientes.",
+  "nodes": [
+    { "name": "Webhook entrante", "type": "webhook", "notes": "URL reemplazada por placeholder" },
+    { "name": "Clasificar intencion", "type": "logic", "outputs": ["servicios", "presupuesto", "horarios", "humano"] },
+    { "name": "Registrar consulta", "type": "googleSheets", "notes": "Spreadsheet ID sanitizado" },
+    { "name": "Responder por WhatsApp", "type": "httpRequest", "notes": "Credenciales eliminadas" }
+  ]
+}
