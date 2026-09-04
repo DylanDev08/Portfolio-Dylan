@@ -5,15 +5,15 @@ export function HeroSection({ profile }) {
     <section className="hero screen-panel" id="inicio">
       <div className="container hero-grid">
         <div>
-          <span className="eyebrow">Archivo de jugador disponible</span>
+          <span className="eyebrow">Soluciones digitales para negocios reales</span>
           <h1>
             Dylan Salcedo
             <br />
             <em>Full Stack Developer</em>
           </h1>
           <p>
-            {profile.bio} Tengo {profile.age} anos, estoy dispuesto a aprender nuevas tecnologias, trabajar en equipo y
-            participar en productos reales.
+            {profile.bio} Me enfoco en entender el problema, ordenar la informacion y crear herramientas utiles para
+            que cada proyecto sea mas claro, medible y facil de mantener.
           </p>
           <div className="hero-actions">
             <Link className="button button--primary" to="/proyectos">Ver proyectos</Link>
@@ -27,8 +27,8 @@ export function HeroSection({ profile }) {
           <div className="portrait__glow" />
           <img src={profile.profileImage || "/profile-dylan.jpeg"} alt="Foto de perfil de Dylan Salcedo" />
           <div className="portrait__card">
-            <strong>LVL 18 - Full Stack</strong>
-            <span>React - Node.js - SQL</span>
+            <strong>Soluciones Full Stack</strong>
+            <span>Web apps - Datos - Automatizacion</span>
           </div>
         </div>
       </div>
