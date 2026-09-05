@@ -4,11 +4,18 @@ function isAvailableUrl(url) {
 
 export function ShowcaseCard({ item }) {
   const canOpen = isAvailableUrl(item.url);
+  const isExternal = item.url?.startsWith("http");
 
   return (
     <article className="showcase-card">
       <div className="showcase-card__cover">
-        <img src={item.coverImage || "/resources/web-apps.svg"} alt={`Portada de ${item.title}`} />
+        <img
+          src={item.coverImage || "/resources/web-apps.svg"}
+          alt={`Portada de ${item.title}`}
+          loading="lazy"
+          width="960"
+          height="540"
+        />
         {item.statusLabel && <span>{item.statusLabel}</span>}
       </div>
 
@@ -33,14 +40,15 @@ export function ShowcaseCard({ item }) {
           ))}
         </div>
 
-        {canOpen ? (
-          <a className="github-button" href={item.url} target="_blank" rel="noreferrer noopener">
+        {canOpen && (
+          <a
+            className="github-button"
+            href={item.url}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noreferrer noopener" : undefined}
+          >
             {item.ctaLabel || "Ver recurso"}
           </a>
-        ) : (
-          <span className="github-button github-button--disabled" aria-disabled="true">
-            {item.ctaLabel || "Link no disponible"}
-          </span>
         )}
       </div>
     </article>
