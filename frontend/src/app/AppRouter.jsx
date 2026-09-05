@@ -7,6 +7,7 @@ import { EducationPage } from "../pages/EducationPage";
 import { ExperiencePage } from "../pages/ExperiencePage";
 import { LegalPage } from "../pages/LegalPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
+import { ProjectDetailPage } from "../pages/ProjectDetailPage";
 import { ProjectsPage } from "../pages/ProjectsPage";
 import { ServicesPage } from "../pages/ServicesPage";
 import { SkillsPage } from "../pages/SkillsPage";
@@ -21,6 +22,7 @@ export function AppRouter() {
       <Route path="/servicios" element={<ServicesPage />} />
       <Route path="/proyectos" element={<ProjectsPage />} />
       <Route path="/proyectos/listado" element={<Navigate to="/proyectos" replace />} />
+      <Route path="/proyectos/:slug" element={<ProjectDetailPage />} />
       <Route path="/automatizaciones" element={<WorkflowsPage />} />
       <Route path="/documentacion" element={<DocsPage />} />
       <Route path="/experiencia" element={<ExperiencePage />} />
