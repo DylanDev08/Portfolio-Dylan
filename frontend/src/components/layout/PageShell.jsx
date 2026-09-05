@@ -7,8 +7,9 @@ export function PageShell({ children }) {
 
   return (
     <>
+      <a className="skip-link" href="#main-content">Saltar al contenido</a>
       <Header />
-      <main>{children}</main>
+      <main id="main-content">{children}</main>
       <Footer profile={data.profile} />
     </>
   );
