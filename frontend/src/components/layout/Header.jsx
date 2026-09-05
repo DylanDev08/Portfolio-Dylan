@@ -3,14 +3,10 @@ import { Link, NavLink } from "react-router-dom";
 
 const links = [
   ["Inicio", "/"],
-  ["Sobre mi", "/sobre-mi"],
-  ["Servicios", "/servicios"],
-  ["Skills", "/skills"],
   ["Proyectos", "/proyectos"],
-  ["Automatizaciones", "/automatizaciones"],
-  ["Docs", "/documentacion"],
+  ["Servicios", "/servicios"],
   ["Experiencia", "/experiencia"],
-  ["Formacion", "/formacion"],
+  ["Docs", "/documentacion"],
   ["Contacto", "/contacto"],
 ];
 
@@ -20,13 +16,26 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="container navbar">
-        <Link className="brand" to="/">
-          <span>DS</span>Dylan Salcedo
+        <Link className="brand" to="/" aria-label="Dylan Salcedo - Inicio">
+          <img className="brand__mark" src="/brand/ds-logo.svg" alt="" width="44" height="44" />
+          <span className="brand__text">
+            <strong>Dylan Salcedo</strong>
+            <small>Full Stack · Soluciones digitales</small>
+          </span>
         </Link>
-        <button className="menu-button" onClick={() => setOpen((value) => !value)} aria-expanded={open}>
-          Menu
+
+        <button
+          className="menu-button"
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          aria-expanded={open}
+          aria-controls="primary-navigation"
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+        >
+          {open ? "Cerrar" : "Menú"}
         </button>
-        <nav className={open ? "navigation navigation--open" : "navigation"}>
+
+        <nav id="primary-navigation" className={open ? "navigation navigation--open" : "navigation"} aria-label="Navegación principal">
           {links.map(([label, href]) => (
             <NavLink key={href} to={href} onClick={() => setOpen(false)}>
               {label}
