@@ -37,7 +37,12 @@ export function Header() {
 
         <nav id="primary-navigation" className={open ? "navigation navigation--open" : "navigation"} aria-label="Navegación principal">
           {links.map(([label, href]) => (
-            <NavLink key={href} to={href} onClick={() => setOpen(false)}>
+            <NavLink
+              key={href}
+              to={href}
+              className={({ isActive }) => (isActive ? "active" : undefined)}
+              onClick={() => setOpen(false)}
+            >
               {label}
             </NavLink>
           ))}
