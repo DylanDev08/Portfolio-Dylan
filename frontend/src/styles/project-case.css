@@ -2,6 +2,14 @@
 .project-filters button{min-height:42px;padding:0 14px;border:1px solid var(--border);border-radius:999px;background:transparent;color:var(--muted);font-weight:760;font-size:.86rem;transition:background .18s,border-color .18s,color .18s}
 .project-filters button:hover,.project-filters button.active{background:rgba(59,130,246,.13);border-color:var(--border-strong);color:var(--text)}
 .project-results{margin:0 0 28px;color:var(--muted-2);font-size:.82rem}
+.project-card__media{display:block}
+.project-card__title{margin:14px 0 12px;font-size:1.7rem;line-height:1.14;letter-spacing:-.025em}
+.project-card__title a:hover{color:var(--accent-light)}
+.project-card__problem{margin:0;color:var(--muted);line-height:1.72;font-size:.95rem}
+.project-card__value{display:grid;gap:7px;margin-top:20px;padding:16px;border:1px solid var(--border);border-radius:14px;background:rgba(59,130,246,.055)}
+.project-card__value strong{color:var(--accent-light);font-size:.7rem;font-weight:850;text-transform:uppercase;letter-spacing:.1em}
+.project-card__value span{color:#d7e4f4;font-size:.9rem;line-height:1.62}
+.project-card__badges{margin-top:18px}
 .project-case-hero{padding:clamp(72px,8vw,112px) 0 clamp(54px,7vw,88px);border-bottom:1px solid var(--border)}
 .project-case-hero__grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(360px,1.15fr);gap:clamp(42px,7vw,88px);align-items:center}
 .project-case-hero__copy{min-width:0}
@@ -30,8 +38,6 @@
 .project-case-tech{margin-top:16px}
 .project-case-next__inner{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
 .project-case-next h2{max-width:760px;margin:14px 0 0;font-size:clamp(2rem,4.5vw,3.8rem);line-height:1.04;letter-spacing:-.045em}
-.project-card__media{display:block}
-.project-card__header h3 a:hover{color:var(--accent-light)}
 
 @media(max-width:920px){
   .project-case-hero__grid,.project-case-layout{grid-template-columns:1fr}
@@ -42,6 +48,7 @@
 @media(max-width:680px){
   .project-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
   .project-filters button{text-align:center;padding-inline:10px}
+  .project-card__title{font-size:1.48rem}
   .project-case-hero{padding-top:54px}
   .project-case-hero h1{font-size:clamp(2.7rem,14vw,4.6rem)}
   .project-case-actions{display:grid;grid-template-columns:1fr}
