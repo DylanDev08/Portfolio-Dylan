@@ -7,7 +7,7 @@ export function ConversionCta({
   ctaLabel = "Hablemos",
 }) {
   return (
-    <section className="section conversion-cta">
+    <section className="section home-cta conversion-cta">
       <div className="container home-cta__inner">
         <div>
           <span className="eyebrow">{eyebrow}</span>
