@@ -1,55 +1,88 @@
-# Portfolio personal - Dylan Salcedo
+# Portfolio Dylan Salcedo
 
-Portfolio profesional con estetica de videojuego, creado para presentar perfil, experiencia, skills, formacion y proyectos reales ante empresas o reclutadores.
+Portfolio profesional orientado a mostrar soluciones digitales, proyectos verificables, experiencia, documentación y formas de contacto.
 
-La version publica funciona como frontend estatico: no necesita base de datos, no consume claves privadas y no tiene formulario de solicitudes.
+La interfaz prioriza **qué problema resuelve cada proyecto**, qué valor aporta y recién después qué tecnologías se utilizaron. El objetivo es que empresas, reclutadores o clientes puedan entender rápidamente el trabajo sin recorrer una lista saturada de herramientas.
 
-## Stack usado
+## Enfoque actual
 
-- React
+- Arquitectura de información simplificada.
+- Navegación principal reducida.
+- Home orientada a problemas, soluciones y evidencia.
+- Proyectos con estado explícito: publicado, en desarrollo o repo disponible.
+- Diferenciación entre código propio, WordPress y TiendaNube.
+- Documentación vinculada únicamente a recursos reales publicados en GitHub.
+- Ejemplos de workflows sanitizados, sin credenciales ni webhooks reales.
+- Diseño responsive con foco mobile-first y prevención de overflow.
+- Accesibilidad básica: skip link, foco visible, navegación por teclado y reduced motion.
+- SEO con canonical, Open Graph, Twitter Card y JSON-LD.
+
+## Stack del portfolio
+
+- React 19
 - Vite
 - React Router
-- CSS modular
-- Datos locales versionados en el frontend
-- Assets publicos para CV, foto de perfil y portadas
+- CSS modular por responsabilidades
+- Datos locales versionados en `frontend/src/data/fallbackData.js`
+- Vercel para el frontend público
 
-## Como se hizo desde cero
+## Rutas principales
 
-1. Se creo una aplicacion React con Vite.
-2. Se separo la estructura en `app`, `components`, `features`, `pages`, `data`, `styles` y `lib`.
-3. Se configuro React Router para que cada seccion sea una pantalla propia:
-   - `/`
-   - `/sobre-mi`
-   - `/skills`
-   - `/proyectos`
-   - `/proyectos/listado`
-   - `/experiencia`
-   - `/formacion`
-4. Se cargo la informacion profesional en `frontend/src/data/fallbackData.js`.
-5. Se agrego una pantalla inicial estilo videojuego con boton `Play`.
-6. Se construyo una portada previa para proyectos antes del listado.
-7. Se agrego la foto de perfil en `frontend/public/profile-dylan.jpeg`.
-8. Se agrego el CV descargable en `frontend/public/cv/CV_Dylan_Salcedo.pdf`.
-9. Se eliminaron formularios publicos porque el objetivo no es vender paginas, sino presentar experiencia profesional.
-10. Se definio una paleta oscura de negro, blanco y grises.
+- `/` — propuesta de valor, soluciones y proyectos destacados
+- `/proyectos` — proyectos verificables
+- `/servicios` — tipos de soluciones que desarrollo
+- `/experiencia` — experiencia profesional
+- `/documentacion` — READMEs y documentación real
+- `/contacto` — GitHub, LinkedIn, WhatsApp, email y CV
 
-## Estructura principal
+Rutas secundarias que siguen disponibles:
 
-```text
-frontend/
-├── public/
-│   ├── cv/
-│   ├── projects/
-│   └── profile-dylan.jpeg
-├── src/
-│   ├── app/
-│   ├── components/
-│   ├── data/
-│   ├── features/
-│   ├── pages/
-│   └── styles/
-└── package.json
-```
+- `/sobre-mi`
+- `/skills`
+- `/automatizaciones`
+- `/formacion`
+- `/legal`
+
+## Proyectos mostrados
+
+### Materiales FZAC
+E-commerce y sistema de gestión para catálogo, stock, pedidos y operación comercial.
+
+- Demo: https://materiales-fzac-391o.vercel.app
+- Repo: https://github.com/DylanDev08/Materiales-FZAC
+
+### Portfolio FZAC
+Portfolio institucional administrable con panel privado, CRUD, Supabase Storage y autenticación.
+
+- Demo: https://fortalezaconstrucciones-port.vercel.app
+- Repo: https://github.com/DylanDev08/FZAC-Portfolio
+
+### BarberHouse
+Proyecto web comercial actualmente en desarrollo.
+
+- Demo: https://barber-house-pi.vercel.app
+- Repo: https://github.com/DylanDev08/BarberHouse
+
+### Budgetly
+Aplicación de finanzas personales actualmente en desarrollo.
+
+- Repo: https://github.com/DylanDev08/Budgetly
+- Nota: el último deploy registrado en Vercel falló, por eso no se publica una URL de demo como si estuviera operativa.
+
+### Mangas MaxDy
+Proyecto full stack con frontend React y API Express para catálogo, lectura, usuarios, comentarios, rankings y administración.
+
+- Repo: https://github.com/DylanDev08/Comics-Manga-MaxDy
+
+### Innova Click
+Sitio comercial desarrollado sobre WordPress.
+
+- Web: https://innovaclick.com.ar
+
+### FuckTheSys
+E-commerce desarrollado y personalizado sobre TiendaNube.
+
+- Web: https://fuckthesys2.mitiendanube.com
 
 ## Ejecutar localmente
 
@@ -59,65 +92,57 @@ npm install
 npm run dev
 ```
 
-Abrir:
+Abrir normalmente en:
 
 ```text
 http://localhost:5173
 ```
 
-## Build de produccion
+## Verificación de producción
 
 ```bash
 cd frontend
+npm ci
+npm run lint:imports
 npm run build
-```
-
-El resultado queda en:
-
-```text
-frontend/dist
 ```
 
 ## Datos editables
 
-Los datos visibles del portfolio estan en:
+El contenido principal se mantiene en:
 
 ```text
 frontend/src/data/fallbackData.js
 ```
 
-Desde ahi se pueden cambiar:
+Ahí se administran:
 
-- Perfil
-- Links de GitHub y LinkedIn
-- Skills
-- Proyectos
-- Experiencia
-- Formacion
+- perfil
+- skills
+- servicios
+- proyectos
+- workflows públicos/sanitizados
+- documentación
+- experiencia
+- formación
 
-## Assets importantes
+## Assets de marca
 
-- Foto de perfil: `frontend/public/profile-dylan.jpeg`
-- CV descargable: `frontend/public/cv/CV_Dylan_Salcedo.pdf`
-- Portadas: `frontend/public/projects/`
+- Logo principal: `frontend/public/brand/ds-logo.svg`
+- Imagen Open Graph: `frontend/public/og-dylan-salcedo.svg`
+- Foto de perfil: `frontend/public/profile-dylan-portfolio.svg`
+- Portadas de proyectos: `frontend/public/projects/`
 
-## Seguridad
+## Seguridad y evidencia
 
-- No hay claves privadas en el frontend.
-- No se sube `.env` con secretos.
-- No se exponen credenciales.
-- No se guardan contrasenas en el navegador desde el codigo.
-- La descarga del CV usa un archivo publico estatico.
+- No se publican `.env`, tokens, claves API ni credenciales.
+- Los workflows públicos están sanitizados.
+- No se muestran URLs ficticias para demos.
+- Las cards de documentación enlazan a recursos reales versionados.
+- Las capacidades ofrecidas como servicio se diferencian de los proyectos publicados.
 
-## Proyectos cargados
+## Deploy
 
-- Fortaleza Construcciones Portfolio
-- Fortaleza Construcciones E-Commerce
-- Fuck The Sys, tienda de ropa personalizada
-- InnovaClick, agencia de marketing digital, diseno web, SEO y Meta Ads
+Sitio principal:
 
-## Pendientes posibles
-
-- Reemplazar portadas SVG por capturas reales.
-- Ajustar textos finos para cada empresa segun CV final.
-- Deployar el frontend en Vercel, Netlify o similar.
+https://portfolio-dylan-ten.vercel.app
