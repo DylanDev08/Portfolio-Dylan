@@ -5,9 +5,13 @@ import { usePortfolio } from "../features/portfolio/hooks/usePortfolio";
 import { HeroSection } from "../features/profile/components/HeroSection";
 import { projectSlug } from "../features/projects/utils/projectSlug";
 
+const featuredProjectNames = ["Materiales FZAC", "Portfolio FZAC", "Mangas MaxDy"];
+
 export function HomePage() {
   const { data } = usePortfolio();
-  const featuredProjects = data.projects.slice(0, 3);
+  const featuredProjects = featuredProjectNames
+    .map((name) => data.projects.find((project) => project.title === name))
+    .filter(Boolean);
   const featuredServices = data.services.slice(0, 3);
 
   return (
@@ -45,7 +49,7 @@ export function HomePage() {
             <div className="home-section-heading">
               <span className="eyebrow">Trabajo verificable</span>
               <h2>Proyectos donde el foco está en el resultado.</h2>
-              <p>Una selección breve de proyectos con demo, repositorio o documentación pública para revisar el problema, el enfoque y el estado real de cada solución.</p>
+              <p>Una selección de los proyectos técnicos más completos, con demo, repositorio o documentación pública para revisar el problema, el enfoque y el estado real de cada solución.</p>
             </div>
 
             <div className="featured-projects-grid">
