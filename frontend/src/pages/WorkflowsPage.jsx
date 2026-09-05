@@ -8,9 +8,9 @@ export function WorkflowsPage() {
   return (
     <PageShell>
       <ShowcaseSection
-        eyebrow="Workflows y automatizaciones"
-        title="Flujos, chatbots y datos pensados para ahorrar tiempo."
-        description="Ejemplos de automatizaciones publicables y sanitizadas: sin credenciales, sin webhooks reales y sin datos sensibles de clientes."
+        eyebrow="Automatizaciones"
+        title="Ejemplos sanitizados de cómo estructuro workflows y flujos de datos."
+        description="Estos recursos muestran criterio de automatización sin presentarlos como implementaciones públicas de clientes ni exponer credenciales, webhooks o datos sensibles."
         items={data.workflows}
       />
     </PageShell>
