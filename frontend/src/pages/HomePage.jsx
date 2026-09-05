@@ -3,6 +3,7 @@ import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 import { usePortfolio } from "../features/portfolio/hooks/usePortfolio";
 import { HeroSection } from "../features/profile/components/HeroSection";
+import { projectSlug } from "../features/projects/utils/projectSlug";
 
 export function HomePage() {
   const { data } = usePortfolio();
@@ -44,27 +45,31 @@ export function HomePage() {
             <div className="home-section-heading">
               <span className="eyebrow">Trabajo verificable</span>
               <h2>Proyectos donde el foco está en el resultado.</h2>
-              <p>Una selección breve de proyectos con demo, repositorio o documentación pública para que se pueda revisar qué problema abordan y cómo están construidos.</p>
+              <p>Una selección breve de proyectos con demo, repositorio o documentación pública para revisar el problema, el enfoque y el estado real de cada solución.</p>
             </div>
 
             <div className="featured-projects-grid">
-              {featuredProjects.map((project) => (
-                <article className="featured-project" key={project.id}>
-                  <div>
-                    <span className="featured-project__status">{project.statusLabel}</span>
-                    <h3>{project.title}</h3>
-                    <p>{project.value}</p>
-                  </div>
-                  <div className="featured-project__actions">
-                    {project.liveUrl && (
-                      <a href={project.liveUrl} target="_blank" rel="noreferrer noopener">Ver proyecto</a>
-                    )}
-                    {project.githubUrl && (
-                      <a href={project.githubUrl} target="_blank" rel="noreferrer noopener">GitHub</a>
-                    )}
-                  </div>
-                </article>
-              ))}
+              {featuredProjects.map((project) => {
+                const caseUrl = `/proyectos/${projectSlug(project.title)}`;
+                return (
+                  <article className="featured-project" key={project.id}>
+                    <div>
+                      <span className="featured-project__status">{project.statusLabel}</span>
+                      <h3><Link to={caseUrl}>{project.title}</Link></h3>
+                      <p>{project.value}</p>
+                    </div>
+                    <div className="featured-project__actions">
+                      <Link to={caseUrl}>Ver caso</Link>
+                      {project.liveUrl && (
+                        <a href={project.liveUrl} target="_blank" rel="noreferrer noopener">Demo</a>
+                      )}
+                      {project.githubUrl && (
+                        <a href={project.githubUrl} target="_blank" rel="noreferrer noopener">GitHub</a>
+                      )}
+                    </div>
+                  </article>
+                );
+              })}
             </div>
 
             <Link className="button button--secondary" to="/proyectos">Ver todos los proyectos</Link>
