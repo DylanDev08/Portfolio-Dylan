@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { projectSlug } from "../utils/projectSlug";
+
 function isValidUrl(url) {
   return Boolean(url) && url !== "#";
 }
@@ -7,10 +10,11 @@ export function ProjectCard({ project }) {
   const canOpenGithub = isValidUrl(project.githubUrl) && !project.locked;
   const canOpenDocs = isValidUrl(project.docsUrl) && !project.locked;
   const cardStatus = project.statusLabel || (canOpenProject ? "Publicado" : "Repo disponible");
+  const detailUrl = `/proyectos/${projectSlug(project.title)}`;
 
   return (
     <article className="project-card">
-      <div className="project-card__media">
+      <Link className="project-card__media" to={detailUrl} aria-label={`Ver caso de estudio de ${project.title}`}>
         <img
           src={project.coverImage || "/projects/portfolio-fzac.svg"}
           alt={`Portada de ${project.title}`}
@@ -19,7 +23,7 @@ export function ProjectCard({ project }) {
           height="540"
         />
         <span className="project-card__status">{cardStatus}</span>
-      </div>
+      </Link>
 
       <div className="project-card__body">
         <div className="project-card__header">
@@ -28,7 +32,7 @@ export function ProjectCard({ project }) {
               {project.category && <span>{project.category}</span>}
               {project.sourceType && <span>{project.sourceType}</span>}
             </div>
-            <h3>{project.title}</h3>
+            <h3><Link to={detailUrl}>{project.title}</Link></h3>
           </div>
         </div>
 
@@ -62,17 +66,18 @@ export function ProjectCard({ project }) {
         </div>
 
         <div className="project-actions">
+          <Link className="button button--primary" to={detailUrl}>Ver caso</Link>
           {canOpenProject && (
-            <a className="button button--primary" href={project.liveUrl} target="_blank" rel="noreferrer noopener">
-              Ver proyecto
+            <a className="button button--secondary" href={project.liveUrl} target="_blank" rel="noreferrer noopener">
+              Demo
             </a>
           )}
           {canOpenGithub && (
-            <a className="button button--secondary" href={project.githubUrl} target="_blank" rel="noreferrer noopener">
+            <a className="button button--ghost" href={project.githubUrl} target="_blank" rel="noreferrer noopener">
               GitHub
             </a>
           )}
-          {canOpenDocs && (
+          {canOpenDocs && !canOpenGithub && (
             <a className="button button--ghost" href={project.docsUrl} target="_blank" rel="noreferrer noopener">
               Documentación
             </a>
