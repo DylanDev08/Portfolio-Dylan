@@ -6,24 +6,26 @@ export function AboutSection() {
       <div className="container content-split">
         <SectionTitle
           eyebrow="Sobre mí"
-          title="Soluciones digitales con foco en procesos reales."
-          description="Me interesa entender la necesidad del cliente, ordenar la información y convertir problemas operativos en herramientas simples, medibles y mantenibles."
+          title="Me interesa resolver mejor, no sumar complejidad."
+          description="Estudio Ingeniería en Sistemas Informáticos y desarrollo soluciones web con una mirada práctica sobre procesos, datos y experiencia de uso."
         />
+
         <div className="about-copy">
           <p>
-            Soy Salcedo Dylan, programador Full Stack y estudiante de Ingeniería en Sistemas Informáticos. Trabajo en
-            soluciones web, automatizaciones, dashboards, e-commerce, ERP y sistemas internos orientados a mejorar la
-            gestión de datos y la experiencia de uso.
+            Soy Dylan Salcedo, Full Stack Developer. Trabajo con productos web, e-commerce, automatizaciones,
+            dashboards y sistemas internos cuando la tecnología puede ahorrar tiempo, ordenar información o hacer más
+            claro un proceso.
           </p>
           <p>
-            Busco colaborar en proyectos donde la tecnología no sea solo código, sino una forma de ahorrar tiempo,
-            reducir errores, organizar procesos y facilitar mejores decisiones para el negocio.
+            Busco que cada solución sea entendible para la persona que la usa, tenga una base técnica mantenible y
+            pueda evolucionar sin depender de parches innecesarios.
           </p>
+
           <div className="facts">
-            <article><strong>7</strong><span>Meses en Fortaleza</span></article>
-            <article><strong>1,5+</strong><span>Años freelance</span></article>
-            <article><strong>Data</strong><span>Dashboards y automatización</span></article>
+            <article><strong>7 meses</strong><span>Fortaleza Construcciones</span></article>
+            <article><strong>1,5+ años</strong><span>Proyectos freelance</span></article>
             <article><strong>Full Stack</strong><span>Web apps y sistemas</span></article>
+            <article><strong>Data</strong><span>Automatización y dashboards</span></article>
           </div>
         </div>
       </div>
