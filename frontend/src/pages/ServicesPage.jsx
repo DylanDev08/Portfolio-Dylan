@@ -9,8 +9,8 @@ export function ServicesPage() {
     <PageShell>
       <ShowcaseSection
         eyebrow="Servicios"
-        title="Soluciones digitales para negocios, equipos y proyectos."
-        description="Desarrollo webs, sistemas, automatizaciones, chatbots y documentacion tecnica con foco en orden, conversion, mantenimiento y mejora continua."
+        title="Soluciones pensadas desde el problema, no desde la herramienta."
+        description="Primero defino qué necesita mejorar el proceso; después elijo la tecnología adecuada para construir una solución clara, usable y mantenible."
         items={data.services}
       />
     </PageShell>
