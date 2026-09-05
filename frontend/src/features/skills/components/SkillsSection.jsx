@@ -25,13 +25,19 @@ export function SkillsSection({ skills }) {
     <section className="section section--alt" id="skills">
       <div className="container">
         <SectionTitle
-          eyebrow="Skills"
-          title="Tecnologias y herramientas."
-          description="Filtra por categoria para recorrer rapidamente mis conocimientos."
+          eyebrow="Tecnologías"
+          title="Herramientas que uso para construir soluciones."
+          description="Evito porcentajes autodeclarados: las tecnologías principales están respaldadas por proyectos, repositorios y documentación que podés revisar desde el portfolio."
         />
-        <div className="filters">
+        <div className="filters" role="group" aria-label="Filtrar tecnologías por categoría">
           {categories.map((category) => (
-            <button className={filter === category ? "active" : ""} onClick={() => setFilter(category)} key={category}>
+            <button
+              type="button"
+              className={filter === category ? "active" : ""}
+              aria-pressed={filter === category}
+              onClick={() => setFilter(category)}
+              key={category}
+            >
               {categoryLabels[category]}
             </button>
           ))}

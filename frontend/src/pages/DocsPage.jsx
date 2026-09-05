@@ -8,9 +8,9 @@ export function DocsPage() {
   return (
     <PageShell>
       <ShowcaseSection
-        eyebrow="Documentacion"
-        title="Documentacion para que los proyectos se puedan mantener."
-        description="Ademas de desarrollar, documento arquitectura, APIs, instalacion, deploy, paneles administrativos y workflows para que el trabajo quede claro y reutilizable."
+        eyebrow="Documentación"
+        title="Documentación real de proyectos publicados o en desarrollo."
+        description="Acá no muestro plantillas ficticias: cada card abre un README o documento versionado que existe dentro de un repositorio público."
         items={data.documentations}
       />
     </PageShell>

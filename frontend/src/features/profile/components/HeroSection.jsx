@@ -2,33 +2,43 @@ import { Link } from "react-router-dom";
 
 export function HeroSection({ profile }) {
   return (
-    <section className="hero screen-panel" id="inicio">
+    <section className="hero" id="inicio">
       <div className="container hero-grid">
-        <div>
-          <span className="eyebrow">Soluciones digitales para negocios reales</span>
+        <div className="hero-copy">
+          <span className="eyebrow">Soluciones digitales · Rosario, Argentina</span>
           <h1>
-            Dylan Salcedo
-            <br />
-            <em>Full Stack Developer</em>
+            Diseño sistemas web que hacen <em>más simple</em> trabajar.
           </h1>
-          <p>
-            {profile.bio} Me enfoco en entender el problema, ordenar la informacion y crear herramientas utiles para
-            que cada proyecto sea mas claro, medible y facil de mantener.
+          <p className="hero-lead">
+            {profile.bio} Me enfoco en que la solución sea entendible para quien la usa y mantenible para quien la continúa.
           </p>
+
           <div className="hero-actions">
             <Link className="button button--primary" to="/proyectos">Ver proyectos</Link>
-            <a className="button button--secondary" href="/cv/CV_Dylan_Salcedo.pdf" download>Descargar CV</a>
-            <a className="button button--ghost" href={profile.githubUrl || "#"} target="_blank" rel="noreferrer noopener">GitHub</a>
-            <a className="button button--ghost" href={profile.linkedinUrl || "#"} target="_blank" rel="noreferrer noopener">LinkedIn</a>
+            <Link className="button button--secondary" to="/servicios">Qué puedo resolver</Link>
+            <a className="button button--ghost" href="/cv/CV_Dylan_Salcedo.pdf" download>Descargar CV</a>
+          </div>
+
+          <div className="hero-proof" aria-label="Áreas principales de trabajo">
+            <span>Web apps</span>
+            <span>E-commerce</span>
+            <span>Automatización</span>
+            <span>Datos</span>
           </div>
         </div>
 
         <div className="portrait">
           <div className="portrait__glow" />
-          <img src={profile.profileImage || "/profile-dylan.jpeg"} alt="Foto de perfil de Dylan Salcedo" />
+          <img
+            src={profile.profileImage || "/profile-dylan.jpeg"}
+            alt="Dylan Salcedo, desarrollador Full Stack"
+            width="720"
+            height="720"
+            fetchPriority="high"
+          />
           <div className="portrait__card">
-            <strong>Soluciones Full Stack</strong>
-            <span>Web apps - Datos - Automatizacion</span>
+            <strong>Full Stack Developer</strong>
+            <span>Producto · Datos · Automatización</span>
           </div>
         </div>
       </div>
