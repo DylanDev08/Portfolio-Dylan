@@ -1,4 +1,5 @@
 import { SectionTitle } from "../../../components/common/SectionTitle";
+import { WorkflowPrototype } from "./WorkflowPrototype";
 
 export function AutomationSection({ automations }) {
   return (
@@ -6,8 +7,8 @@ export function AutomationSection({ automations }) {
       <div className="container">
         <SectionTitle
           eyebrow="Automatizaciones"
-          title="Procesos que hoy consumen tiempo y pueden resolverse mejor."
-          description="No muestro archivos JSON como producto final. Muestro el problema operativo, el tipo de solución que diseño y el resultado que busca conseguir."
+          title="Workflows pensados desde el problema que resuelven."
+          description="Muestro prototipos visuales del flujo y su lógica de negocio. No publico JSON, credenciales, tokens, webhooks ni configuraciones que se puedan importar o reutilizar directamente."
         />
 
         <div className="automation-grid">
@@ -19,6 +20,8 @@ export function AutomationSection({ automations }) {
               </div>
               <h3>{automation.title}</h3>
 
+              <WorkflowPrototype title={automation.title} steps={automation.steps} />
+
               <div className="automation-card__flow">
                 <section>
                   <strong>Problema</strong>
@@ -29,7 +32,7 @@ export function AutomationSection({ automations }) {
                   <p>{automation.solution}</p>
                 </section>
                 <section className="automation-card__result">
-                  <strong>Resultado buscado</strong>
+                  <strong>Resultado</strong>
                   <p>{automation.result}</p>
                 </section>
               </div>
