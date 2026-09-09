@@ -1,8 +1,10 @@
-export function SectionTitle({ eyebrow, title, description }) {
+export function SectionTitle({ eyebrow, title, description, headingLevel = "h2" }) {
+  const Heading = headingLevel;
+
   return (
     <header className="section-title">
       <span>{eyebrow}</span>
-      <h2>{title}</h2>
+      <Heading>{title}</Heading>
       {description && <p>{description}</p>}
     </header>
   );
