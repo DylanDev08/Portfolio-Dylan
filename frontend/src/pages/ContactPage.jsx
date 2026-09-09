@@ -11,7 +11,7 @@ export function ContactPage() {
     { label: "GitHub", href: profile.githubUrl, value: "Repositorios y proyectos públicos" },
     { label: "LinkedIn", href: profile.linkedinUrl, value: "Perfil profesional" },
     { label: "Instagram ADTech", href: venture?.instagramUrl, value: venture?.handle || "@adtech.ros" },
-    { label: "CV ATS 2026", href: "/cv/CV_Dylan_Salcedo.pdf", value: "Descargar currículum actualizado" },
+    { label: "CV ATS 2026", href: "/cv/CV_Dylan_Salcedo.pdf", value: "Descargar currículum actualizado", download: "CV_Dylan_Salcedo_ATS_2026.pdf" },
   ].filter((link) => Boolean(link.href));
 
   return (
@@ -35,6 +35,7 @@ export function ContactPage() {
                   href={link.href}
                   target={isExternal ? "_blank" : undefined}
                   rel={isExternal ? "noreferrer noopener" : undefined}
+                  download={link.download}
                 >
                   <strong>{link.label}</strong>
                   <span>{link.value}</span>
