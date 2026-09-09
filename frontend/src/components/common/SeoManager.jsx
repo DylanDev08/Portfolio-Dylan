@@ -8,15 +8,15 @@ const SITE_URL = "https://portfolio-dylan-ten.vercel.app";
 const routeSeo = {
   "/": {
     title: "Dylan Salcedo | Full Stack y soluciones digitales",
-    description: "Portfolio de Dylan Salcedo: e-commerce, sistemas web, automatización y datos con proyectos verificables, GitHub y documentación pública.",
+    description: "Portfolio de Dylan Salcedo con proyectos reales, vistas públicas, e-commerce, sistemas web, WordPress, TiendaNube, automatización y datos orientados a resolver problemas de negocio.",
   },
   "/proyectos": {
-    title: "Proyectos | Dylan Salcedo",
-    description: "Casos de desarrollo web con problema, solución, valor, tecnologías, demos, repositorios y documentación verificable.",
+    title: "Proyectos y casos reales | Dylan Salcedo",
+    description: "Proyectos separados por código propio, WordPress/TiendaNube y desarrollo activo, con problema, solución, resultado, tecnologías, demo y repositorio cuando existen.",
   },
   "/servicios": {
     title: "Servicios | Dylan Salcedo",
-    description: "Desarrollo de apps web, e-commerce, sistemas internos, automatizaciones, datos y presencia digital orientados a resolver procesos reales.",
+    description: "Apps web, e-commerce, sistemas internos, automatizaciones, datos y presencia digital pensados desde el problema operativo y comercial.",
   },
   "/experiencia": {
     title: "Experiencia | Dylan Salcedo",
@@ -28,19 +28,19 @@ const routeSeo = {
   },
   "/contacto": {
     title: "Contacto | Dylan Salcedo",
-    description: "Contacto profesional de Dylan Salcedo para oportunidades laborales, colaboraciones y proyectos de software.",
+    description: "Contacto profesional de Dylan Salcedo para oportunidades laborales, colaboraciones y proyectos de software y automatización.",
   },
   "/sobre-mi": {
     title: "Sobre mí | Dylan Salcedo",
     description: "Perfil profesional de Dylan Salcedo, Full Stack Developer y estudiante de Ingeniería en Sistemas Informáticos en Rosario.",
   },
   "/skills": {
-    title: "Tecnologías | Dylan Salcedo",
-    description: "Tecnologías y herramientas utilizadas por Dylan Salcedo en frontend, backend, datos, automatización y despliegue.",
+    title: "Skills y tecnologías | Dylan Salcedo",
+    description: "Stack aplicado en frontend, backend, bases de datos, despliegue y automatización, respaldado por proyectos y repositorios públicos.",
   },
   "/automatizaciones": {
-    title: "Automatizaciones | Dylan Salcedo",
-    description: "Ejemplos sanitizados de workflows, APIs, Google Sheets, n8n y flujos de automatización sin exponer credenciales privadas.",
+    title: "Automatizaciones y procesos | Dylan Salcedo",
+    description: "Problemas de atención, datos, seguimiento y operación que pueden resolverse con n8n, APIs, Google Sheets, scripts, webhooks e integraciones.",
   },
   "/formacion": {
     title: "Formación | Dylan Salcedo",
@@ -71,7 +71,7 @@ export function SeoManager() {
       const project = data.projects.find((item) => projectSlug(item.title) === slug);
       if (project) {
         seo = {
-          title: `${project.title} | Caso de proyecto · Dylan Salcedo`,
+          title: `${project.title} | Problema, desarrollo y resultado · Dylan Salcedo`,
           description: `${project.problem} ${project.value}`.slice(0, 158),
         };
       }
@@ -79,7 +79,7 @@ export function SeoManager() {
 
     seo ||= {
       title: "Dylan Salcedo | Full Stack Developer",
-      description: "Portfolio profesional de Dylan Salcedo.",
+      description: "Portfolio profesional de Dylan Salcedo orientado a soluciones digitales y problemas reales.",
     };
 
     const canonicalUrl = `${SITE_URL}${location.pathname === "/" ? "/" : location.pathname}`;
