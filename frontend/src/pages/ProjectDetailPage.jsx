@@ -1,6 +1,7 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { PageShell } from "../components/layout/PageShell";
 import { usePortfolio } from "../features/portfolio/hooks/usePortfolio";
+import { ProjectVisual } from "../features/projects/components/ProjectVisual";
 import { projectSlug } from "../features/projects/utils/projectSlug";
 
 function isValidUrl(url) {
@@ -55,12 +56,7 @@ export function ProjectDetailPage() {
           </div>
 
           <div className="project-case-hero__visual">
-            <img
-              src={project.coverImage}
-              alt={`Portada visual del proyecto ${project.title}`}
-              width="1200"
-              height="675"
-            />
+            <ProjectVisual project={project} />
           </div>
         </div>
       </section>
@@ -69,20 +65,20 @@ export function ProjectDetailPage() {
         <div className="container project-case-layout">
           <article className="project-case-main">
             <section className="project-case-block">
-              <span className="eyebrow">Contexto</span>
-              <h2>El problema antes de la tecnología.</h2>
+              <span className="eyebrow">Problema</span>
+              <h2>Qué necesitaba resolverse.</h2>
               <p>{project.problem}</p>
             </section>
 
             <section className="project-case-block">
-              <span className="eyebrow">Solución</span>
-              <h2>Qué construí y por qué.</h2>
+              <span className="eyebrow">Desarrollo</span>
+              <h2>Qué construí para resolverlo.</h2>
               <p>{project.solution}</p>
             </section>
 
             <section className="project-case-block">
-              <span className="eyebrow">Valor</span>
-              <h2>Qué mejora aporta.</h2>
+              <span className="eyebrow">Resultado</span>
+              <h2>Qué valor aporta la solución.</h2>
               <p>{project.value}</p>
             </section>
 
@@ -109,7 +105,7 @@ export function ProjectDetailPage() {
               <span className="eyebrow">Evidencia</span>
               <strong>{evidenceCount} recurso{evidenceCount === 1 ? "" : "s"} verificable{evidenceCount === 1 ? "" : "s"}</strong>
               <p>
-                Los enlaces de esta ficha apuntan solo a recursos públicos existentes. Si una demo no está operativa, no se presenta como publicada.
+                La ficha utiliza la vista pública del proyecto cuando existe. Si no hay una demo estable, se muestra esa limitación en vez de reemplazarla por una portada ficticia.
               </p>
             </div>
 
@@ -120,7 +116,7 @@ export function ProjectDetailPage() {
                 {project.status === "in-development"
                   ? "Proyecto en evolución. El código o la demo pueden cambiar mientras se corrigen diseño, validaciones y funcionalidad."
                   : project.status === "repo-only"
-                    ? "Repositorio disponible para revisar arquitectura, código y documentación."
+                    ? "Repositorio disponible para revisar arquitectura, código y documentación; todavía no se presenta una demo pública."
                     : "Proyecto con una versión pública disponible para revisión."}
               </p>
             </div>
@@ -131,8 +127,8 @@ export function ProjectDetailPage() {
       <section className="section section--alt project-case-next">
         <div className="container project-case-next__inner">
           <div>
-            <span className="eyebrow">Siguiente proyecto</span>
-            <h2>Seguí revisando cómo planteo distintas soluciones.</h2>
+            <span className="eyebrow">Más proyectos</span>
+            <h2>Seguí revisando problemas, decisiones y soluciones.</h2>
           </div>
           <Link className="button button--secondary" to="/proyectos">Ver todos los proyectos</Link>
         </div>
