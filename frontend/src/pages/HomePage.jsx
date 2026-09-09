@@ -7,6 +7,12 @@ import { ProjectVisual } from "../features/projects/components/ProjectVisual";
 import { projectSlug } from "../features/projects/utils/projectSlug";
 
 const featuredProjectNames = ["Materiales FZAC", "Portfolio FZAC", "Factdesi", "NovaClick"];
+const stackGroups = [
+  { id: "FRONTEND", label: "Frontend" },
+  { id: "BACKEND", label: "Backend" },
+  { id: "DATABASE", label: "Datos" },
+  { id: "TOOLS", label: "Herramientas" },
+];
 
 export function HomePage() {
   const { data } = usePortfolio();
@@ -83,7 +89,33 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="section section--alt home-automation">
+        <section className="section section--alt home-stack">
+          <div className="container">
+            <div className="home-section-heading">
+              <span className="eyebrow">Skills / stack aplicado</span>
+              <h2>Las herramientas aparecen donde tienen sentido.</h2>
+              <p>No uso porcentajes para vender conocimiento. Muestro el stack que aplico y lo conecto con proyectos donde se puede revisar su uso.</p>
+            </div>
+
+            <div className="home-stack-grid">
+              {stackGroups.map((group) => {
+                const groupSkills = data.skills.filter((skill) => skill.category === group.id);
+                return (
+                  <article className="home-stack-card" key={group.id}>
+                    <span>{group.label}</span>
+                    <div className="home-stack-card__skills">
+                      {groupSkills.map((skill) => <strong key={skill.id}>{skill.name}</strong>)}
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            <Link className="text-link" to="/skills">Ver tecnologías y herramientas →</Link>
+          </div>
+        </section>
+
+        <section className="section home-automation">
           <div className="container">
             <div className="home-section-heading">
               <span className="eyebrow">Automatizaciones</span>
@@ -112,7 +144,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="section home-process">
+        <section className="section section--alt home-process">
           <div className="container process-grid">
             <div className="home-section-heading">
               <span className="eyebrow">Forma de trabajo</span>
