@@ -7,40 +7,40 @@ const SITE_URL = "https://portfolio-dylan-ten.vercel.app";
 
 const routeSeo = {
   "/": {
-    title: "Dylan Salcedo | Full Stack y soluciones digitales",
-    description: "Portfolio de Dylan Salcedo con proyectos reales, vistas públicas, e-commerce, sistemas web, WordPress, TiendaNube, automatización y datos orientados a resolver problemas de negocio.",
+    title: "Dylan Salcedo | Software, web y automatización",
+    description: "Desarrollo soluciones de software, e-commerce, sitios web y automatización para problemas de venta, operación, atención y datos. Proyectos reales, GitHub y ADTech.",
   },
   "/proyectos": {
-    title: "Proyectos y casos reales | Dylan Salcedo",
-    description: "Proyectos separados por código propio, WordPress/TiendaNube y desarrollo activo, con problema, solución, resultado, tecnologías, demo y repositorio cuando existen.",
+    title: "Proyectos y soluciones reales | Dylan Salcedo",
+    description: "Casos de código propio, WordPress, TiendaNube y productos en desarrollo con problema, solución, resultado, captura, demo y GitHub cuando existe.",
   },
   "/servicios": {
-    title: "Servicios | Dylan Salcedo",
+    title: "Desarrollo web, software y automatización | Dylan Salcedo",
     description: "Apps web, e-commerce, sistemas internos, automatizaciones, datos y presencia digital pensados desde el problema operativo y comercial.",
   },
   "/experiencia": {
     title: "Experiencia | Dylan Salcedo",
-    description: "Experiencia de Dylan Salcedo en desarrollo Full Stack, sistemas internos, e-commerce, automatización de datos y soporte de sistemas.",
+    description: "Experiencia en soluciones Full Stack, sistemas internos, e-commerce, automatización de datos y soporte de sistemas.",
   },
   "/documentacion": {
     title: "Documentación técnica | Dylan Salcedo",
     description: "READMEs y documentación real de proyectos públicos: arquitectura, seguridad, despliegue, operación y decisiones técnicas.",
   },
   "/contacto": {
-    title: "Contacto | Dylan Salcedo",
-    description: "Contacto profesional de Dylan Salcedo para oportunidades laborales, colaboraciones y proyectos de software y automatización.",
+    title: "Contacto y ADTech | Dylan Salcedo",
+    description: "Contacto para proyectos, oportunidades laborales y soluciones de software, web, e-commerce y automatización. ADTech @adtech.ros.",
   },
   "/sobre-mi": {
     title: "Sobre mí | Dylan Salcedo",
-    description: "Perfil profesional de Dylan Salcedo, Full Stack Developer y estudiante de Ingeniería en Sistemas Informáticos en Rosario.",
+    description: "Dylan Salcedo, Full Stack Developer y estudiante de Ingeniería en Sistemas Informáticos en Rosario, orientado a resolver problemas con software.",
   },
   "/skills": {
-    title: "Skills y tecnologías | Dylan Salcedo",
+    title: "Habilidades y tecnologías | Dylan Salcedo",
     description: "Stack aplicado en frontend, backend, bases de datos, despliegue y automatización, respaldado por proyectos y repositorios públicos.",
   },
   "/automatizaciones": {
-    title: "Automatizaciones y procesos | Dylan Salcedo",
-    description: "Problemas de atención, datos, seguimiento y operación que pueden resolverse con n8n, APIs, Google Sheets, scripts, webhooks e integraciones.",
+    title: "Workflows y automatización | Dylan Salcedo",
+    description: "Prototipos visuales de automatización para atención, datos, seguimiento y operación con n8n, APIs, Sheets, scripts e integraciones, sin publicar credenciales.",
   },
   "/formacion": {
     title: "Formación | Dylan Salcedo",
@@ -71,7 +71,7 @@ export function SeoManager() {
       const project = data.projects.find((item) => projectSlug(item.title) === slug);
       if (project) {
         seo = {
-          title: `${project.title} | Problema, desarrollo y resultado · Dylan Salcedo`,
+          title: `${project.title} | Problema, solución y resultado · Dylan Salcedo`,
           description: `${project.problem} ${project.value}`.slice(0, 158),
         };
       }
