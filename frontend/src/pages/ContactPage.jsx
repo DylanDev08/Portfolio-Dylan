@@ -6,12 +6,12 @@ export function ContactPage() {
   const { profile } = data;
 
   const contactLinks = [
-    { label: "GitHub", href: profile.githubUrl, value: "Repositorios y codigo" },
+    { label: "GitHub", href: profile.githubUrl, value: "Repositorios y proyectos públicos" },
     { label: "LinkedIn", href: profile.linkedinUrl, value: "Perfil profesional" },
     { label: "WhatsApp", href: profile.whatsappUrl, value: profile.phone },
-    { label: "Gmail", href: `mailto:${profile.email}`, value: profile.email },
-    { label: "CV", href: "/cv/CV_Dylan_Salcedo.pdf", value: "Descargar curriculum" },
-    { label: "Portfolio en GitHub", href: profile.portfolioUrl || profile.githubUrl, value: "Repositorio del portfolio" },
+    { label: "Email", href: `mailto:${profile.email}`, value: profile.email },
+    { label: "CV", href: "/cv/CV_Dylan_Salcedo.pdf", value: "Descargar currículum" },
+    { label: "Código de este portfolio", href: profile.portfolioUrl || profile.githubUrl, value: "Repositorio Portfolio-Dylan" },
   ];
 
   return (
@@ -19,19 +19,28 @@ export function ContactPage() {
       <section className="section contact-showcase" id="contacto">
         <div className="container">
           <span className="eyebrow">Contacto</span>
-          <h1>Hablemos de una web, app, automatizacion o sistema.</h1>
+          <h1>Hablemos del problema antes de hablar de la herramienta.</h1>
           <p>
-            Estoy abierto a oportunidades laborales, colaboraciones y proyectos donde pueda aportar desarrollo web,
-            automatizaciones, dashboards, documentacion y mejoras de procesos.
+            Estoy abierto a oportunidades laborales, colaboraciones y proyectos donde una web, sistema, automatización
+            o mejora de datos pueda simplificar un proceso real.
           </p>
 
           <div className="contact-links-grid">
-            {contactLinks.map((link) => (
-              <a key={link.label} className="contact-link-card" href={link.href || "#"} target={link.href?.startsWith("http") ? "_blank" : undefined} rel="noreferrer noopener">
-                <strong>{link.label}</strong>
-                <span>{link.value}</span>
-              </a>
-            ))}
+            {contactLinks.map((link) => {
+              const isExternal = link.href?.startsWith("http");
+              return (
+                <a
+                  key={link.label}
+                  className="contact-link-card"
+                  href={link.href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noreferrer noopener" : undefined}
+                >
+                  <strong>{link.label}</strong>
+                  <span>{link.value}</span>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

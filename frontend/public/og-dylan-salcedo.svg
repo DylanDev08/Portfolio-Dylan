@@ -1,1 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc"><title id="title">Dylan Salcedo Portfolio</title><desc id="desc">Imagen SEO del portfolio profesional de Dylan Salcedo</desc><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#030711"/><stop offset="0.55" stop-color="#071d3b"/><stop offset="1" stop-color="#1683ff"/></linearGradient></defs><rect width="1200" height="630" fill="url(#g)"/><circle cx="1040" cy="90" r="230" fill="#38bdf8" opacity=".14"/><circle cx="130" cy="560" r="220" fill="#60a5fa" opacity=".10"/><rect x="76" y="78" width="1048" height="474" rx="38" fill="#050a14" opacity=".82" stroke="#60a5fa" stroke-width="4"/><text x="130" y="190" fill="#7dd3fc" font-family="Arial, sans-serif" font-size="34" font-weight="700">PROGRAMADOR FULL STACK</text><text x="130" y="305" fill="#ffffff" font-family="Arial, sans-serif" font-size="92" font-weight="900">Dylan Salcedo</text><text x="130" y="382" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="34">React • Node.js • Express • SQL • Prisma</text><text x="130" y="455" fill="#93c5fd" font-family="Arial, sans-serif" font-size="30" font-weight="700">Innova Click · FuckTheSys · FZAC · Mangas MaxDy · PrismaERP</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Dylan Salcedo · Full Stack y soluciones digitales</title>
+  <desc id="desc">Imagen social del portfolio de Dylan Salcedo</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#050914"/>
+      <stop offset="0.6" stop-color="#07111f"/>
+      <stop offset="1" stop-color="#102d52"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7dd3fc"/>
+      <stop offset="0.5" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1040" cy="90" r="240" fill="#3b82f6" opacity=".12"/>
+  <circle cx="100" cy="590" r="210" fill="#60a5fa" opacity=".08"/>
+  <rect x="72" y="68" width="1056" height="494" rx="40" fill="#07111f" stroke="#1f3d66" stroke-width="3"/>
+  <rect x="118" y="118" width="92" height="92" rx="25" fill="#081522" stroke="#315b8f" stroke-width="2"/>
+  <text x="139" y="180" fill="url(#accent)" font-family="Arial,sans-serif" font-size="46" font-weight="900">DS</text>
+  <text x="250" y="158" fill="#7dd3fc" font-family="Arial,sans-serif" font-size="26" font-weight="700">FULL STACK · SOLUCIONES DIGITALES</text>
+  <text x="118" y="320" fill="#ffffff" font-family="Arial,sans-serif" font-size="92" font-weight="900">Dylan Salcedo</text>
+  <text x="118" y="402" fill="#c7d4e5" font-family="Arial,sans-serif" font-size="34">Web apps · E-commerce · Automatización · Datos</text>
+  <text x="118" y="486" fill="#93c5fd" font-family="Arial,sans-serif" font-size="28" font-weight="700">Proyectos reales · GitHub · Documentación pública</text>
+</svg>

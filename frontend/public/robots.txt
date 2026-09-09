@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-dylan-ten.vercel.app/sitemap.xml
