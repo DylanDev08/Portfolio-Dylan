@@ -14,8 +14,10 @@
 .project-preview__browser>span:nth-child(2){background:#e8b55a}
 .project-preview__browser>span:nth-child(3){background:#69c48b}
 .project-preview__browser small{min-width:0;margin-left:8px;color:#8fa4bd;font-size:.68rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.project-preview__viewport{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0b1727}
-.project-preview__viewport iframe{position:absolute;inset:0;width:200%;height:200%;border:0;transform:scale(.5);transform-origin:top left;background:#fff;pointer-events:none}
+.project-preview__viewport{position:relative;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,#0b1727,#0e2239)}
+.project-preview__viewport img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .35s ease,filter .35s ease}
+.project-preview__viewport:hover img{transform:scale(1.015);filter:brightness(1.03)}
+.project-preview__viewport--missing::after{content:"Vista no disponible";position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:.82rem;font-weight:750}
 .project-preview__overlay{position:absolute;inset:0;z-index:2}
 .project-preview__overlay:focus-visible{outline:3px solid var(--accent-light);outline-offset:-5px}
 .project-preview__caption{min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:9px 13px;background:#091321;border-top:1px solid var(--border);color:var(--muted);font-size:.73rem}
@@ -35,19 +37,14 @@
 .home-project-view__copy p{color:var(--muted);line-height:1.68}
 .home-project-view__copy p strong{color:#dbeafe}
 .home-project-view__value{padding-top:15px;border-top:1px solid var(--border)}
-
 .project-case-hero__visual>.project-preview{width:100%}
 
-@media(max-width:920px){
-  .home-project-view-grid{grid-template-columns:1fr}
-}
-
+@media(max-width:920px){.home-project-view-grid{grid-template-columns:1fr}}
 @media(max-width:680px){
   .project-sections{gap:68px}
   .project-section-group{gap:22px}
   .project-preview__browser{height:34px}
   .project-preview__caption{align-items:flex-start;flex-direction:column;gap:3px;padding-block:9px}
-  .project-preview__viewport iframe{width:220%;height:220%;transform:scale(.455)}
   .project-preview__repo-content{min-height:230px;padding:24px 20px}
   .home-project-view__copy{padding:20px}
 }
