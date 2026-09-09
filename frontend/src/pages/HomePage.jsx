@@ -3,9 +3,10 @@ import { Footer } from "../components/layout/Footer";
 import { Header } from "../components/layout/Header";
 import { usePortfolio } from "../features/portfolio/hooks/usePortfolio";
 import { HeroSection } from "../features/profile/components/HeroSection";
+import { ProjectVisual } from "../features/projects/components/ProjectVisual";
 import { projectSlug } from "../features/projects/utils/projectSlug";
 
-const featuredProjectNames = ["Materiales FZAC", "Portfolio FZAC", "Mangas MaxDy"];
+const featuredProjectNames = ["Materiales FZAC", "Portfolio FZAC", "Factdesi", "NovaClick"];
 
 export function HomePage() {
   const { data } = usePortfolio();
@@ -13,6 +14,7 @@ export function HomePage() {
     .map((name) => data.projects.find((project) => project.title === name))
     .filter(Boolean);
   const featuredServices = data.services.slice(0, 3);
+  const featuredAutomations = data.workflows.slice(0, 3);
 
   return (
     <>
@@ -47,29 +49,30 @@ export function HomePage() {
         <section className="section home-featured-projects">
           <div className="container">
             <div className="home-section-heading">
-              <span className="eyebrow">Trabajo verificable</span>
-              <h2>Proyectos donde el foco está en el resultado.</h2>
-              <p>Una selección de los proyectos técnicos más completos, con demo, repositorio o documentación pública para revisar el problema, el enfoque y el estado real de cada solución.</p>
+              <span className="eyebrow">Proyectos con vista</span>
+              <h2>No portadas de ejemplo: la vista real del trabajo.</h2>
+              <p>Cuando un proyecto está publicado, el portfolio muestra directamente su sitio dentro de una vista de navegador. Cuando no hay demo pública, lo indico y dejo la evidencia disponible en GitHub.</p>
             </div>
 
-            <div className="featured-projects-grid">
+            <div className="home-project-view-grid">
               {featuredProjects.map((project) => {
                 const caseUrl = `/proyectos/${projectSlug(project.title)}`;
                 return (
-                  <article className="featured-project" key={project.id}>
-                    <div>
-                      <span className="featured-project__status">{project.statusLabel}</span>
+                  <article className="home-project-view" key={project.id}>
+                    <ProjectVisual project={project} compact />
+                    <div className="home-project-view__copy">
+                      <div className="project-meta">
+                        <span>{project.sourceType}</span>
+                        <span>{project.statusLabel}</span>
+                      </div>
                       <h3><Link to={caseUrl}>{project.title}</Link></h3>
-                      <p>{project.value}</p>
-                    </div>
-                    <div className="featured-project__actions">
-                      <Link to={caseUrl}>Ver caso</Link>
-                      {project.liveUrl && (
-                        <a href={project.liveUrl} target="_blank" rel="noreferrer noopener">Demo</a>
-                      )}
-                      {project.githubUrl && (
-                        <a href={project.githubUrl} target="_blank" rel="noreferrer noopener">GitHub</a>
-                      )}
+                      <p><strong>Problema:</strong> {project.problem}</p>
+                      <p className="home-project-view__value">{project.value}</p>
+                      <div className="featured-project__actions">
+                        <Link to={caseUrl}>Ver desarrollo</Link>
+                        {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer noopener">Abrir proyecto</a>}
+                        {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noreferrer noopener">GitHub</a>}
+                      </div>
                     </div>
                   </article>
                 );
@@ -80,7 +83,36 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="section section--alt home-process">
+        <section className="section section--alt home-automation">
+          <div className="container">
+            <div className="home-section-heading">
+              <span className="eyebrow">Automatizaciones</span>
+              <h2>Automatizo problemas operativos, no archivos JSON.</h2>
+              <p>Estas son situaciones concretas donde una integración, un flujo o una validación puede reducir trabajo manual y pérdida de información.</p>
+            </div>
+
+            <div className="home-automation-grid">
+              {featuredAutomations.map((automation) => (
+                <article className="home-automation-card" key={automation.id}>
+                  <span>{automation.category}</span>
+                  <h3>{automation.title}</h3>
+                  <div>
+                    <strong>Problema</strong>
+                    <p>{automation.problem}</p>
+                  </div>
+                  <div>
+                    <strong>Resultado</strong>
+                    <p>{automation.result}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <Link className="text-link" to="/automatizaciones">Ver automatizaciones y soluciones →</Link>
+          </div>
+        </section>
+
+        <section className="section home-process">
           <div className="container process-grid">
             <div className="home-section-heading">
               <span className="eyebrow">Forma de trabajo</span>
