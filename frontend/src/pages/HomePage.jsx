@@ -13,30 +13,30 @@ const routeCards = [
   {
     eyebrow: "Trabajo realizado",
     title: "Proyectos",
-    description: "Casos reales con problema, solución, resultado, vista, demo y GitHub cuando corresponde.",
+    description: "Casos reales con problema, solución, impacto, acceso al producto y documentación técnica cuando corresponde.",
     to: "/proyectos",
     cta: "Ver proyectos",
   },
   {
-    eyebrow: "Qué puedo resolver",
+    eyebrow: "Soluciones para negocios",
     title: "Servicios",
-    description: "Web, e-commerce, sistemas internos, automatizaciones e integraciones según la necesidad del negocio.",
+    description: "Desarrollo web, e-commerce, sistemas internos, automatizaciones e integraciones orientadas a resultados concretos.",
     to: "/servicios",
     cta: "Ver servicios",
   },
   {
-    eyebrow: "Stack aplicado",
+    eyebrow: "Capacidad técnica",
     title: "Habilidades",
-    description: "Frontend, backend, bases de datos, automatización y herramientas organizadas por función.",
+    description: "Frontend, backend, bases de datos, automatización y herramientas aplicadas a productos y operaciones reales.",
     to: "/skills",
     cta: "Ver habilidades",
   },
   {
-    eyebrow: "Procesos",
+    eyebrow: "Eficiencia operativa",
     title: "Automatización",
-    description: "Prototipos visuales que muestran cómo reduzco pasos manuales, errores y pérdida de información.",
+    description: "Flujos para conectar atención, datos y operación, reducir tareas manuales y mejorar el seguimiento.",
     to: "/automatizaciones",
-    cta: "Ver workflows",
+    cta: "Ver soluciones",
   },
 ];
 
@@ -58,9 +58,9 @@ export function HomePage() {
         <section className="section section--compact home-routing" aria-labelledby="home-routing-title">
           <div className="container">
             <div className="home-section-heading home-section-heading--compact">
-              <span className="eyebrow">Explorar portfolio</span>
-              <h2 id="home-routing-title">Entrá directo a lo que querés revisar.</h2>
-              <p>La Home funciona como punto de entrada. El contenido completo vive en páginas separadas para que sea más rápido encontrar proyectos, servicios, habilidades o automatizaciones.</p>
+              <span className="eyebrow">Soluciones, productos y experiencia</span>
+              <h2 id="home-routing-title">Elegí qué necesitás resolver o qué querés revisar.</h2>
+              <p>El portfolio está organizado por áreas para que clientes, empresas y equipos técnicos puedan encontrar rápido servicios, proyectos, capacidades y soluciones de automatización.</p>
             </div>
 
             <div className="route-card-grid">
@@ -79,9 +79,9 @@ export function HomePage() {
         <section className="section section--alt home-featured-projects" aria-labelledby="featured-projects-title">
           <div className="container">
             <div className="home-section-heading home-section-heading--compact">
-              <span className="eyebrow">Selección</span>
-              <h2 id="featured-projects-title">Tres proyectos para entender rápido cómo trabajo.</h2>
-              <p>Cada portada corresponde al proyecto real y cada caso abre su propia URL con contexto, solución, resultado y accesos verificables.</p>
+              <span className="eyebrow">Casos destacados</span>
+              <h2 id="featured-projects-title">Proyectos que muestran cómo convierto una necesidad en una solución.</h2>
+              <p>Cada caso incluye contexto, decisiones, resultado, portada real y accesos directos al producto, repositorio o documentación cuando están disponibles.</p>
             </div>
 
             <div className="home-project-teaser-grid">
@@ -138,7 +138,7 @@ export function HomePage() {
           <div className="container">
             <div className="home-section-heading home-section-heading--compact">
               <span className="eyebrow">Perfil profesional</span>
-              <h2 id="profile-links-title">Más contexto, sin cargar la Home.</h2>
+              <h2 id="profile-links-title">Experiencia, formación y documentación técnica.</h2>
             </div>
             <div className="profile-link-row">
               <Link to="/sobre-mi">Sobre mí</Link>
@@ -153,11 +153,11 @@ export function HomePage() {
         <section className="section home-cta">
           <div className="container home-cta__inner">
             <div>
-              <span className="eyebrow">Proyecto o necesidad</span>
-              <h2>Contame qué hoy te hace perder tiempo, ventas o control.</h2>
-              <p>La conversación empieza por el problema. Después vemos si la mejor respuesta es una web, sistema, e-commerce, automatización o integración.</p>
+              <span className="eyebrow">Desarrollo de soluciones</span>
+              <h2>Convirtamos una necesidad concreta en una solución que aporte valor.</h2>
+              <p>Puedo ayudarte a desarrollar una web, e-commerce, sistema interno, automatización o integración orientada a mejorar ventas, operación, atención o control de información.</p>
             </div>
-            <a className="button button--primary" href={`${data.profile.whatsappUrl}?text=${encodeURIComponent("Hola Dylan, vi tu portfolio y quiero evaluar una solución para mi proyecto o negocio.")}`} target="_blank" rel="noreferrer noopener">Hablar por WhatsApp</a>
+            <a className="button button--primary" href={`${data.profile.whatsappUrl}?text=${encodeURIComponent("Hola Dylan, vi tu portfolio y quiero evaluar una solución para mi proyecto o negocio.")}`} target="_blank" rel="noreferrer noopener">Solicitar propuesta</a>
           </div>
         </section>
       </main>
