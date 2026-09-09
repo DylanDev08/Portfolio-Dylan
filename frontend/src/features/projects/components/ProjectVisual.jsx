@@ -64,7 +64,7 @@ export function ProjectVisual({ project, compact = false }) {
         <div className="project-preview__repo-content">
           <span className="eyebrow">{project.statusLabel}</span>
           <strong>{project.title}</strong>
-          <p>{project.previewNote || "La demo pública no está disponible. La evidencia del desarrollo está en GitHub y su documentación."}</p>
+          <p>{project.previewNote || "El acceso público no está disponible. El producto puede revisarse mediante su repositorio y documentación técnica."}</p>
           <div className="badges">
             {(project.technologies || []).slice(0, 4).map((technology) => <span key={technology}>{technology}</span>)}
           </div>
@@ -72,7 +72,7 @@ export function ProjectVisual({ project, compact = false }) {
       )}
 
       <div className="project-preview__caption">
-        <span>{project.coverLabel || (hasLive ? "Captura del proyecto" : "Vista del desarrollo")}</span>
+        <span>{project.coverLabel || (hasLive ? "Producto publicado" : "Vista del producto")}</span>
         {hasLive ? (
           <a href={project.liveUrl} target="_blank" rel="noreferrer noopener">Abrir sitio ↗</a>
         ) : hasGithub ? (
