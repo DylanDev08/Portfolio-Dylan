@@ -30,6 +30,7 @@ export function ProjectsSection({ projects }) {
           eyebrow="Proyectos"
           title="Primero el problema. Después la solución y la evidencia."
           description="El portfolio está separado por tipo de entrega para que se entienda qué desarrollé a medida, qué resolví sobre plataformas y qué productos siguen en construcción."
+          headingLevel="h1"
         />
 
         <div className="project-sections">
