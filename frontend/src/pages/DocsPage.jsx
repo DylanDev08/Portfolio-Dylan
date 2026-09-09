@@ -12,6 +12,7 @@ export function DocsPage() {
         title="Documentación real de proyectos publicados o en desarrollo."
         description="Acá no muestro plantillas ficticias: cada card abre un README o documento versionado que existe dentro de un repositorio público."
         items={data.documentations}
+        headingLevel="h1"
       />
     </PageShell>
   );
