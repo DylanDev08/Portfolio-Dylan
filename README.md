@@ -1,19 +1,19 @@
 # Portfolio Dylan Salcedo
 
-Portfolio profesional enfocado en **venta de soluciones, proyectos verificables y evidencia visual**. La interfaz prioriza qué problema existe, qué solución se construyó y qué valor aporta antes de enumerar tecnologías.
+Portfolio profesional orientado a **desarrollo de software, venta de servicios digitales, productos verificables y automatización de procesos**. La experiencia prioriza el problema de negocio, la solución implementada y el valor generado antes de presentar el stack técnico.
 
-## Enfoque
+## Posicionamiento
 
-- Home orientada a servicios, ADTech, proyectos, habilidades, workflows y contacto.
-- Proyectos separados por código propio, WordPress/TiendaNube y desarrollos en curso.
-- Los proyectos publicados usan **capturas actuales del sitio**; no portadas gráficas ficticias.
-- Cuando una captura externa falla, se usa un asset real del propio repositorio cuando existe.
-- Los proyectos de código propio enlazan GitHub y README.
-- Los trabajos WordPress/TiendaNube no inventan repositorios inexistentes.
-- Automatizaciones presentadas como prototipos visuales no importables, sin JSON, credenciales, tokens ni webhooks.
-- Skills agrupadas por función y respaldadas por proyectos, sin porcentajes autodeclarados.
-- CV ATS de una columna disponible desde Hero y Contacto.
-- Diseño responsive, accesible y con navegación simple.
+- Desarrollo web y software a medida.
+- E-commerce y canales digitales de venta.
+- Sistemas internos y herramientas de gestión.
+- Automatización de procesos e integraciones.
+- Soluciones de datos, seguimiento y operación.
+- ADTech como unidad de servicios digitales para negocios.
+- Proyectos presentados con portadas reales, accesos y documentación cuando corresponde.
+- Skills respaldadas por proyectos y experiencia, sin porcentajes públicos de autoevaluación.
+- CV ATS disponible desde el portfolio.
+- Diseño responsive, accesible y organizado por rutas.
 
 ## Stack del portfolio
 
@@ -22,18 +22,21 @@ Portfolio profesional enfocado en **venta de soluciones, proyectos verificables 
 - React Router
 - CSS por responsabilidades
 - Datos versionados en `frontend/src/data/fallbackData.js`
-- Vercel para frontend y previews de PR
+- Vercel para publicación del frontend
 
 ## Rutas principales
 
-- `/` — servicios, ADTech, proyectos, habilidades, workflows y contacto
-- `/proyectos` — proyectos separados por tipo de entrega
-- `/proyectos/:slug` — caso individual: problema, solución, valor y evidencia
-- `/servicios` — soluciones disponibles
-- `/skills` — stack y herramientas
-- `/automatizaciones` — prototipos visuales de workflows
-- `/experiencia` — experiencia profesional
-- `/documentacion` — READMEs reales
+- `/` — presentación, soluciones destacadas, proyectos y ADTech
+- `/proyectos` — catálogo de proyectos y productos por tipo de entrega
+- `/proyectos/:slug` — caso individual: necesidad, solución, valor, accesos y documentación
+- `/servicios` — servicios disponibles para clientes y negocios
+- `/skills` — stack y herramientas aplicadas
+- `/automatizaciones` — soluciones de automatización y arquitectura de procesos
+- `/adtech` — servicios y canales de ADTech
+- `/sobre-mi` — perfil profesional
+- `/experiencia` — experiencia laboral
+- `/formacion` — formación académica y complementaria
+- `/documentacion` — documentación técnica y READMEs
 - `/contacto` — WhatsApp, ADTech, GitHub, LinkedIn, Instagram y CV
 
 ## Proyectos
@@ -43,71 +46,76 @@ Portfolio profesional enfocado en **venta de soluciones, proyectos verificables 
 #### Materiales FZAC
 E-commerce y sistema de gestión para catálogo, stock, pedidos, usuarios y operación comercial.
 
-- Demo: https://materiales-fzac-8xmp.onrender.com
-- Repo: https://github.com/DylanDev08/Materiales-FZAC
-- Docs: README del repositorio
+- Web: https://materiales-fzac-8xmp.onrender.com
+- Repositorio: https://github.com/DylanDev08/Materiales-FZAC
+- Documentación: README del repositorio
 
 #### Portfolio FZAC
-Portfolio institucional administrable con panel privado, CRUD, autenticación, Supabase Storage y backend Express.
+Portfolio institucional administrable con galerías de obras, panel privado, CRUD, autenticación, almacenamiento y backend Express.
 
-- Frontend Render: https://fzac-portfolio-1.onrender.com
-- Backend Render: https://fzac-portfolio.onrender.com
-- Repo: https://github.com/DylanDev08/FZAC-Portfolio
-- Docs: README del repositorio
+- Web: https://fzac-portfolio-1.onrender.com
+- Backend: https://fzac-portfolio.onrender.com
+- Repositorio: https://github.com/DylanDev08/FZAC-Portfolio
+- Documentación: README del repositorio
 
 #### Mangas MaxDy
-Plataforma full stack con usuarios, autenticación, mangas, capítulos, favoritos, progreso, rankings, comentarios, roles y administración.
+Plataforma Full Stack con usuarios, autenticación, mangas, capítulos, favoritos, progreso, rankings, comentarios, roles y administración.
 
-- Repo: https://github.com/DylanDev08/Comics-Manga-MaxDy
-- Vista del portfolio: asset real `maxdy-hero.png` del frontend
+- Repositorio: https://github.com/DylanDev08/Comics-Manga-MaxDy
+- Documentación: README del repositorio
 
 ### WordPress / TiendaNube
 
 #### FuckTheSys
-E-commerce realizado sobre TiendaNube.
+E-commerce desarrollado y configurado sobre TiendaNube, con foco en catálogo, navegación, identidad visual y recorrido de compra mobile.
 
 - Web: https://fuckthesys.mitiendanube.com
 - Plataforma: TiendaNube
 
 #### Innova Click
-Sitio comercial para una agencia de marketing digital, realizado sobre WordPress y orientado a servicios y contacto.
+Sitio comercial para una agencia de marketing digital, desarrollado sobre WordPress y orientado a comunicar servicios y generar consultas.
 
 - Web: https://innovaclick.com.ar
 - Plataforma: WordPress
 
-### En desarrollo
+### Productos en evolución
 
 #### BarberHouse
-Web comercial React/Vite con experiencia responsive y base para seguir desarrollando reservas y gestión.
+Producto web React/Vite para una barbería, con experiencia responsive y arquitectura preparada para reservas y gestión de turnos.
 
-- Demo: https://barber-house-pi.vercel.app
-- Repo: https://github.com/DylanDev08/BarberHouse
+- Web: https://barber-house-pi.vercel.app
+- Repositorio: https://github.com/DylanDev08/BarberHouse
 
 #### Budgetly
-Producto de finanzas personales sobre Next.js/TypeScript con arquitectura modular.
+Producto de finanzas personales sobre Next.js y TypeScript con arquitectura modular orientada a seguimiento, objetivos y visualización de datos.
 
-- Repo: https://github.com/DylanDev08/Budgetly
-- Estado: en desarrollo, sin demo pública estable
+- Repositorio: https://github.com/DylanDev08/Budgetly
+- Estado: producto en evolución con desarrollo activo
 
-## Capturas de proyectos
+## Presentación visual de proyectos
 
-`ProjectVisual` utiliza imágenes en lugar de iframes para evitar bloqueos por `X-Frame-Options` o CSP.
+`ProjectVisual` utiliza imágenes reales, capturas de sitios publicados y assets propios de los proyectos para presentar cada caso sin depender de iframes.
 
-Para webs públicas, las miniaturas se generan mediante Thum.io a partir de la URL real y se actualizan periódicamente. Cuando existe un asset real del proyecto se configura también como fallback.
+Las tarjetas mantienen accesos claros a:
 
-La tarjeta siempre conserva acceso directo al sitio o GitHub.
+- producto o sitio publicado;
+- repositorio público cuando corresponde;
+- documentación técnica o documentación del caso.
+
+Para proyectos realizados sobre WordPress o TiendaNube no se muestra un repositorio inexistente: se documenta correctamente el tipo de implementación.
 
 ## ADTech
 
-ADTech es el emprendimiento de Dylan orientado a software y automatización para negocios.
+ADTech es el emprendimiento de Dylan orientado a soluciones digitales para negocios.
 
-Servicios mostrados en el portfolio:
+Servicios:
 
 - desarrollo web;
 - e-commerce;
 - software a medida;
-- automatización;
-- sistemas de gestión.
+- automatización de procesos;
+- sistemas de gestión;
+- integraciones y datos.
 
 Canales:
 
@@ -115,23 +123,18 @@ Canales:
 - TikTok: https://www.tiktok.com/@adtech.ros
 - WhatsApp: +54 9 341 741 5857
 
-## Automatizaciones y workflows
+## Automatización de procesos
 
-No se exponen archivos JSON ni flujos reutilizables. Cada caso incluye un prototipo visual de nodos que comunica la arquitectura funcional:
-
-1. entrada;
-2. transformación o validación;
-3. acción;
-4. salida o derivación.
-
-Los prototipos no contienen credenciales, tokens, IDs, URLs privadas, webhooks ni botones de exportación/copia.
-
-Casos actuales:
+El portfolio presenta arquitecturas funcionales para resolver necesidades como:
 
 - atención y clasificación de consultas;
-- carga y validación de datos;
+- carga, validación y sincronización de datos;
 - seguimiento, alertas y reportes;
 - presupuestos y seguimiento comercial.
+
+Cada solución se plantea a partir del proceso del negocio y puede integrar herramientas como n8n, APIs, WhatsApp, Google Sheets, Excel, scripts y webhooks según el alcance requerido.
+
+La documentación pública muestra la lógica y el valor de la solución sin exponer credenciales, tokens, IDs ni configuraciones sensibles.
 
 ## CV
 
@@ -168,18 +171,16 @@ npm run lint:imports
 npm run build
 ```
 
-GitHub Actions repite estas comprobaciones en pull requests.
+GitHub Actions ejecuta las comprobaciones de frontend antes de integrar cambios.
 
-## Seguridad y evidencia
+## Seguridad
 
 - No se publican `.env`, tokens, claves API ni credenciales.
-- No se muestran demos o repositorios inventados.
-- Los trabajos WordPress/TiendaNube se identifican como desarrollos sobre plataforma.
-- Los proyectos en desarrollo se etiquetan explícitamente.
-- Los workflows son prototipos visuales sin configuración importable.
+- Los repositorios se enlazan únicamente cuando existen de forma pública.
+- Los trabajos sobre plataformas se identifican correctamente.
+- Las configuraciones sensibles de automatización no se exponen.
+- Los enlaces externos usan navegación segura desde el frontend.
 
-## Deploy
-
-Portfolio principal:
+## Portfolio publicado
 
 https://portfolio-dylan-ten.vercel.app
