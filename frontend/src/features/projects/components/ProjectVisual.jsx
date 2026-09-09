@@ -6,63 +6,69 @@ function domainFromUrl(url) {
   }
 }
 
+function handleImageError(event, fallback) {
+  const image = event.currentTarget;
+  if (fallback && image.dataset.fallbackApplied !== "true") {
+    image.dataset.fallbackApplied = "true";
+    image.src = fallback;
+    return;
+  }
+  image.closest(".project-preview__viewport")?.classList.add("project-preview__viewport--missing");
+  image.remove();
+}
+
 export function ProjectVisual({ project, compact = false }) {
   const hasLive = Boolean(project.liveUrl);
-
-  if (hasLive) {
-    return (
-      <div className={`project-preview ${compact ? "project-preview--compact" : ""}`}>
-        <div className="project-preview__browser" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-          <small>{domainFromUrl(project.liveUrl)}</small>
-        </div>
-        <div className="project-preview__viewport">
-          <iframe
-            src={project.liveUrl}
-            title={`Vista en vivo de ${project.title}`}
-            loading="lazy"
-            tabIndex="-1"
-          />
-          <a
-            className="project-preview__overlay"
-            href={project.liveUrl}
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label={`Abrir ${project.title} en una pestaña nueva`}
-          />
-        </div>
-        <div className="project-preview__caption">
-          <span>Vista real del proyecto</span>
-          <a href={project.liveUrl} target="_blank" rel="noreferrer noopener">Abrir sitio ↗</a>
-        </div>
-      </div>
-    );
-  }
+  const hasCover = Boolean(project.coverImage);
 
   return (
-    <div className={`project-preview project-preview--repository ${compact ? "project-preview--compact" : ""}`}>
+    <div className={`project-preview ${compact ? "project-preview--compact" : ""} ${!hasLive ? "project-preview--repository" : ""}`}>
       <div className="project-preview__browser" aria-hidden="true">
         <span />
         <span />
         <span />
-        <small>Vista pública no disponible</small>
+        <small>{hasLive ? domainFromUrl(project.liveUrl) : project.statusLabel}</small>
       </div>
-      <div className="project-preview__repo-content">
-        <span className="eyebrow">{project.statusLabel}</span>
-        <strong>{project.title}</strong>
-        <p>{project.previewNote || "El proyecto no tiene una demo pública operativa. La evidencia disponible es el repositorio y su documentación."}</p>
-        <div className="badges">
-          {(project.technologies || []).slice(0, 4).map((technology) => <span key={technology}>{technology}</span>)}
+
+      {hasCover ? (
+        <div className="project-preview__viewport">
+          <img
+            src={project.coverImage}
+            alt={`Vista de ${project.title}`}
+            loading="lazy"
+            width="1200"
+            height="675"
+            onError={(event) => handleImageError(event, project.coverFallback)}
+          />
+          {hasLive && (
+            <a
+              className="project-preview__overlay"
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`Abrir ${project.title} en una pestaña nueva`}
+            />
+          )}
         </div>
-      </div>
-      {project.githubUrl && (
-        <div className="project-preview__caption">
-          <span>Repositorio verificable</span>
-          <a href={project.githubUrl} target="_blank" rel="noreferrer noopener">Abrir GitHub ↗</a>
+      ) : (
+        <div className="project-preview__repo-content">
+          <span className="eyebrow">{project.statusLabel}</span>
+          <strong>{project.title}</strong>
+          <p>{project.previewNote || "La demo pública no está disponible. La evidencia del desarrollo está en GitHub y su documentación."}</p>
+          <div className="badges">
+            {(project.technologies || []).slice(0, 4).map((technology) => <span key={technology}>{technology}</span>)}
+          </div>
         </div>
       )}
+
+      <div className="project-preview__caption">
+        <span>{hasLive ? "Captura actual del proyecto" : "Vista del desarrollo"}</span>
+        {hasLive ? (
+          <a href={project.liveUrl} target="_blank" rel="noreferrer noopener">Abrir sitio ↗</a>
+        ) : project.githubUrl ? (
+          <a href={project.githubUrl} target="_blank" rel="noreferrer noopener">Abrir GitHub ↗</a>
+        ) : null}
+      </div>
     </div>
   );
 }
