@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { projectSlug } from "../utils/projectSlug";
+import { ProjectVisual } from "./ProjectVisual";
 
 function isValidUrl(url) {
   return Boolean(url) && url !== "#";
@@ -16,16 +17,10 @@ export function ProjectCard({ project }) {
 
   return (
     <article className="project-card">
-      <Link className="project-card__media" to={detailUrl} aria-label={`Ver caso de estudio de ${project.title}`}>
-        <img
-          src={project.coverImage || "/projects/portfolio-fzac.svg"}
-          alt={`Portada de ${project.title}`}
-          loading="lazy"
-          width="960"
-          height="540"
-        />
+      <div className="project-card__media project-card__media--live">
+        <ProjectVisual project={project} compact />
         <span className="project-card__status">{cardStatus}</span>
-      </Link>
+      </div>
 
       <div className="project-card__body">
         <div className="project-meta">
@@ -34,11 +29,11 @@ export function ProjectCard({ project }) {
         </div>
 
         <h3 className="project-card__title"><Link to={detailUrl}>{project.title}</Link></h3>
-        <p className="project-card__problem">{project.problem}</p>
+        <p className="project-card__problem"><strong>Problema:</strong> {project.problem}</p>
 
         {project.value && (
           <div className="project-card__value">
-            <strong>Qué aporta</strong>
+            <strong>Qué resuelve</strong>
             <span>{project.value}</span>
           </div>
         )}
@@ -51,10 +46,10 @@ export function ProjectCard({ project }) {
         </div>
 
         <div className="project-actions">
-          <Link className="button button--primary" to={detailUrl}>Ver caso</Link>
+          <Link className="button button--primary" to={detailUrl}>Ver desarrollo</Link>
           {canOpenProject && (
             <a className="button button--secondary" href={project.liveUrl} target="_blank" rel="noreferrer noopener">
-              Demo
+              Abrir proyecto
             </a>
           )}
           {canOpenGithub && (
