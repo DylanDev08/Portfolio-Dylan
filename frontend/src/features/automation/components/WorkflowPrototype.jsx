@@ -2,7 +2,7 @@ import { Fragment } from "react";
 
 export function WorkflowPrototype({ title, steps = [] }) {
   return (
-    <div className="workflow-prototype" aria-label={`Prototipo visual de ${title}`}>
+    <div className="workflow-prototype" aria-label={`Flujo funcional de ${title}`}>
       <div className="workflow-prototype__rail">
         {steps.map((step, index) => (
           <Fragment key={`${step.label}-${index}`}>
@@ -15,7 +15,7 @@ export function WorkflowPrototype({ title, steps = [] }) {
           </Fragment>
         ))}
       </div>
-      <p className="workflow-prototype__note">Prototipo visual · sin credenciales, tokens, webhooks ni archivo importable</p>
+      <p className="workflow-prototype__note">Arquitectura funcional · adaptable a la operación, herramientas y reglas de cada negocio</p>
     </div>
   );
 }
