@@ -1,0 +1,20 @@
+.automation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.automation-card{padding:clamp(24px,3.5vw,34px);border:1px solid var(--border);border-radius:var(--radius-lg);background:linear-gradient(180deg,rgba(13,27,47,.92),rgba(7,17,31,.96));box-shadow:0 18px 56px rgba(0,0,0,.16)}
+.automation-card__top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+.automation-card__top>span{color:var(--accent-light);font-size:.72rem;font-weight:850;text-transform:uppercase;letter-spacing:.1em}
+.automation-card__top small{color:var(--muted);font-size:.7rem}
+.automation-card h3{margin:0 0 24px;font-size:clamp(1.35rem,2.3vw,1.8rem);line-height:1.15}
+.automation-card__flow{display:grid;border-top:1px solid var(--border);margin-bottom:20px}
+.automation-card__flow section{padding:18px 0;border-bottom:1px solid var(--border)}
+.automation-card__flow strong{display:block;margin-bottom:7px;color:#dbeafe;font-size:.74rem;text-transform:uppercase;letter-spacing:.09em}
+.automation-card__flow p{margin:0;color:var(--muted);line-height:1.68;font-size:.93rem}
+.automation-card__result p{color:#cfe3fb}
+.home-automation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.home-automation-card{padding:26px;border:1px solid var(--border);border-radius:var(--radius-md);background:rgba(7,17,31,.72)}
+.home-automation-card>span{display:inline-flex;margin-bottom:13px;color:var(--accent-light);font-size:.7rem;font-weight:850;text-transform:uppercase;letter-spacing:.1em}
+.home-automation-card h3{margin:0 0 20px;font-size:1.3rem}
+.home-automation-card>div{padding:15px 0;border-top:1px solid var(--border)}
+.home-automation-card strong{display:block;margin-bottom:6px;color:#dbeafe;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+.home-automation-card p{margin:0;color:var(--muted);line-height:1.65;font-size:.9rem}
+@media(max-width:920px){.home-automation-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.automation-grid,.home-automation-grid{grid-template-columns:1fr}.automation-card{padding:22px}.automation-card__top{align-items:flex-start;flex-direction:column;gap:6px}}
