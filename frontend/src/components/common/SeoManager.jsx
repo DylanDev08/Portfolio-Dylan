@@ -18,6 +18,10 @@ const routeSeo = {
     title: "Desarrollo web, software y automatización | Dylan Salcedo",
     description: "Apps web, e-commerce, sistemas internos, automatizaciones, datos y presencia digital pensados desde el problema operativo y comercial.",
   },
+  "/adtech": {
+    title: "ADTech | Software y automatización para negocios",
+    description: "ADTech es el emprendimiento de Dylan Salcedo: desarrollo web, e-commerce, software a medida, automatización y sistemas de gestión orientados a problemas concretos de negocio.",
+  },
   "/experiencia": {
     title: "Experiencia | Dylan Salcedo",
     description: "Experiencia en soluciones Full Stack, sistemas internos, e-commerce, automatización de datos y soporte de sistemas.",
