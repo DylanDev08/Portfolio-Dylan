@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { HomePage } from "../pages/HomePage";
 import { AboutPage } from "../pages/AboutPage";
+import { AdTechPage } from "../pages/AdTechPage";
 import { ContactPage } from "../pages/ContactPage";
 import { DocsPage } from "../pages/DocsPage";
 import { EducationPage } from "../pages/EducationPage";
@@ -18,12 +19,15 @@ export function AppRouter() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/sobre-mi" element={<AboutPage />} />
+      <Route path="/adtech" element={<AdTechPage />} />
       <Route path="/skills" element={<SkillsPage />} />
+      <Route path="/habilidades" element={<Navigate to="/skills" replace />} />
       <Route path="/servicios" element={<ServicesPage />} />
       <Route path="/proyectos" element={<ProjectsPage />} />
       <Route path="/proyectos/listado" element={<Navigate to="/proyectos" replace />} />
       <Route path="/proyectos/:slug" element={<ProjectDetailPage />} />
       <Route path="/automatizaciones" element={<WorkflowsPage />} />
+      <Route path="/workflows" element={<Navigate to="/automatizaciones" replace />} />
       <Route path="/documentacion" element={<DocsPage />} />
       <Route path="/experiencia" element={<ExperiencePage />} />
       <Route path="/formacion" element={<EducationPage />} />
