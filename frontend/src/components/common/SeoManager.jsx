@@ -8,19 +8,19 @@ const SITE_URL = "https://portfolio-dylan-ten.vercel.app";
 const routeSeo = {
   "/": {
     title: "Dylan Salcedo | Software, web y automatización",
-    description: "Desarrollo soluciones de software, e-commerce, sitios web y automatización para problemas de venta, operación, atención y datos. Proyectos reales, GitHub y ADTech.",
+    description: "Desarrollo soluciones de software, e-commerce, sistemas web y automatización para mejorar ventas, operación, atención y control de datos. Proyectos reales y ADTech.",
   },
   "/proyectos": {
-    title: "Proyectos y soluciones reales | Dylan Salcedo",
-    description: "Casos de código propio, WordPress, TiendaNube y productos en desarrollo con problema, solución, resultado, captura, demo y GitHub cuando existe.",
+    title: "Proyectos, productos y soluciones | Dylan Salcedo",
+    description: "Casos de desarrollo a medida, WordPress, TiendaNube y productos en evolución con necesidad, solución, valor, acceso al producto, repositorio y documentación cuando corresponde.",
   },
   "/servicios": {
     title: "Desarrollo web, software y automatización | Dylan Salcedo",
-    description: "Apps web, e-commerce, sistemas internos, automatizaciones, datos y presencia digital pensados desde el problema operativo y comercial.",
+    description: "Desarrollo web, e-commerce, sistemas internos, automatizaciones e integraciones orientadas a ventas, operación, atención y gestión de información.",
   },
   "/adtech": {
     title: "ADTech | Software y automatización para negocios",
-    description: "ADTech es el emprendimiento de Dylan Salcedo: desarrollo web, e-commerce, software a medida, automatización y sistemas de gestión orientados a problemas concretos de negocio.",
+    description: "ADTech desarrolla sitios, e-commerce, software a medida, automatizaciones y sistemas de gestión orientados a resolver necesidades concretas de negocio.",
   },
   "/experiencia": {
     title: "Experiencia | Dylan Salcedo",
@@ -28,7 +28,7 @@ const routeSeo = {
   },
   "/documentacion": {
     title: "Documentación técnica | Dylan Salcedo",
-    description: "READMEs y documentación real de proyectos públicos: arquitectura, seguridad, despliegue, operación y decisiones técnicas.",
+    description: "READMEs y documentación de proyectos públicos: arquitectura, seguridad, despliegue, operación y decisiones técnicas.",
   },
   "/contacto": {
     title: "Contacto y ADTech | Dylan Salcedo",
@@ -43,8 +43,8 @@ const routeSeo = {
     description: "Stack aplicado en frontend, backend, bases de datos, despliegue y automatización, respaldado por proyectos y repositorios públicos.",
   },
   "/automatizaciones": {
-    title: "Workflows y automatización | Dylan Salcedo",
-    description: "Prototipos visuales de automatización para atención, datos, seguimiento y operación con n8n, APIs, Sheets, scripts e integraciones, sin publicar credenciales.",
+    title: "Automatización de procesos | Dylan Salcedo",
+    description: "Soluciones de automatización para atención, datos, seguimiento y operación con n8n, APIs, Google Sheets, scripts, WhatsApp e integraciones a medida.",
   },
   "/formacion": {
     title: "Formación | Dylan Salcedo",
@@ -75,7 +75,7 @@ export function SeoManager() {
       const project = data.projects.find((item) => projectSlug(item.title) === slug);
       if (project) {
         seo = {
-          title: `${project.title} | Problema, solución y resultado · Dylan Salcedo`,
+          title: `${project.title} | Solución, valor e implementación · Dylan Salcedo`,
           description: `${project.problem} ${project.value}`.slice(0, 158),
         };
       }
@@ -83,7 +83,7 @@ export function SeoManager() {
 
     seo ||= {
       title: "Dylan Salcedo | Full Stack Developer",
-      description: "Portfolio profesional de Dylan Salcedo orientado a soluciones digitales y problemas reales.",
+      description: "Portfolio profesional de Dylan Salcedo orientado a desarrollo de soluciones digitales, productos y automatización.",
     };
 
     const canonicalUrl = `${SITE_URL}${location.pathname === "/" ? "/" : location.pathname}`;
