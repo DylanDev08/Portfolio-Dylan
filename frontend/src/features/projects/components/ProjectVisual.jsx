@@ -19,7 +19,10 @@ function handleImageError(event, fallback) {
 
 export function ProjectVisual({ project, compact = false }) {
   const hasLive = Boolean(project.liveUrl);
-  const hasCover = Boolean(project.coverImage);
+  const preferStableCover = project.title === "Portfolio FZAC" && Boolean(project.coverFallback);
+  const coverSource = preferStableCover ? project.coverFallback : project.coverImage;
+  const coverFallback = preferStableCover ? project.coverImage : project.coverFallback;
+  const hasCover = Boolean(coverSource);
 
   return (
     <div className={`project-preview ${compact ? "project-preview--compact" : ""} ${!hasLive ? "project-preview--repository" : ""}`}>
@@ -33,12 +36,12 @@ export function ProjectVisual({ project, compact = false }) {
       {hasCover ? (
         <div className="project-preview__viewport">
           <img
-            src={project.coverImage}
+            src={coverSource}
             alt={`Vista de ${project.title}`}
             loading="lazy"
             width="1200"
             height="675"
-            onError={(event) => handleImageError(event, project.coverFallback)}
+            onError={(event) => handleImageError(event, coverFallback)}
           />
           {hasLive && (
             <a
@@ -62,7 +65,7 @@ export function ProjectVisual({ project, compact = false }) {
       )}
 
       <div className="project-preview__caption">
-        <span>{hasLive ? "Captura actual del proyecto" : "Vista del desarrollo"}</span>
+        <span>{preferStableCover ? "Imagen real del proyecto" : hasLive ? "Captura actual del proyecto" : "Vista del desarrollo"}</span>
         {hasLive ? (
           <a href={project.liveUrl} target="_blank" rel="noreferrer noopener">Abrir sitio ↗</a>
         ) : project.githubUrl ? (
