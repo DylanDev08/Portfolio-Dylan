@@ -10,16 +10,16 @@ export function ServicesPage() {
     <PageShell>
       <ShowcaseSection
         eyebrow="Servicios"
-        title="Soluciones pensadas desde el problema, no desde la herramienta."
-        description="Primero defino qué necesita mejorar el proceso; después elijo la tecnología adecuada para construir una solución clara, usable y mantenible."
+        title="Desarrollo soluciones digitales para vender, operar y escalar mejor."
+        description="Trabajo sobre necesidades concretas: generar más consultas, ordenar ventas, centralizar información, automatizar tareas, integrar herramientas o construir software a medida. El alcance y la tecnología se definen según el objetivo del negocio."
         items={data.services}
         headingLevel="h1"
       />
       <ConversionCta
-        eyebrow="Trabajemos sobre el problema"
-        title="No necesitás definir el stack para empezar."
-        description="Con una explicación del proceso actual, los usuarios y el resultado esperado alcanza para plantear una primera solución y evaluar el alcance."
-        ctaLabel="Contarme el proyecto"
+        eyebrow="Proyecto a medida"
+        title="Llevemos tu necesidad a una solución concreta."
+        description="Contame cómo funciona hoy el proceso, qué problema querés resolver y qué resultado buscás. A partir de eso puedo plantear una propuesta de desarrollo, alcance y próximos pasos."
+        ctaLabel="Solicitar propuesta"
       />
     </PageShell>
   );
