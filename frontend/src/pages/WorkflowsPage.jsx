@@ -11,9 +11,9 @@ export function WorkflowsPage() {
       <AutomationSection automations={data.workflows} />
       <ConversionCta
         eyebrow="Automatización aplicada"
-        title="Una buena automatización elimina pasos, errores y seguimiento manual innecesario."
-        description="La herramienta viene después: primero reviso dónde se repite trabajo, dónde se pierde información y qué parte del flujo conviene conectar."
-        ctaLabel="Revisar un proceso"
+        title="Automatizá procesos repetitivos sin perder control sobre la operación."
+        description="Analizo el proceso, identifico tareas manuales y puntos de pérdida de información, y diseño una solución que conecte las herramientas necesarias con reglas claras, trazabilidad y posibilidad de escalar."
+        ctaLabel="Evaluar una automatización"
       />
     </PageShell>
   );
