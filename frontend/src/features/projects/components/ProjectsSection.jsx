@@ -6,19 +6,19 @@ const sections = [
     id: "custom",
     eyebrow: "Código propio",
     title: "Sistemas y productos desarrollados a medida",
-    description: "Proyectos donde trabajo arquitectura, frontend, backend, datos y operación. Cada card deja a mano portada, caso, demo, repositorio y documentación cuando están disponibles públicamente.",
+    description: "Proyectos donde trabajo arquitectura, frontend, backend, datos y operación. Cada caso reúne portada, producto, repositorio y documentación técnica cuando esos recursos están disponibles públicamente.",
   },
   {
     id: "platform",
     eyebrow: "WordPress / TiendaNube",
     title: "Sitios y e-commerce construidos sobre plataformas",
-    description: "Trabajos enfocados en presencia, venta, navegación y conversión. Como WordPress y TiendaNube no implican un repositorio público propio en estos casos, se muestra la web y la documentación del caso sin inventar código inexistente.",
+    description: "Soluciones enfocadas en presencia, venta, navegación y conversión utilizando la plataforma más adecuada para el negocio. Se muestra la web publicada y la documentación del trabajo realizado.",
   },
   {
     id: "development",
-    eyebrow: "En desarrollo",
-    title: "Productos que todavía están evolucionando",
-    description: "El estado se muestra tal como es: si hay demo se enlaza; si todavía no existe una versión pública estable, la portada, el repositorio y la documentación disponible funcionan como evidencia del avance.",
+    eyebrow: "Productos en evolución",
+    title: "Productos con desarrollo activo y base técnica definida",
+    description: "Proyectos que continúan incorporando funcionalidades y mejoras sobre una arquitectura ya planteada. Se presenta el alcance actual, la identidad del producto, el código y la documentación disponible.",
   },
 ];
 
@@ -28,8 +28,8 @@ export function ProjectsSection({ projects }) {
       <div className="container">
         <SectionTitle
           eyebrow="Proyectos"
-          title="Primero el problema. Después la solución y la evidencia."
-          description="Cada proyecto usa una identidad visual acorde, una portada real y accesos claros. La prioridad es entender qué resolví y poder verificar el trabajo sin recorrer toda la página."
+          title="Problemas reales convertidos en productos y soluciones digitales."
+          description="Cada caso explica la necesidad, la solución desarrollada, el valor que aporta y los recursos disponibles para revisar el trabajo: web, repositorio y documentación."
           headingLevel="h1"
         />
 
