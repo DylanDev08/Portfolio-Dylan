@@ -22,7 +22,7 @@ export function ProjectDetailPage() {
   const hasLive = isValidUrl(project.liveUrl);
   const hasGithub = isValidUrl(project.githubUrl);
   const hasDocs = isValidUrl(project.docsUrl);
-  const evidenceCount = [hasLive, hasGithub, hasDocs || true].filter(Boolean).length;
+  const evidenceCount = 1 + Number(hasLive) + Number(hasGithub);
   const themeStyle = {
     "--project-accent": project.accent,
     "--project-accent-rgb": project.accentRgb,
@@ -129,7 +129,7 @@ export function ProjectDetailPage() {
               <div className="project-case-panel">
                 <span className="eyebrow">Evidencia</span>
                 <strong>{evidenceCount} recurso{evidenceCount === 1 ? "" : "s"} para revisar</strong>
-                <p>La portada usa material real del proyecto o una captura de su web. Los accesos disponibles se muestran de forma explícita, sin inventar repositorios o demos.</p>
+                <p>La portada usa material real del proyecto o una captura de su web. La documentación del caso siempre está disponible; los repositorios se enlazan solamente cuando realmente existen de forma pública.</p>
               </div>
 
               <div className="project-case-panel">
