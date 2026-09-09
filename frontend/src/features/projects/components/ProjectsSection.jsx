@@ -6,19 +6,19 @@ const sections = [
     id: "custom",
     eyebrow: "Código propio",
     title: "Sistemas y productos desarrollados a medida",
-    description: "Proyectos donde trabajo arquitectura, frontend, backend, datos y operación. Cuando existe una demo pública, la tarjeta muestra la vista real del sitio.",
+    description: "Proyectos donde trabajo arquitectura, frontend, backend, datos y operación. Cada card deja a mano portada, caso, demo, repositorio y documentación cuando están disponibles públicamente.",
   },
   {
     id: "platform",
     eyebrow: "WordPress / TiendaNube",
     title: "Sitios y e-commerce construidos sobre plataformas",
-    description: "Trabajos donde el problema no requería construir toda la infraestructura desde cero, sino resolver presencia, venta, navegación y conversión usando una plataforma adecuada.",
+    description: "Trabajos enfocados en presencia, venta, navegación y conversión. Como WordPress y TiendaNube no implican un repositorio público propio en estos casos, se muestra la web y la documentación del caso sin inventar código inexistente.",
   },
   {
     id: "development",
     eyebrow: "En desarrollo",
     title: "Productos que todavía están evolucionando",
-    description: "Los muestro con su estado real. Si existe una demo se ve directamente; si todavía no hay una versión pública estable, muestro el repositorio en lugar de inventar una portada.",
+    description: "El estado se muestra tal como es: si hay demo se enlaza; si todavía no existe una versión pública estable, la portada, el repositorio y la documentación disponible funcionan como evidencia del avance.",
   },
 ];
 
@@ -29,7 +29,7 @@ export function ProjectsSection({ projects }) {
         <SectionTitle
           eyebrow="Proyectos"
           title="Primero el problema. Después la solución y la evidencia."
-          description="El portfolio está separado por tipo de entrega para que se entienda qué desarrollé a medida, qué resolví sobre plataformas y qué productos siguen en construcción."
+          description="Cada proyecto usa una identidad visual acorde, una portada real y accesos claros. La prioridad es entender qué resolví y poder verificar el trabajo sin recorrer toda la página."
           headingLevel="h1"
         />
 
