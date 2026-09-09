@@ -19,6 +19,7 @@ export function Footer({ profile }) {
           <h3>Navegación</h3>
           <Link to="/proyectos">Proyectos</Link>
           <Link to="/servicios">Servicios</Link>
+          <Link to="/skills">Skills / tecnologías</Link>
           <Link to="/automatizaciones">Automatizaciones</Link>
           <Link to="/experiencia">Experiencia</Link>
           <Link to="/documentacion">Documentación</Link>
