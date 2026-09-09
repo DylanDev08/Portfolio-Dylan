@@ -9,6 +9,7 @@ export function AutomationSection({ automations }) {
           eyebrow="Automatizaciones"
           title="Workflows pensados desde el problema que resuelven."
           description="Muestro prototipos visuales del flujo y su lógica de negocio. No publico JSON, credenciales, tokens, webhooks ni configuraciones que se puedan importar o reutilizar directamente."
+          headingLevel="h1"
         />
 
         <div className="automation-grid">
@@ -18,7 +19,7 @@ export function AutomationSection({ automations }) {
                 <span>{automation.category}</span>
                 <small>{automation.statusLabel}</small>
               </div>
-              <h3>{automation.title}</h3>
+              <h2>{automation.title}</h2>
 
               <WorkflowPrototype title={automation.title} steps={automation.steps} />
 

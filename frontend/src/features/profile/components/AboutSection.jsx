@@ -8,6 +8,7 @@ export function AboutSection() {
           eyebrow="Sobre mí"
           title="Me interesa resolver mejor, no sumar complejidad."
           description="Estudio Ingeniería en Sistemas Informáticos y desarrollo soluciones web con una mirada práctica sobre procesos, datos y experiencia de uso."
+          headingLevel="h1"
         />
 
         <div className="about-copy">

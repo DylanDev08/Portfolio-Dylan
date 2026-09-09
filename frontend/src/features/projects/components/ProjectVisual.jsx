@@ -19,13 +19,20 @@ function handleImageError(event, fallback) {
 
 export function ProjectVisual({ project, compact = false }) {
   const hasLive = Boolean(project.liveUrl);
-  const preferStableCover = project.title === "Portfolio FZAC" && Boolean(project.coverFallback);
-  const coverSource = preferStableCover ? project.coverFallback : project.coverImage;
-  const coverFallback = preferStableCover ? project.coverImage : project.coverFallback;
-  const hasCover = Boolean(coverSource);
+  const hasGithub = Boolean(project.githubUrl);
+  const hasCover = Boolean(project.coverImage);
+  const visualLink = hasLive ? project.liveUrl : hasGithub ? project.githubUrl : "";
+  const coverStyle = {
+    "--project-cover-position": project.coverPosition || "center top",
+    "--project-cover-fit": project.coverFit || "cover",
+    "--project-cover-bg": project.coverBackground || project.surface || "#07111f",
+  };
 
   return (
-    <div className={`project-preview ${compact ? "project-preview--compact" : ""} ${!hasLive ? "project-preview--repository" : ""}`}>
+    <div
+      className={`project-preview ${compact ? "project-preview--compact" : ""} ${!hasLive ? "project-preview--repository" : ""}`}
+      style={coverStyle}
+    >
       <div className="project-preview__browser" aria-hidden="true">
         <span />
         <span />
@@ -36,20 +43,20 @@ export function ProjectVisual({ project, compact = false }) {
       {hasCover ? (
         <div className="project-preview__viewport">
           <img
-            src={coverSource}
-            alt={`Vista de ${project.title}`}
+            src={project.coverImage}
+            alt={`Portada de ${project.title}`}
             loading="lazy"
             width="1200"
             height="675"
-            onError={(event) => handleImageError(event, coverFallback)}
+            onError={(event) => handleImageError(event, project.coverFallback)}
           />
-          {hasLive && (
+          {visualLink && (
             <a
               className="project-preview__overlay"
-              href={project.liveUrl}
+              href={visualLink}
               target="_blank"
               rel="noreferrer noopener"
-              aria-label={`Abrir ${project.title} en una pestaña nueva`}
+              aria-label={`${hasLive ? "Abrir" : "Revisar"} ${project.title} en una pestaña nueva`}
             />
           )}
         </div>
@@ -65,10 +72,10 @@ export function ProjectVisual({ project, compact = false }) {
       )}
 
       <div className="project-preview__caption">
-        <span>{preferStableCover ? "Imagen real del proyecto" : hasLive ? "Captura actual del proyecto" : "Vista del desarrollo"}</span>
+        <span>{project.coverLabel || (hasLive ? "Captura del proyecto" : "Vista del desarrollo")}</span>
         {hasLive ? (
           <a href={project.liveUrl} target="_blank" rel="noreferrer noopener">Abrir sitio ↗</a>
-        ) : project.githubUrl ? (
+        ) : hasGithub ? (
           <a href={project.githubUrl} target="_blank" rel="noreferrer noopener">Abrir GitHub ↗</a>
         ) : null}
       </div>

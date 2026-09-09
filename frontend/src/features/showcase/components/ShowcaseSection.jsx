@@ -1,11 +1,11 @@
 import { SectionTitle } from "../../../components/common/SectionTitle";
 import { ShowcaseCard } from "./ShowcaseCard";
 
-export function ShowcaseSection({ eyebrow, title, description, items = [], emptyLabel = "Todavia no hay recursos cargados." }) {
+export function ShowcaseSection({ eyebrow, title, description, items = [], emptyLabel = "Todavia no hay recursos cargados.", headingLevel = "h2" }) {
   return (
     <section className="section showcase-section">
       <div className="container">
-        <SectionTitle eyebrow={eyebrow} title={title} description={description} />
+        <SectionTitle eyebrow={eyebrow} title={title} description={description} headingLevel={headingLevel} />
 
         {items.length > 0 ? (
           <div className="showcase-grid">

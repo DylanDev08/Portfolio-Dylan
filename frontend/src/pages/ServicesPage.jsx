@@ -13,6 +13,7 @@ export function ServicesPage() {
         title="Soluciones pensadas desde el problema, no desde la herramienta."
         description="Primero defino qué necesita mejorar el proceso; después elijo la tecnología adecuada para construir una solución clara, usable y mantenible."
         items={data.services}
+        headingLevel="h1"
       />
       <ConversionCta
         eyebrow="Trabajemos sobre el problema"

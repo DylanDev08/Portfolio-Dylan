@@ -25,9 +25,10 @@ export function SkillsSection({ skills }) {
     <section className="section section--alt" id="skills">
       <div className="container">
         <SectionTitle
-          eyebrow="Tecnologías"
+          eyebrow="Habilidades"
           title="Herramientas que uso para construir soluciones."
           description="Evito porcentajes autodeclarados: las tecnologías principales están respaldadas por proyectos, repositorios y documentación que podés revisar desde el portfolio."
+          headingLevel="h1"
         />
         <div className="filters" role="group" aria-label="Filtrar tecnologías por categoría">
           {categories.map((category) => (

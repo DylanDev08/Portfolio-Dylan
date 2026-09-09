@@ -4,24 +4,48 @@ import { Header } from "../components/layout/Header";
 import { usePortfolio } from "../features/portfolio/hooks/usePortfolio";
 import { HeroSection } from "../features/profile/components/HeroSection";
 import { ProjectVisual } from "../features/projects/components/ProjectVisual";
+import { projectPresentationFor } from "../features/projects/data/projectPresentation";
 import { projectSlug } from "../features/projects/utils/projectSlug";
-import { WorkflowPrototype } from "../features/automation/components/WorkflowPrototype";
 
-const featuredProjectNames = ["Materiales FZAC", "Portfolio FZAC", "FuckTheSys", "Innova Click"];
-const stackGroups = [
-  { id: "FRONTEND", label: "Frontend" },
-  { id: "BACKEND", label: "Backend" },
-  { id: "DATABASE", label: "Datos" },
-  { id: "TOOLS", label: "Herramientas" },
+const featuredProjectNames = ["Materiales FZAC", "Portfolio FZAC", "Innova Click"];
+
+const routeCards = [
+  {
+    eyebrow: "Trabajo realizado",
+    title: "Proyectos",
+    description: "Casos reales con problema, solución, resultado, vista, demo y GitHub cuando corresponde.",
+    to: "/proyectos",
+    cta: "Ver proyectos",
+  },
+  {
+    eyebrow: "Qué puedo resolver",
+    title: "Servicios",
+    description: "Web, e-commerce, sistemas internos, automatizaciones e integraciones según la necesidad del negocio.",
+    to: "/servicios",
+    cta: "Ver servicios",
+  },
+  {
+    eyebrow: "Stack aplicado",
+    title: "Habilidades",
+    description: "Frontend, backend, bases de datos, automatización y herramientas organizadas por función.",
+    to: "/skills",
+    cta: "Ver habilidades",
+  },
+  {
+    eyebrow: "Procesos",
+    title: "Automatización",
+    description: "Prototipos visuales que muestran cómo reduzco pasos manuales, errores y pérdida de información.",
+    to: "/automatizaciones",
+    cta: "Ver workflows",
+  },
 ];
 
 export function HomePage() {
   const { data } = usePortfolio();
   const featuredProjects = featuredProjectNames
     .map((name) => data.projects.find((project) => project.title === name))
-    .filter(Boolean);
-  const featuredServices = data.services.slice(0, 3);
-  const featuredAutomations = data.workflows.slice(0, 2);
+    .filter(Boolean)
+    .map(projectPresentationFor);
   const venture = data.venture;
 
   return (
@@ -31,79 +55,57 @@ export function HomePage() {
       <main id="main-content">
         <HeroSection profile={data.profile} />
 
-        <section className="section section--compact home-solutions">
+        <section className="section section--compact home-routing" aria-labelledby="home-routing-title">
           <div className="container">
-            <div className="home-section-heading">
-              <span className="eyebrow">Servicios</span>
-              <h2>Soluciones para vender mejor, ordenar la operación y ahorrar trabajo manual.</h2>
-              <p>Primero identifico el cuello de botella. Después diseño una solución web, integración o automatización que tenga sentido para el negocio.</p>
+            <div className="home-section-heading home-section-heading--compact">
+              <span className="eyebrow">Explorar portfolio</span>
+              <h2 id="home-routing-title">Entrá directo a lo que querés revisar.</h2>
+              <p>La Home funciona como punto de entrada. El contenido completo vive en páginas separadas para que sea más rápido encontrar proyectos, servicios, habilidades o automatizaciones.</p>
             </div>
 
-            <div className="solution-grid">
-              {featuredServices.map((service) => (
-                <article className="solution-card" key={service.id}>
-                  <span>{service.category}</span>
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <strong>{service.result}</strong>
-                  {service.url && (
-                    <a className="solution-card__cta" href={service.url} target="_blank" rel="noreferrer noopener">{service.ctaLabel || "Consultar"} ↗</a>
-                  )}
-                </article>
+            <div className="route-card-grid">
+              {routeCards.map((item) => (
+                <Link className="route-card" to={item.to} key={item.to}>
+                  <span>{item.eyebrow}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <strong>{item.cta} →</strong>
+                </Link>
               ))}
             </div>
-
-            <Link className="text-link" to="/servicios">Ver todas las soluciones →</Link>
           </div>
         </section>
 
-        {venture && (
-          <section className="section section--alt home-venture">
-            <div className="container venture-card">
-              <div className="venture-card__copy">
-                <span className="eyebrow">{venture.eyebrow}</span>
-                <h2>{venture.name}</h2>
-                <h3>{venture.headline}</h3>
-                <p>{venture.description}</p>
-                <div className="venture-services" aria-label="Servicios de ADTech">
-                  {venture.services.map((service) => <span key={service}>{service}</span>)}
-                </div>
-              </div>
-              <div className="venture-card__actions">
-                <a className="button button--primary" href={venture.whatsappUrl} target="_blank" rel="noreferrer noopener">Consultar por ADTech</a>
-                <a className="button button--secondary" href={venture.instagramUrl} target="_blank" rel="noreferrer noopener">Instagram {venture.handle}</a>
-                <a className="button button--ghost" href={venture.tiktokUrl} target="_blank" rel="noreferrer noopener">TikTok</a>
-              </div>
-            </div>
-          </section>
-        )}
-
-        <section className="section home-featured-projects">
+        <section className="section section--alt home-featured-projects" aria-labelledby="featured-projects-title">
           <div className="container">
-            <div className="home-section-heading">
-              <span className="eyebrow">Proyectos</span>
-              <h2>Proyectos reales con acceso directo, repositorio y vista del resultado.</h2>
-              <p>Las portadas se generan desde los sitios publicados o usan assets reales del proyecto. En los desarrollos con código público, GitHub queda a un clic.</p>
+            <div className="home-section-heading home-section-heading--compact">
+              <span className="eyebrow">Selección</span>
+              <h2 id="featured-projects-title">Tres proyectos para entender rápido cómo trabajo.</h2>
+              <p>Cada portada corresponde al proyecto real y cada caso abre su propia URL con contexto, solución, resultado y accesos verificables.</p>
             </div>
 
-            <div className="home-project-view-grid">
+            <div className="home-project-teaser-grid">
               {featuredProjects.map((project) => {
                 const caseUrl = `/proyectos/${projectSlug(project.title)}`;
+                const themeStyle = {
+                  "--project-accent": project.accent,
+                  "--project-accent-rgb": project.accentRgb,
+                  "--project-surface": project.surface,
+                };
                 return (
-                  <article className="home-project-view" key={project.id}>
+                  <article className="home-project-teaser" key={project.id} style={themeStyle}>
                     <ProjectVisual project={project} compact />
-                    <div className="home-project-view__copy">
+                    <div className="home-project-teaser__body">
                       <div className="project-meta">
                         <span>{project.sourceType}</span>
                         <span>{project.statusLabel}</span>
                       </div>
                       <h3><Link to={caseUrl}>{project.title}</Link></h3>
-                      <p><strong>Problema:</strong> {project.problem}</p>
-                      <p className="home-project-view__value">{project.value}</p>
-                      <div className="featured-project__actions">
-                        <Link to={caseUrl}>Ver desarrollo</Link>
-                        {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer noopener">Abrir proyecto</a>}
-                        {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noreferrer noopener">GitHub</a>}
+                      <p>{project.value}</p>
+                      <div className="home-project-teaser__links">
+                        <Link to={caseUrl}>Ver caso →</Link>
+                        {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer noopener">Web ↗</a>}
+                        {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noreferrer noopener">GitHub ↗</a>}
                       </div>
                     </div>
                   </article>
@@ -115,52 +117,36 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="section section--alt home-stack">
+        {venture && (
+          <section className="section home-venture-teaser" aria-labelledby="adtech-home-title">
+            <div className="container venture-teaser">
+              <div>
+                <span className="eyebrow">{venture.eyebrow}</span>
+                <h2 id="adtech-home-title">{venture.name}</h2>
+                <h3>{venture.headline}</h3>
+                <p>{venture.description}</p>
+              </div>
+              <div className="venture-teaser__actions">
+                <Link className="button button--primary" to="/adtech">Conocer ADTech</Link>
+                <a className="button button--secondary" href={venture.whatsappUrl} target="_blank" rel="noreferrer noopener">Consultar por WhatsApp</a>
+              </div>
+            </div>
+          </section>
+        )}
+
+        <section className="section section--compact home-secondary-links" aria-labelledby="profile-links-title">
           <div className="container">
-            <div className="home-section-heading">
-              <span className="eyebrow">Habilidades</span>
-              <h2>Stack visible y fácil de escanear.</h2>
-              <p>Las tecnologías están agrupadas por función y respaldadas por proyectos, no por porcentajes autodeclarados.</p>
+            <div className="home-section-heading home-section-heading--compact">
+              <span className="eyebrow">Perfil profesional</span>
+              <h2 id="profile-links-title">Más contexto, sin cargar la Home.</h2>
             </div>
-
-            <div className="home-stack-grid">
-              {stackGroups.map((group) => {
-                const groupSkills = data.skills.filter((skill) => skill.category === group.id);
-                return (
-                  <article className="home-stack-card" key={group.id}>
-                    <span>{group.label}</span>
-                    <div className="home-stack-card__skills">
-                      {groupSkills.map((skill) => <strong key={skill.id}>{skill.name}</strong>)}
-                    </div>
-                  </article>
-                );
-              })}
+            <div className="profile-link-row">
+              <Link to="/sobre-mi">Sobre mí</Link>
+              <Link to="/experiencia">Experiencia</Link>
+              <Link to="/formacion">Formación</Link>
+              <Link to="/documentacion">Documentación</Link>
+              <a href="/cv/CV_Dylan_Salcedo.pdf" download="CV_Dylan_Salcedo_ATS_2026.pdf">CV ATS 2026</a>
             </div>
-
-            <Link className="text-link" to="/skills">Ver habilidades completas →</Link>
-          </div>
-        </section>
-
-        <section className="section home-automation">
-          <div className="container">
-            <div className="home-section-heading">
-              <span className="eyebrow">Workflows</span>
-              <h2>Prototipos de procesos, no archivos copiables.</h2>
-              <p>Muestro cómo pienso el flujo y qué problema resuelve, sin publicar credenciales, JSON, tokens ni configuraciones importables.</p>
-            </div>
-
-            <div className="home-workflow-grid">
-              {featuredAutomations.map((automation) => (
-                <article className="home-workflow-card" key={automation.id}>
-                  <span>{automation.category}</span>
-                  <h3>{automation.title}</h3>
-                  <WorkflowPrototype title={automation.title} steps={automation.steps} />
-                  <p><strong>Resultado:</strong> {automation.result}</p>
-                </article>
-              ))}
-            </div>
-
-            <Link className="text-link" to="/automatizaciones">Ver todos los workflows →</Link>
           </div>
         </section>
 

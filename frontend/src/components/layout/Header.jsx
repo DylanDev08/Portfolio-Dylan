@@ -5,9 +5,9 @@ const links = [
   ["Inicio", "/"],
   ["Proyectos", "/proyectos"],
   ["Servicios", "/servicios"],
-  ["Automatizaciones", "/automatizaciones"],
-  ["Experiencia", "/experiencia"],
-  ["Docs", "/documentacion"],
+  ["Habilidades", "/skills"],
+  ["Automatización", "/automatizaciones"],
+  ["ADTech", "/adtech"],
   ["Contacto", "/contacto"],
 ];
 
@@ -57,6 +57,7 @@ export function Header() {
             <NavLink
               key={href}
               to={href}
+              end={href === "/"}
               className={({ isActive }) => (isActive ? "active" : undefined)}
               onClick={() => setOpen(false)}
             >
