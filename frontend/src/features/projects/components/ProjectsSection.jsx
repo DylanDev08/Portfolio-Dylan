@@ -1,62 +1,57 @@
-import { useMemo, useState } from "react";
 import { SectionTitle } from "../../../components/common/SectionTitle";
 import { ProjectCard } from "./ProjectCard";
 
-const filters = [
-  { id: "all", label: "Todos" },
-  { id: "live", label: "Publicados" },
-  { id: "development", label: "En desarrollo" },
-  { id: "code", label: "Código propio" },
-  { id: "platform", label: "WordPress / TiendaNube" },
+const sections = [
+  {
+    id: "custom",
+    eyebrow: "Código propio",
+    title: "Sistemas y productos desarrollados a medida",
+    description: "Proyectos donde trabajo arquitectura, frontend, backend, datos y operación. Cuando existe una demo pública, la tarjeta muestra la vista real del sitio.",
+  },
+  {
+    id: "platform",
+    eyebrow: "WordPress / TiendaNube",
+    title: "Sitios y e-commerce construidos sobre plataformas",
+    description: "Trabajos donde el problema no requería construir toda la infraestructura desde cero, sino resolver presencia, venta, navegación y conversión usando una plataforma adecuada.",
+  },
+  {
+    id: "development",
+    eyebrow: "En desarrollo",
+    title: "Productos que todavía están evolucionando",
+    description: "Los muestro con su estado real. Si existe una demo se ve directamente; si todavía no hay una versión pública estable, muestro el repositorio en lugar de inventar una portada.",
+  },
 ];
 
-function matchesFilter(project, filter) {
-  if (filter === "all") return true;
-  if (filter === "live") return project.status === "live";
-  if (filter === "development") return project.status === "in-development";
-  if (filter === "code") return project.sourceType?.toLowerCase().includes("código");
-  if (filter === "platform") return ["wordpress", "tiendanube"].includes(project.sourceType?.toLowerCase());
-  return true;
-}
-
 export function ProjectsSection({ projects }) {
-  const [activeFilter, setActiveFilter] = useState("all");
-  const visibleProjects = useMemo(
-    () => projects.filter((project) => matchesFilter(project, activeFilter)),
-    [activeFilter, projects],
-  );
-
   return (
     <section className="section" id="proyectos">
       <div className="container">
         <SectionTitle
           eyebrow="Proyectos"
-          title="Problemas reales, soluciones concretas y trabajo verificable."
-          description="Cada proyecto indica qué necesidad aborda, qué construí y qué valor aporta. Los estados diferencian productos publicados, trabajos en desarrollo y repositorios disponibles."
+          title="Primero el problema. Después la solución y la evidencia."
+          description="El portfolio está separado por tipo de entrega para que se entienda qué desarrollé a medida, qué resolví sobre plataformas y qué productos siguen en construcción."
         />
 
-        <div className="project-filters" role="group" aria-label="Filtrar proyectos">
-          {filters.map((filter) => (
-            <button
-              key={filter.id}
-              type="button"
-              className={activeFilter === filter.id ? "active" : undefined}
-              aria-pressed={activeFilter === filter.id}
-              onClick={() => setActiveFilter(filter.id)}
-            >
-              {filter.label}
-            </button>
-          ))}
-        </div>
+        <div className="project-sections">
+          {sections.map((section) => {
+            const sectionProjects = projects.filter((project) => project.portfolioSection === section.id);
+            if (!sectionProjects.length) return null;
 
-        <p className="project-results" aria-live="polite">
-          Mostrando {visibleProjects.length} de {projects.length} proyectos.
-        </p>
-
-        <div className="projects-grid">
-          {visibleProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+            return (
+              <section className="project-section-group" key={section.id} aria-labelledby={`project-section-${section.id}`}>
+                <div className="project-section-group__heading">
+                  <span className="eyebrow">{section.eyebrow}</span>
+                  <h2 id={`project-section-${section.id}`}>{section.title}</h2>
+                  <p>{section.description}</p>
+                </div>
+                <div className="projects-grid">
+                  {sectionProjects.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                  ))}
+                </div>
+              </section>
+            );
+          })}
         </div>
       </div>
     </section>
