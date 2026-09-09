@@ -5,6 +5,7 @@ const links = [
   ["Inicio", "/"],
   ["Proyectos", "/proyectos"],
   ["Servicios", "/servicios"],
+  ["Automatizaciones", "/automatizaciones"],
   ["Experiencia", "/experiencia"],
   ["Docs", "/documentacion"],
   ["Contacto", "/contacto"],
@@ -22,9 +23,7 @@ export function Header() {
     if (!open) return undefined;
 
     const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-      }
+      if (event.key === "Escape") setOpen(false);
     };
 
     window.addEventListener("keydown", handleKeyDown);
