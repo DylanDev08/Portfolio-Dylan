@@ -4,6 +4,7 @@ import { Header } from "../components/layout/Header";
 import { usePortfolio } from "../features/portfolio/hooks/usePortfolio";
 import { HeroSection } from "../features/profile/components/HeroSection";
 import { ProjectVisual } from "../features/projects/components/ProjectVisual";
+import { projectPresentationFor } from "../features/projects/data/projectPresentation";
 import { projectSlug } from "../features/projects/utils/projectSlug";
 
 const featuredProjectNames = ["Materiales FZAC", "Portfolio FZAC", "Innova Click"];
@@ -43,7 +44,8 @@ export function HomePage() {
   const { data } = usePortfolio();
   const featuredProjects = featuredProjectNames
     .map((name) => data.projects.find((project) => project.title === name))
-    .filter(Boolean);
+    .filter(Boolean)
+    .map(projectPresentationFor);
   const venture = data.venture;
 
   return (
@@ -79,14 +81,19 @@ export function HomePage() {
             <div className="home-section-heading home-section-heading--compact">
               <span className="eyebrow">Selección</span>
               <h2 id="featured-projects-title">Tres proyectos para entender rápido cómo trabajo.</h2>
-              <p>La Home muestra solo una selección. Cada caso tiene su propia URL con contexto, solución, resultado y accesos directos.</p>
+              <p>Cada portada corresponde al proyecto real y cada caso abre su propia URL con contexto, solución, resultado y accesos verificables.</p>
             </div>
 
             <div className="home-project-teaser-grid">
               {featuredProjects.map((project) => {
                 const caseUrl = `/proyectos/${projectSlug(project.title)}`;
+                const themeStyle = {
+                  "--project-accent": project.accent,
+                  "--project-accent-rgb": project.accentRgb,
+                  "--project-surface": project.surface,
+                };
                 return (
-                  <article className="home-project-teaser" key={project.id}>
+                  <article className="home-project-teaser" key={project.id} style={themeStyle}>
                     <ProjectVisual project={project} compact />
                     <div className="home-project-teaser__body">
                       <div className="project-meta">
@@ -95,7 +102,11 @@ export function HomePage() {
                       </div>
                       <h3><Link to={caseUrl}>{project.title}</Link></h3>
                       <p>{project.value}</p>
-                      <Link className="text-link" to={caseUrl}>Abrir caso →</Link>
+                      <div className="home-project-teaser__links">
+                        <Link to={caseUrl}>Ver caso →</Link>
+                        {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer noopener">Web ↗</a>}
+                        {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noreferrer noopener">GitHub ↗</a>}
+                      </div>
                     </div>
                   </article>
                 );
