@@ -74,6 +74,13 @@ export function ProjectDetailPage() {
         <section className="section project-case-content" id="documentacion-caso">
           <div className="container project-case-layout">
             <article className="project-case-main">
+              {project.role && (
+                <section className="project-case-block">
+                  <span className="eyebrow">Mi participación</span>
+                  <h2>Qué parte del producto desarrollé.</h2>
+                  <p>{project.role}</p>
+                </section>
+              )}
               <section className="project-case-block">
                 <span className="eyebrow">Necesidad</span>
                 <h2>Qué problema debía resolver el producto.</h2>
@@ -100,6 +107,16 @@ export function ProjectDetailPage() {
                 </section>
               )}
 
+              {(project.highlights || []).length > 0 && (
+                <section className="project-case-block">
+                  <span className="eyebrow">Capacidades</span>
+                  <h2>Qué incluye la solución.</h2>
+                  <div className="badges project-case-tech">
+                    {project.highlights.map((item) => <span key={item}>{item}</span>)}
+                  </div>
+                </section>
+              )}
+
               {project.deploymentNote && (
                 <section className="project-case-block project-case-block--note">
                   <span className="eyebrow">Evolución del producto</span>
@@ -110,6 +127,15 @@ export function ProjectDetailPage() {
             </article>
 
             <aside className="project-case-aside">
+              {(project.architecture || []).length > 0 && (
+                <div className="project-case-panel">
+                  <span className="eyebrow">Arquitectura</span>
+                  <div className="badges project-case-tech">
+                    {project.architecture.map((item) => <span key={item}>{item}</span>)}
+                  </div>
+                </div>
+              )}
+
               <div className="project-case-panel">
                 <span className="eyebrow">Tecnologías</span>
                 <div className="badges project-case-tech">
