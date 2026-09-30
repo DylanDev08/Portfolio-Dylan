@@ -37,12 +37,19 @@ export function ProjectCard({ project }) {
         </div>
 
         <h3 className="project-card__title"><Link to={detailUrl}>{displayProject.title}</Link></h3>
+        {displayProject.role && <p className="project-card__role">{displayProject.role}</p>}
         <p className="project-card__problem"><strong>Necesidad</strong>{displayProject.problem}</p>
 
         {displayProject.value && (
           <div className="project-card__value">
             <strong>Valor de la solución</strong>
             <span>{displayProject.value}</span>
+          </div>
+        )}
+
+        {(displayProject.highlights || []).length > 0 && (
+          <div className="badges project-card__badges" aria-label={`Capacidades de ${displayProject.title}`}>
+            {displayProject.highlights.slice(0, 3).map((item) => <span key={item}>{item}</span>)}
           </div>
         )}
 
