@@ -116,6 +116,9 @@ export const fallbackPortfolio = {
     {
       id: 1,
       title: "Materiales FZAC",
+      role: "Arquitectura y desarrollo Full Stack",
+      highlights: ["Checkout y pagos", "Stock y administración", "Autenticación y seguridad", "Integraciones y notificaciones"],
+      architecture: ["Next.js / React", "API y validaciones", "Supabase / PostgreSQL", "Mercado Pago / Resend"],
       portfolioSection: "custom",
       category: "E-commerce / Gestión",
       sourceType: "Código propio",
@@ -134,6 +137,9 @@ export const fallbackPortfolio = {
     {
       id: 2,
       title: "Portfolio FZAC",
+      role: "Diseño y desarrollo Full Stack",
+      highlights: ["CMS administrable", "CRUD de obras y galerías", "Autenticación de administradores", "Supabase Storage"],
+      architecture: ["React / Vite", "Node.js / Express", "Prisma", "Supabase"],
       portfolioSection: "custom",
       category: "Web empresarial / CMS",
       sourceType: "Código propio",
@@ -152,6 +158,9 @@ export const fallbackPortfolio = {
     {
       id: 3,
       title: "Mangas MaxDy",
+      role: "Desarrollo Full Stack",
+      highlights: ["Usuarios y roles", "Mangas y capítulos", "Favoritos y progreso", "Comentarios y rankings"],
+      architecture: ["React", "Express", "Prisma", "PostgreSQL / Supabase"],
       portfolioSection: "custom",
       category: "Plataforma web",
       sourceType: "Código propio / Full Stack",
@@ -170,6 +179,9 @@ export const fallbackPortfolio = {
     {
       id: 4,
       title: "FuckTheSys",
+      role: "Implementación y personalización e-commerce",
+      highlights: ["Catálogo comercial", "Experiencia mobile", "Navegación de compra", "Identidad visual"],
+      architecture: ["TiendaNube", "Configuración comercial", "UI/UX", "Responsive"],
       portfolioSection: "platform",
       category: "E-commerce",
       sourceType: "TiendaNube",
@@ -186,6 +198,9 @@ export const fallbackPortfolio = {
     {
       id: 5,
       title: "Innova Click",
+      role: "Desarrollo web y experiencia comercial",
+      highlights: ["Arquitectura de contenidos", "Servicios y CTAs", "Responsive", "SEO y presencia digital"],
+      architecture: ["WordPress", "UI/UX", "Responsive", "SEO"],
       portfolioSection: "platform",
       category: "Sitio comercial",
       sourceType: "WordPress",
@@ -202,6 +217,9 @@ export const fallbackPortfolio = {
     {
       id: 6,
       title: "BarberHouse",
+      role: "Frontend y prototipado de producto",
+      highlights: ["Interfaz responsive", "Identidad visual", "Servicios", "Base para reservas"],
+      architecture: ["React", "Vite", "JavaScript", "CSS"],
       portfolioSection: "development",
       category: "Web comercial",
       sourceType: "Código propio",
@@ -220,6 +238,9 @@ export const fallbackPortfolio = {
     {
       id: 7,
       title: "Budgetly",
+      role: "Arquitectura y desarrollo Full Stack",
+      highlights: ["Finanzas personales", "Metas", "Estado global", "Visualización de datos"],
+      architecture: ["Next.js", "TypeScript", "Supabase", "Prisma"],
       portfolioSection: "development",
       category: "Finanzas personales",
       sourceType: "Código propio",
@@ -239,6 +260,9 @@ export const fallbackPortfolio = {
     {
       id: 8,
       title: "PrismaERP",
+      role: "Arquitectura y desarrollo Full Stack",
+      highlights: ["Multi-tenancy y RLS", "Usuarios y autorización", "Obras y balances", "Importación / exportación", "Auditoría e idempotencia", "CI/CD"],
+      architecture: ["TypeScript / Node.js", "Prisma / PostgreSQL", "Supabase Auth + RLS", "Docker / GitHub Actions"],
       portfolioSection: "custom",
       category: "ERP / Gestión empresarial",
       sourceType: "Código propio / Full Stack",
