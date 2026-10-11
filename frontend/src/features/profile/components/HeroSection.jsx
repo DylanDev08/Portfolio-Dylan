@@ -7,17 +7,17 @@ export function HeroSection({ profile }) {
     <section className="hero" id="inicio">
       <div className="container hero-grid">
         <div className="hero-copy">
-          <span className="eyebrow">Full Stack · Software · Automatización · Rosario</span>
+          <span className="eyebrow">Páginas web · Tiendas online · Automatización · Rosario</span>
           <h1>
-            Desarrollo soluciones digitales para <em>vender mejor</em>, operar con más control y escalar procesos.
+            Creamos páginas web y soluciones digitales para que tu negocio <em>consiga más consultas</em> y trabaje mejor.
           </h1>
           <p className="hero-lead">
-            Diseño y desarrollo sitios, e-commerce, sistemas web, automatizaciones e integraciones orientadas a necesidades concretas de negocio. La tecnología se define en función del objetivo, la operación y el resultado esperado.
+            Desde una web profesional con contacto por WhatsApp hasta catálogos, tiendas online y sistemas de gestión: te ayudo a presentar tus servicios, recibir consultas y ordenar procesos. Trabajamos con objetivos claros y una propuesta adaptada a tu negocio.
           </p>
 
           <div className="hero-actions">
-            <a className="button button--primary" href={consultationUrl} target="_blank" rel="noreferrer noopener">Solicitar una propuesta</a>
-            <Link className="button button--secondary" to="/proyectos">Ver proyectos</Link>
+            <a className="button button--primary" href={consultationUrl} target="_blank" rel="noreferrer noopener">Pedir diagnóstico inicial</a>
+            <Link className="button button--secondary" to="/proyectos">Ver trabajos reales</Link>
             <a className="button button--ghost" href="/cv/CV_Dylan_Salcedo.pdf" download="CV_Dylan_Salcedo_ATS_2026.pdf">CV ATS 2026</a>
           </div>
 
