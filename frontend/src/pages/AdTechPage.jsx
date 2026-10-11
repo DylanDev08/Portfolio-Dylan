@@ -1,35 +1,115 @@
 import { PageShell } from "../components/layout/PageShell";
 import { usePortfolio } from "../features/portfolio/hooks/usePortfolio";
 
+const offers = [
+  { name: "Tiendas con Tiendanube", level: "Implementación sobre plataforma", description: "Configuración de tienda, catálogo, medios de contacto, navegación, identidad visual y acompañamiento para publicar. La plataforma y sus abonos se contratan por separado.", points: ["Salida al mercado más rápida", "Panel de productos y pedidos", "Personalización según las opciones de la plataforma"] },
+  { name: "Webs y tiendas con WordPress", level: "Sitio autoadministrable", description: "Sitios institucionales, blogs y tiendas con WooCommerce. Diseño, configuración, contenidos y extensiones según las necesidades del negocio.", points: ["Administración de contenidos", "Integración de formularios y WhatsApp", "Hosting, plugins y mantenimiento a definir"] },
+  { name: "Desarrollo a medida con código", level: "Mayor inversión · Máxima personalización", description: "Aplicaciones y sitios desarrollados con React, Node.js, bases de datos y APIs cuando el negocio necesita una experiencia o lógica propia que las plataformas estándar no resuelven.", points: ["Diseño y funcionalidades específicas", "Integraciones y paneles personalizados", "Presupuesto según alcance, pruebas y mantenimiento"] },
+];
+const extra = [
+  ["Automatizaciones", "Flujos con n8n, APIs, alertas y sincronización de información."],
+  ["Sistemas de gestión", "Herramientas para clientes, pedidos, inventario y operaciones."],
+  ["Catálogos y landing pages", "Páginas comerciales enfocadas en consultas y contacto."],
+  ["Integraciones y chatbots", "Conexiones entre servicios y flujos de atención, según disponibilidad de cada plataforma."],
+];
+const ask = (topic) => "https://wa.me/5493417415857?text=" + encodeURIComponent("Hola, vi AdTech en el portfolio y quiero consultar por " + topic + ".");
+
 export function AdTechPage() {
   const { data } = usePortfolio();
   const venture = data.venture;
-
   if (!venture) return null;
 
   return (
     <PageShell>
       <section className="section adtech-page">
-        <div className="container adtech-page__layout">
-          <div className="adtech-page__intro">
-            <span className="eyebrow">{venture.eyebrow}</span>
-            <h1>{venture.name}</h1>
-            <h2>{venture.headline}</h2>
-            <p>{venture.description}</p>
-
-            <div className="venture-services" aria-label="Servicios de ADTech">
-              {venture.services.map((service) => <span key={service}>{service}</span>)}
+        <div className="container">
+          <div className="adtech-page__layout">
+            <div className="adtech-page__intro">
+              <span className="eyebrow">AdTech · Soluciones digitales · Rosario</span>
+              <h1>AdTech<span style={{color:"#3478f6"}}>.</span></h1>
+              <h2>Tu negocio no necesita más tecnología: necesita una solución que funcione.</h2>
+              <p>Desarrollamos páginas web, tiendas online, sistemas y automatizaciones para que emprendedores y empresas puedan mostrar mejor lo que hacen, recibir consultas y organizar su trabajo.</p>
+              <p>Elegimos la tecnología según tu objetivo y presupuesto: desde plataformas listas para administrar hasta desarrollos completamente personalizados.</p>
+              <div className="hero-actions">
+                <a className="button button--primary" href={ask("una web o tienda online")} target="_blank" rel="noreferrer noopener">Solicitar presupuesto por WhatsApp</a>
+                <a className="button button--secondary" href="#adtech-servicios">Explorar servicios</a>
+              </div>
             </div>
+            <aside className="adtech-page__contact">
+              <span className="eyebrow">Contactanos</span>
+              <h2>Hablemos de tu proyecto</h2>
+              <p>Contanos qué vendés, qué necesitás y qué querés mejorar. Te orientamos sobre la opción más adecuada.</p>
+              <a className="button button--primary" href={venture.whatsappUrl} target="_blank" rel="noreferrer noopener">WhatsApp · +54 9 341 741 5857</a>
+              <a className="button button--secondary" href={venture.instagramUrl} target="_blank" rel="noreferrer noopener">Instagram · {venture.handle}</a>
+              <a className="button button--ghost" href={venture.tiktokUrl} target="_blank" rel="noreferrer noopener">TikTok · {venture.handle}</a>
+            </aside>
           </div>
+        </div>
+      </section>
 
-          <aside className="adtech-page__contact" aria-label="Canales de ADTech">
-            <span className="eyebrow">Contacto directo</span>
-            <h2>¿Tenés una necesidad concreta?</h2>
-            <p>Contame el problema, el proceso actual y qué resultado buscás. Desde ahí evaluamos qué solución tiene más sentido.</p>
-            <a className="button button--primary" href={venture.whatsappUrl} target="_blank" rel="noreferrer noopener">Hablar por WhatsApp</a>
-            <a className="button button--secondary" href={venture.instagramUrl} target="_blank" rel="noreferrer noopener">Instagram {venture.handle}</a>
-            <a className="button button--ghost" href={venture.tiktokUrl} target="_blank" rel="noreferrer noopener">TikTok</a>
-          </aside>
+      <section className="section section--alt" aria-labelledby="adtech-historia">
+        <div className="container" style={{maxWidth:920}}>
+          <span className="eyebrow">Nuestra historia y propósito</span>
+          <h2 id="adtech-historia">De desarrollar proyectos reales a ayudar a otros negocios.</h2>
+          <p>AdTech nace como un emprendimiento de desarrollo y soluciones digitales impulsado por la experiencia de crear sitios comerciales, herramientas internas y automatizaciones. La idea es simple: acercar tecnología útil a negocios que quieren crecer sin sumar complejidad innecesaria.</p>
+          <p>No proponemos la misma solución para todos. Primero entendemos el negocio y después elegimos si conviene una tienda sobre una plataforma, un sitio autoadministrable o software a medida.</p>
+        </div>
+      </section>
+
+      <section className="section" id="adtech-servicios" aria-labelledby="adtech-servicios-title">
+        <div className="container">
+          <span className="eyebrow">Opciones según tu presupuesto y necesidad</span>
+          <h2 id="adtech-servicios-title">Tres caminos para tener tu web o tienda online</h2>
+          <p>Una solución basada en plataforma suele requerir menos desarrollo inicial. Un producto programado a medida demanda más trabajo y una inversión mayor, pero permite personalizar procesos y funcionalidades.</p>
+          <div className="route-card-grid">
+            {offers.map((offer) => (
+              <article className="route-card" key={offer.name}>
+                <span>{offer.level}</span>
+                <h3>{offer.name}</h3>
+                <p>{offer.description}</p>
+                <ul>{offer.points.map((point) => <li key={point}>{point}</li>)}</ul>
+                <a href={ask(offer.name)} target="_blank" rel="noreferrer noopener">Consultar esta opción →</a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--alt" aria-labelledby="adtech-otros-title">
+        <div className="container">
+          <span className="eyebrow">Más que páginas web</span>
+          <h2 id="adtech-otros-title">Otros servicios de AdTech</h2>
+          <div className="route-card-grid">
+            {extra.map(([title, description]) => (
+              <article className="route-card" key={title}>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <a href={ask(title.toLowerCase())} target="_blank" rel="noreferrer noopener">Consultar servicio →</a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="adtech-casos">
+        <div className="container">
+          <span className="eyebrow">Proyectos reales</span>
+          <h2 id="adtech-casos">Conocé trabajos que podés visitar</h2>
+          <div className="route-card-grid">
+            <article className="route-card"><span>E-commerce y catálogo</span><h3>Materiales FZAC</h3><p>Proyecto comercial con catálogo de productos y herramientas de gestión.</p><a href="https://www.fzacmateriales.store" target="_blank" rel="noreferrer noopener">Visitar proyecto ↗</a></article>
+            <article className="route-card"><span>Web empresarial</span><h3>Portfolio FZAC</h3><p>Presentación de servicios y obras con gestión de contenido.</p><a href="https://fzac-portfolio-1.onrender.com" target="_blank" rel="noreferrer noopener">Visitar proyecto ↗</a></article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--alt" aria-labelledby="adtech-preguntas">
+        <div className="container" style={{maxWidth:920}}>
+          <h2 id="adtech-preguntas">Preguntas frecuentes</h2>
+          <details><summary>¿Qué conviene: Tiendanube, WordPress o una web a medida?</summary><p>Depende del catálogo, presupuesto, mantenimiento, integraciones y personalización requerida. Te ayudamos a comparar las alternativas antes de presupuestar.</p></details>
+          <details><summary>¿Por qué un desarrollo a código cuesta más?</summary><p>Porque implica diseñar, implementar, probar y mantener funcionalidades específicas, en lugar de configurar una plataforma ya construida.</p></details>
+          <details><summary>¿El dominio y el hosting están incluidos?</summary><p>Se detallan en cada propuesta. Los costos recurrentes de dominio, hosting, plataforma, plugins o servicios externos se informan por separado.</p></details>
+          <details><summary>¿Puedo empezar con algo simple y ampliarlo después?</summary><p>Sí, siempre que la solución elegida permita la evolución que necesitás. Lo evaluamos antes de comenzar.</p></details>
+          <div style={{marginTop:28}}><a className="button button--primary" href={ask("una propuesta para mi negocio")} target="_blank" rel="noreferrer noopener">Contanos tu idea por WhatsApp</a></div>
         </div>
       </section>
     </PageShell>
