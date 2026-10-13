@@ -39,3 +39,19 @@
   .project-card__status{top:10px;right:10px}
   .section-title h2,.home-section-heading h2,.home-cta h2{font-size:clamp(2rem,11vw,3rem)}
 }
+
+/* Mobile-first navigation: scrollable menu and full-width AdTech accordion */
+@media(max-width:1080px){
+  .site-header{z-index:100}
+  .navigation{top:calc(100% + 4px);left:12px;right:12px;max-height:calc(100dvh - 90px);overflow-y:auto;overscroll-behavior:contain;gap:3px;padding:12px;-webkit-overflow-scrolling:touch}
+  .navigation a{display:flex;align-items:center;min-height:46px;line-height:1.35}
+  .navigation-dropdown{display:grid;grid-template-columns:minmax(0,1fr) 48px;align-items:center;width:100%;border:1px solid rgba(99,159,250,.25);border-radius:12px;background:rgba(39,97,184,.08)}
+  .navigation-dropdown>a{min-width:0;padding:12px 14px}
+  .navigation-dropdown__toggle{min-width:48px;min-height:48px;border-left:1px solid rgba(99,159,250,.25);border-radius:0 12px 12px 0;font-size:1.5rem}
+  .navigation-dropdown__menu{grid-column:1/-1;position:static;min-width:0;width:100%;margin:0;padding:6px 8px 9px;border:0;border-top:1px solid rgba(99,159,250,.25);border-radius:0;background:transparent;box-shadow:none}
+  .navigation-dropdown__menu a{white-space:normal;min-height:44px;padding:10px 14px;color:#d7e7ff}
+  .navigation-dropdown__menu a:hover,.navigation-dropdown__menu a:focus-visible{background:rgba(59,130,246,.18)}
+}
+@media(max-width:420px){
+  .navigation{left:8px;right:8px;max-height:calc(100dvh - 82px)}
+}
