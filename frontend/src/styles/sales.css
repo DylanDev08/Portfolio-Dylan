@@ -93,3 +93,22 @@
 @media(max-width:420px){
   .section-title h1{font-size:clamp(2rem,11vw,3rem)}
 }
+
+/* AdTech: lead generation without a backend */
+.adtech-page{background:radial-gradient(circle at 12% 12%,rgba(42,109,241,.12),transparent 38%)}
+.adtech-brand-lockup{display:flex;align-items:center;gap:18px;margin:18px 0}
+.adtech-brand-lockup h1{margin:0}
+.adtech-brand-symbol{display:grid;place-items:center;flex-shrink:0;width:76px;height:76px;border:1px solid rgba(90,157,255,.6);border-radius:22px;background:linear-gradient(135deg,#153c82,#3478f6);box-shadow:0 14px 40px rgba(25,102,230,.24);color:white;font-size:2rem;font-weight:900;letter-spacing:-.1em}
+.adtech-lead-section{background:radial-gradient(circle at 90% 10%,rgba(52,120,246,.12),transparent 42%)}
+.adtech-lead-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:clamp(28px,5vw,80px)}
+.adtech-lead-layout h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.12;margin:12px 0 18px}
+.adtech-lead-layout p{color:var(--muted);line-height:1.75;max-width:550px}
+.adtech-lead-form{display:grid;gap:10px;padding:clamp(20px,3vw,36px);border:1px solid rgba(83,150,255,.35);border-radius:22px;background:linear-gradient(155deg,#112641,#081422);box-shadow:0 18px 54px rgba(0,0,0,.15)}
+.adtech-lead-form label{font-size:.86rem;font-weight:750;color:#dcecff;margin-top:7px}
+.adtech-lead-form input,.adtech-lead-form select,.adtech-lead-form textarea{width:100%;min-height:46px;padding:12px 14px;border:1px solid rgba(126,164,208,.34);border-radius:10px;background:#081526;color:#f2f7ff;font:inherit}
+.adtech-lead-form textarea{resize:vertical}
+.adtech-lead-form :is(input,select,textarea):focus-visible{outline:2px solid #66a5ff;outline-offset:2px}
+.adtech-lead-form .button{margin-top:12px;justify-content:center;cursor:pointer}
+.adtech-lead-form small{color:var(--muted);line-height:1.6}
+@media(max-width:820px){.adtech-lead-layout{grid-template-columns:1fr}.adtech-brand-symbol{width:58px;height:58px;font-size:1.6rem}}
+@media(max-width:420px){.adtech-brand-lockup{gap:10px}.adtech-brand-lockup h1{font-size:clamp(2.7rem,13vw,4rem)}}
