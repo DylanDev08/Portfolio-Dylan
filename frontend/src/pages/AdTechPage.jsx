@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { PageShell } from "../components/layout/PageShell";
 import { usePortfolio } from "../features/portfolio/hooks/usePortfolio";
 
@@ -17,6 +19,13 @@ const ask = (topic) => "https://wa.me/5493417415857?text=" + encodeURIComponent(
 export function AdTechPage() {
   const { data } = usePortfolio();
   const venture = data.venture;
+  const [lead, setLead] = useState({ name: "", business: "", service: "Web empresarial", budget: "A definir", details: "" });
+  const change = (key, value) => setLead(prev => ({...prev, [key]: value}));
+  const send = (event) => {
+    event.preventDefault();
+    const message = ["Hola AdTech, quiero solicitar un presupuesto.", "Nombre: " + lead.name, "Negocio: " + lead.business, "Servicio: " + lead.service, "Presupuesto: " + lead.budget, "Proyecto: " + (lead.details || "A conversar"), "Origen: portfolio personal"].join("\n");
+    window.open("https://wa.me/5493417415857?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
+  };
   if (!venture) return null;
 
   return (
@@ -26,13 +35,13 @@ export function AdTechPage() {
           <div className="adtech-page__layout">
             <div className="adtech-page__intro">
               <span className="eyebrow">AdTech · Soluciones digitales · Rosario</span>
-              <h1>AdTech<span style={{color:"#3478f6"}}>.</span></h1>
+              <div className="adtech-brand-lockup"><span className="adtech-brand-symbol" aria-hidden="true">A+</span><h1>AdTech<span style={{color:"#3478f6"}}>.</span></h1></div>
               <h2>Tu negocio no necesita más tecnología: necesita una solución que funcione.</h2>
               <p>Desarrollamos páginas web, tiendas online, sistemas y automatizaciones para que emprendedores y empresas puedan mostrar mejor lo que hacen, recibir consultas y organizar su trabajo.</p>
               <p>Elegimos la tecnología según tu objetivo y presupuesto: desde plataformas listas para administrar hasta desarrollos completamente personalizados.</p>
               <div className="hero-actions">
-                <a className="button button--primary" href={ask("una web o tienda online")} target="_blank" rel="noreferrer noopener">Solicitar presupuesto por WhatsApp</a>
-                <a className="button button--secondary" href="#adtech-servicios">Explorar servicios</a>
+                <a className="button button--primary" href="#adtech-presupuesto">Solicitar presupuesto</a>
+                <a className="button button--secondary" href="#adtech-servicios">Explorar servicios</a><Link className="button button--ghost" to="/proyectos">Portfolio personal</Link>
               </div>
             </div>
             <aside className="adtech-page__contact">
@@ -102,6 +111,19 @@ export function AdTechPage() {
         </div>
       </section>
 
+      <section className="section adtech-lead-section" id="adtech-presupuesto">
+        <div className="container adtech-lead-layout">
+          <div><span className="eyebrow">Presupuesto personalizado</span><h2>Contanos qué necesitás desarrollar.</h2><p>Completá los datos y abrí tu consulta en WhatsApp. No necesitás registrarte y no guardamos tus respuestas en esta web.</p><Link to="/proyectos" className="button button--secondary">Ver proyectos reales →</Link></div>
+          <form className="adtech-lead-form" onSubmit={send}>
+            <label htmlFor="lead-name">Tu nombre *</label><input id="lead-name" required maxLength={100} autoComplete="name" value={lead.name} onChange={e=>change("name",e.target.value)} placeholder="Tu nombre" />
+            <label htmlFor="lead-business">Nombre del negocio *</label><input id="lead-business" required maxLength={120} value={lead.business} onChange={e=>change("business",e.target.value)} placeholder="Tu emprendimiento" />
+            <label htmlFor="lead-service">Servicio</label><select id="lead-service" value={lead.service} onChange={e=>change("service",e.target.value)}>{["Web empresarial","WordPress / WooCommerce","Tiendanube","Desarrollo a código","Catálogo digital","Automatización","Asesoramiento"].map(x=><option key={x}>{x}</option>)}</select>
+            <label htmlFor="lead-budget">Presupuesto estimado (ARS)</label><select id="lead-budget" value={lead.budget} onChange={e=>change("budget",e.target.value)}>{["A definir","Hasta $300.000","$300.000 a $700.000","Más de $700.000"].map(x=><option key={x}>{x}</option>)}</select>
+            <label htmlFor="lead-details">Descripción del proyecto</label><textarea id="lead-details" rows={4} maxLength={1500} value={lead.details} onChange={e=>change("details",e.target.value)} placeholder="Qué vendés y qué te gustaría implementar..." />
+            <button className="button button--primary" type="submit">Continuar por WhatsApp →</button><small>Se abrirá WhatsApp con el mensaje preparado. El envío requiere tu confirmación.</small>
+          </form>
+        </div>
+      </section>
       <section className="section section--alt" aria-labelledby="adtech-preguntas">
         <div className="container" style={{maxWidth:920}}>
           <h2 id="adtech-preguntas">Preguntas frecuentes</h2>
