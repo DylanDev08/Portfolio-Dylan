@@ -1,69 +1,38 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
-const links = [
-  ["Inicio", "/"],
-  ["Proyectos", "/proyectos"],
-  ["Servicios", "/servicios"],
-  ["Habilidades", "/skills"],
-  ["Automatización", "/automatizaciones"],
-  ["ADTech", "/adtech"],
-  ["Contacto", "/contacto"],
-];
+const links = [["Inicio","/"],["Proyectos","/proyectos"],["Servicios","/servicios"],["Habilidades","/skills"],["Automatización","/automatizaciones"],["Contacto","/contacto"]];
+const adtechSections = [["Acerca de nosotros","nosotros"],["Trabajos","trabajos"],["Servicios","servicios"],["Precios y planes","precios"],["Redes sociales","redes"],["Solicitar presupuesto","presupuesto"]];
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [adtechOpen, setAdtechOpen] = useState(false);
   const location = useLocation();
-
+  useEffect(() => { setOpen(false); setAdtechOpen(false); }, [location.pathname, location.hash]);
   useEffect(() => {
-    setOpen(false);
-  }, [location.pathname]);
-
-  useEffect(() => {
-    if (!open) return undefined;
-
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") setOpen(false);
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [open]);
-
+    if (!open && !adtechOpen) return;
+    const escape = (event) => { if (event.key === "Escape") { setOpen(false); setAdtechOpen(false); } };
+    window.addEventListener("keydown", escape);
+    return () => window.removeEventListener("keydown", escape);
+  }, [open, adtechOpen]);
   return (
     <header className="site-header">
       <div className="container navbar">
         <Link className="brand" to="/" aria-label="Dylan Salcedo - Inicio">
           <img className="brand__mark" src="/brand/ds-logo.svg" alt="" width="44" height="44" />
-          <span className="brand__text">
-            <strong>Dylan Salcedo</strong>
-            <small>Full Stack · Soluciones digitales</small>
-          </span>
+          <span className="brand__text"><strong>Dylan Salcedo</strong><small>Full Stack · Soluciones digitales</small></span>
         </Link>
-
-        <button
-          className="menu-button"
-          type="button"
-          onClick={() => setOpen((value) => !value)}
-          aria-expanded={open}
-          aria-controls="primary-navigation"
-          aria-label={open ? "Cerrar menú" : "Abrir menú"}
-        >
-          {open ? "Cerrar" : "Menú"}
-        </button>
-
+        <button className="menu-button" type="button" onClick={() => setOpen(value => !value)} aria-expanded={open} aria-controls="primary-navigation" aria-label={open ? "Cerrar menú" : "Abrir menú"}>{open ? "Cerrar" : "Menú"}</button>
         <nav id="primary-navigation" className={open ? "navigation navigation--open" : "navigation"} aria-label="Navegación principal">
-          {links.map(([label, href]) => (
-            <NavLink
-              key={href}
-              to={href}
-              end={href === "/"}
-              className={({ isActive }) => (isActive ? "active" : undefined)}
-              onClick={() => setOpen(false)}
-            >
-              {label}
-            </NavLink>
-          ))}
+          {links.slice(0,5).map(([label,href]) => <NavLink key={href} to={href} end={href === "/"} className={({isActive}) => isActive ? "active" : undefined} onClick={() => setOpen(false)}>{label}</NavLink>)}
+          <div className="navigation-dropdown">
+            <NavLink to="/adtech" className={({isActive}) => isActive ? "active" : undefined} onClick={() => { setOpen(false); setAdtechOpen(false); }}>AdTech</NavLink>
+            <button type="button" className="navigation-dropdown__toggle" aria-expanded={adtechOpen} aria-controls="adtech-subnav" aria-label="Desplegar secciones de AdTech" onClick={() => setAdtechOpen(value => !value)}>{adtechOpen ? "⌃" : "⌄"}</button>
+            {adtechOpen && <div id="adtech-subnav" className="navigation-dropdown__menu">
+              {adtechSections.map(([label,id]) => <Link key={id} to={"/adtech#"+id} onClick={() => { setOpen(false); setAdtechOpen(false); }}>{label}</Link>)}
+            </div>}
+          </div>
+          <NavLink to="/contacto" className={({isActive}) => isActive ? "active" : undefined} onClick={() => setOpen(false)}>Contacto</NavLink>
         </nav>
       </div>
     </header>
