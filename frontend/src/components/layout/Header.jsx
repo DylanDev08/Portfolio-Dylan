@@ -10,6 +10,12 @@ export function Header() {
   const location = useLocation();
   useEffect(() => { setOpen(false); setAdtechOpen(false); }, [location.pathname, location.hash]);
   useEffect(() => {
+    if (location.pathname !== "/adtech" || !location.hash) return;
+    const targetId = decodeURIComponent(location.hash.slice(1));
+    const frame = window.requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView({ block: "start" }));
+    return () => window.cancelAnimationFrame(frame);
+  }, [location.pathname, location.hash]);
+  useEffect(() => {
     if (!open && !adtechOpen) return;
     const escape = (event) => { if (event.key === "Escape") { setOpen(false); setAdtechOpen(false); } };
     window.addEventListener("keydown", escape);
