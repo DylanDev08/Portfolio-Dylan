@@ -40,8 +40,8 @@ export function AdTechPage() {
               <p>Desarrollamos páginas web, tiendas online, sistemas y automatizaciones para que emprendedores y empresas puedan mostrar mejor lo que hacen, recibir consultas y organizar su trabajo.</p>
               <p>Elegimos la tecnología según tu objetivo y presupuesto: desde plataformas listas para administrar hasta desarrollos completamente personalizados.</p>
               <div className="hero-actions">
-                <a className="button button--primary" href="#adtech-presupuesto">Solicitar presupuesto</a>
-                <a className="button button--secondary" href="#adtech-servicios">Explorar servicios</a><Link className="button button--ghost" to="/proyectos">Portfolio personal</Link>
+                <a className="button button--primary" href="#presupuesto">Solicitar presupuesto</a>
+                <a className="button button--secondary" href="#servicios">Explorar servicios</a><Link className="button button--ghost" to="/proyectos">Portfolio personal</Link>
               </div>
             </div>
             <aside className="adtech-page__contact">
@@ -56,7 +56,7 @@ export function AdTechPage() {
         </div>
       </section>
 
-      <section className="section section--alt" aria-labelledby="adtech-historia">
+      <section className="section section--alt" id="nosotros" aria-labelledby="adtech-historia">
         <div className="container" style={{maxWidth:920}}>
           <span className="eyebrow">Nuestra historia y propósito</span>
           <h2 id="adtech-historia">De desarrollar proyectos reales a ayudar a otros negocios.</h2>
@@ -65,7 +65,7 @@ export function AdTechPage() {
         </div>
       </section>
 
-      <section className="section" id="adtech-servicios" aria-labelledby="adtech-servicios-title">
+      <section className="section" id="servicios" aria-labelledby="adtech-servicios-title">
         <div className="container">
           <span className="eyebrow">Opciones según tu presupuesto y necesidad</span>
           <h2 id="adtech-servicios-title">Tres caminos para tener tu web o tienda online</h2>
@@ -84,7 +84,7 @@ export function AdTechPage() {
         </div>
       </section>
 
-      <section className="section section--alt" aria-labelledby="adtech-otros-title">
+      <section className="section section--alt" id="otros-servicios" aria-labelledby="adtech-otros-title">
         <div className="container">
           <span className="eyebrow">Más que páginas web</span>
           <h2 id="adtech-otros-title">Otros servicios de AdTech</h2>
@@ -100,7 +100,7 @@ export function AdTechPage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="adtech-casos">
+      <section className="section" id="trabajos" aria-labelledby="adtech-casos">
         <div className="container">
           <span className="eyebrow">Proyectos reales</span>
           <h2 id="adtech-casos">Conocé trabajos que podés visitar</h2>
@@ -111,7 +111,30 @@ export function AdTechPage() {
         </div>
       </section>
 
-      <section className="section adtech-lead-section" id="adtech-presupuesto">
+      <section className="section section--alt" id="precios" aria-labelledby="adtech-precios-title">
+        <div className="container">
+          <span className="eyebrow">Planes y presupuestos</span>
+          <h2 id="adtech-precios-title">Una solución acorde a tu etapa de negocio</h2>
+          <p>No publicamos precios cerrados sin conocer el alcance. Una implementación sobre plataforma suele requerir menor inversión inicial; un desarrollo personalizado requiere más diseño, programación, pruebas y mantenimiento.</p>
+          <div className="route-card-grid">
+            <article className="route-card"><span>Para empezar</span><h3>Web o landing</h3><p>Presentación profesional, servicios, contacto y llamadas a la acción.</p><a href="#presupuesto">Solicitar cotización →</a></article>
+            <article className="route-card"><span>Para vender</span><h3>Tiendanube / WordPress</h3><p>Catálogo, configuración y personalización dentro de una plataforma existente.</p><a href="#presupuesto">Solicitar cotización →</a></article>
+            <article className="route-card"><span>Para escalar</span><h3>Desarrollo a medida</h3><p>Funcionalidades específicas, integraciones y sistemas propios con mayor inversión.</p><a href="#presupuesto">Solicitar cotización →</a></article>
+          </div>
+          <p>Dominio, hosting, abonos de plataformas y servicios externos se detallan por separado en cada propuesta.</p>
+        </div>
+      </section>
+      <section className="section" id="redes" aria-labelledby="adtech-redes-title">
+        <div className="container">
+          <span className="eyebrow">Conectá con AdTech</span><h2 id="adtech-redes-title">Redes sociales y contacto</h2>
+          <div className="route-card-grid">
+            <a className="route-card" href={venture.instagramUrl} target="_blank" rel="noopener noreferrer"><span>Instagram</span><h3>@adtech.ros</h3><p>Conocé novedades y trabajos.</p><strong>Visitar Instagram ↗</strong></a>
+            <a className="route-card" href={venture.tiktokUrl} target="_blank" rel="noopener noreferrer"><span>TikTok</span><h3>@adtech.ros</h3><p>Contenido y soluciones digitales.</p><strong>Visitar TikTok ↗</strong></a>
+            <a className="route-card" href={venture.whatsappUrl} target="_blank" rel="noopener noreferrer"><span>Contacto</span><h3>WhatsApp</h3><p>Consultanos por tu proyecto.</p><strong>Escribir a AdTech ↗</strong></a>
+          </div>
+        </div>
+      </section>
+      <section className="section adtech-lead-section" id="presupuesto">
         <div className="container adtech-lead-layout">
           <div><span className="eyebrow">Presupuesto personalizado</span><h2>Contanos qué necesitás desarrollar.</h2><p>Completá los datos y abrí tu consulta en WhatsApp. No necesitás registrarte y no guardamos tus respuestas en esta web.</p><Link to="/proyectos" className="button button--secondary">Ver proyectos reales →</Link></div>
           <form className="adtech-lead-form" onSubmit={send}>
