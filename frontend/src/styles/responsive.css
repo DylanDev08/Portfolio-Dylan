@@ -55,3 +55,31 @@
 @media(max-width:420px){
   .navigation{left:8px;right:8px;max-height:calc(100dvh - 82px)}
 }
+
+/* Cross-portfolio mobile polish */
+@media(max-width:1080px){
+  .navigation{max-width:calc(100vw - 16px)}
+  .navigation-dropdown__menu a{font-size:.95rem}
+  .menu-button{min-height:44px;min-width:62px;cursor:pointer}
+}
+@media(max-width:680px){
+  body{overflow-wrap:break-word}
+  .container{min-width:0}
+  .section{overflow-wrap:break-word}
+  .section-title h1,.section-title h2,.home-section-heading h2{line-height:1.12;text-wrap:balance}
+  .section-title p,.home-section-heading p{max-width:65ch;line-height:1.65}
+  .project-card,.project-card__body,.project-card__media{min-width:0}
+  .project-card__title{font-size:clamp(1.3rem,6vw,1.65rem);overflow-wrap:anywhere}
+  .project-card__problem,.project-card__value{line-height:1.65}
+  .project-resources{min-width:0}
+  .project-resources a,.project-resources span{overflow-wrap:anywhere}
+  .project-preview__browser small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+  .project-preview__caption{gap:10px;flex-wrap:wrap}
+  .project-preview__viewport img{max-width:100%}
+  .button{max-width:100%;white-space:normal;text-align:center}
+}
+@media(max-width:360px){
+  .container{width:calc(100% - 24px)}
+  .brand__text strong{font-size:.83rem}
+  .project-card__body{padding:16px}
+}
