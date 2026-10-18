@@ -1,48 +1,25 @@
 import { SectionTitle } from "../../../components/common/SectionTitle";
-import { WorkflowPrototype } from "./WorkflowPrototype";
 
-export function AutomationSection({ automations }) {
+const realCases = [
+  { id:"jefe", title:"Asistente administrativo FZAC", category:"Validación de datos · IA", image:"/workflows/fzac-entrada-jefe.webp", problem:"Recibir datos operativos enviados por el responsable sin incorporar registros incompletos.", solution:"Webhook, normalización de entrada, interpretación de texto y fotos, validaciones y bifurcación entre registro y revisión.", tools:["n8n","Webhooks","IA","Validación"] },
+  { id:"reportes", title:"Consolidación operativa y reportes", category:"Datos · Reportes", image:"/workflows/fzac-reportes.webp", problem:"Consolidar información que proviene de múltiples fuentes y estructuras.", solution:"Lectura y transformación de datos, unificación de ramas y preparación de salidas y reportes.", tools:["n8n","Google Sheets","Google Drive","Transformaciones"] },
+  { id:"meta", title:"Integración de mensajería Meta", category:"Mensajería · Integraciones", image:"/workflows/fzac-meta.webp", problem:"Procesar eventos de mensajería y responder o derivar según la información recibida.", solution:"Webhooks de verificación y recepción, normalización de mensajes y rutas para respuestas y notificaciones.", tools:["n8n","Meta","Webhooks","Gmail"] },
+  { id:"whatsapp", title:"Asistente WhatsApp FZAC", category:"Atención · Domótica", image:"/workflows/fzac-whatsapp.webp", problem:"Organizar respuestas y comandos rápidos sin depender de operaciones manuales repetitivas.", solution:"Motor de decisión que prepara texto, botones o listas interactivas; incluye una rama opcional para leads.", tools:["n8n","WhatsApp","APIs","Automatización"] },
+];
+export function AutomationSection() {
   return (
     <section className="section automation-section" id="automatizaciones">
       <div className="container">
-        <SectionTitle
-          eyebrow="Automatización de procesos"
-          title="Soluciones para reducir trabajo manual, errores y pérdida de seguimiento."
-          description="Diseño flujos de automatización para atención, datos, seguimiento y operación. Cada solución se adapta al proceso real del negocio y puede integrar n8n, APIs, WhatsApp, Google Sheets, scripts y otras herramientas según el caso."
-          headingLevel="h1"
-        />
-
-        <div className="automation-grid">
-          {automations.map((automation) => (
-            <article className="automation-card" key={automation.id}>
-              <div className="automation-card__top">
-                <span>{automation.category}</span>
-                <small>Solución aplicable</small>
-              </div>
-              <h2>{automation.title}</h2>
-
-              <WorkflowPrototype title={automation.title} steps={automation.steps} />
-
-              <div className="automation-card__flow">
-                <section>
-                  <strong>Necesidad</strong>
-                  <p>{automation.problem}</p>
-                </section>
-                <section>
-                  <strong>Implementación</strong>
-                  <p>{automation.solution}</p>
-                </section>
-                <section className="automation-card__result">
-                  <strong>Resultado esperado</strong>
-                  <p>{automation.result}</p>
-                </section>
-              </div>
-
-              <div className="badges" aria-label={`Herramientas aplicables a ${automation.title}`}>
-                {(automation.tools || []).map((tool) => <span key={tool}>{tool}</span>)}
-              </div>
-            </article>
-          ))}
+        <SectionTitle eyebrow="Automatización aplicada · Casos reales" title="Workflows diseñados para operaciones reales." description="Una selección de mis flujos en n8n: captura, transformación, validación y comunicación entre sistemas. Las capturas muestran la estructura de los flujos; algunas integraciones pueden estar en configuración o evolución." headingLevel="h1" />
+        <div className="adtech-workflow-grid">
+          {realCases.map(item => <article className="adtech-workflow-card" key={item.id}>
+            <div className="adtech-workflow-media"><img src={item.image} alt={"Captura del workflow n8n: " + item.title} loading="lazy" onError={event => { event.currentTarget.style.display="none"; event.currentTarget.parentElement.classList.add("adtech-workflow-media--pending"); }} /></div>
+            <div className="adtech-workflow-body">
+              <span className="eyebrow">{item.category}</span><h2>{item.title}</h2>
+              <p><strong>Necesidad:</strong> {item.problem}</p><p><strong>Implementación:</strong> {item.solution}</p>
+              <div className="badges">{item.tools.map(tool=><span key={tool}>{tool}</span>)}</div>
+            </div>
+          </article>)}
         </div>
       </div>
     </section>
