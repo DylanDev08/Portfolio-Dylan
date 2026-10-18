@@ -1,6 +1,6 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:92px}
-body{margin:0;min-width:320px;background:radial-gradient(circle at 85% 0%,rgba(37,99,235,.12),transparent 28rem),linear-gradient(180deg,var(--bg),#07101d 42%,var(--bg));color:var(--text);font-size:16px;line-height:1.6;text-rendering:optimizeLegibility}
+body{margin:0;min-width:320px;background:radial-gradient(circle at 80% 0%,rgba(255,255,255,.045),transparent 29rem),linear-gradient(180deg,#080808,#111 42%,#080808);color:var(--text);font-size:16px;line-height:1.6;text-rendering:optimizeLegibility}
 body,button,input,textarea,select{font:inherit}
 body{overflow-x:hidden}
 a{text-decoration:none;color:inherit}
@@ -8,13 +8,20 @@ button{cursor:pointer}
 img{display:block;max-width:100%}
 h1,h2,h3,h4,p{margin-top:0}
 p{max-width:72ch}
-::selection{background:rgba(59,130,246,.35);color:#fff}
+::selection{background:rgba(244,230,183,.4);color:#fff}
 :focus-visible{outline:3px solid var(--accent-light);outline-offset:4px}
 .container{width:min(calc(100% - clamp(32px,6vw,72px)),var(--container));margin-inline:auto}
 .section{padding-block:var(--section-space)}
 .section--compact{padding-block:clamp(64px,6vw,88px)}
-.section--alt{background:rgba(10,20,36,.62);border-block:1px solid var(--border)}
+.section--alt{background:rgba(255,255,255,.025);border-block:1px solid var(--border)}
 .skip-link{position:fixed;z-index:999;top:12px;left:12px;transform:translateY(-160%);padding:10px 14px;border-radius:10px;background:#fff;color:#07111f;font-weight:800;transition:transform .2s}
 .skip-link:focus{transform:translateY(0)}
 .text-link{display:inline-flex;margin-top:28px;color:var(--accent-light);font-weight:800}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Game-inspired presentation: subtle HUD grid, high-contrast interaction */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.16;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+#root{position:relative;isolation:isolate}
+.eyebrow{letter-spacing:.13em;text-transform:uppercase}
+.button,.route-card,.project-card{transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.route-card:hover,.project-card:hover{transform:translateY(-3px);border-color:rgba(244,230,183,.4)}}
