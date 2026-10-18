@@ -37,8 +37,8 @@ export function AdTechPage() {
         <div className="container">
           <div className="adtech-page__layout">
             <div className="adtech-page__intro">
-              <span className="eyebrow">AdTech · Soluciones digitales · Rosario</span>
-              <div className="adtech-brand-lockup"><span className="adtech-brand-symbol" aria-hidden="true">A+</span><h1>AdTech<span style={{color:"#3478f6"}}>.</span></h1></div>
+              <span className="eyebrow">01 / AdTech · Soluciones digitales · Rosario</span>
+              <div className="adtech-brand-lockup"><span className="adtech-brand-symbol" aria-hidden="true">A+</span><h1>AdTech<span style={{color:"#f4e6b7"}}>.</span></h1></div>
               <h2>Sitios y sistemas que ayudan a tu negocio a crecer.</h2>
               <p>Creamos páginas web, tiendas online y herramientas digitales para que tus clientes te encuentren, consulten y compren con facilidad.</p>
               <p>Desde Tiendanube y WordPress hasta desarrollo a medida. Te ayudamos a elegir según lo que necesitás y cuánto querés invertir.</p>
@@ -70,7 +70,7 @@ export function AdTechPage() {
 
       <section className="section" id="servicios" aria-labelledby="adtech-servicios-title">
         <div className="container">
-          <span className="eyebrow">Opciones según tu presupuesto y necesidad</span>
+          <span className="eyebrow">02 / Elegí tu solución</span>
           <h2 id="adtech-servicios-title">Elegí cómo querés llevar tu negocio a internet</h2>
           <p>Una solución basada en plataforma suele requerir menos desarrollo inicial. Un producto programado a medida demanda más trabajo y una inversión mayor, pero permite personalizar procesos y funcionalidades.</p>
           <div className="route-card-grid adtech-service-grid">
@@ -105,7 +105,7 @@ export function AdTechPage() {
 
       <section className="section" id="trabajos" aria-labelledby="adtech-casos">
         <div className="container">
-          <span className="eyebrow">Proyectos reales</span>
+          <span className="eyebrow">03 / Misiones completadas · Proyectos reales</span>
           <h2 id="adtech-casos">Trabajos reales, resultados que podés explorar</h2>
           <p className="adtech-section-intro">Explorá las webs y tiendas desarrolladas, su enfoque y las tecnologías utilizadas. Algunas siguen evolucionando.</p>
           <div className="route-card-grid adtech-work-grid">
