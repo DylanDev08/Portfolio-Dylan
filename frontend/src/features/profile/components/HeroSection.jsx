@@ -18,7 +18,7 @@ export function HeroSection({ profile }) {
           <div className="hero-actions">
             <a className="button button--primary" href={consultationUrl} target="_blank" rel="noreferrer noopener">Pedir diagnóstico inicial</a>
             <Link className="button button--secondary" to="/proyectos">Ver trabajos reales</Link>
-            <a className="button button--ghost" href="/cv/CV_Dylan_Salcedo.pdf" download="CV_Dylan_Salcedo_ATS_2026.pdf">CV ATS 2026</a>
+            <a className="button button--ghost" href="/cv/CV_Dylan_Salcedo.pdf" download="CV_Salcedo_Dylan.pdf">Currículum Vitae · Dylan Salcedo</a>
           </div>
 
           <div className="hero-proof" aria-label="Soluciones principales">
