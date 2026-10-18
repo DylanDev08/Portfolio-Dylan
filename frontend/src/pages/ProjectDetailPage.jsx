@@ -12,7 +12,7 @@ function isValidUrl(url) {
 export function ProjectDetailPage() {
   const { slug } = useParams();
   const { data } = usePortfolio();
-  const rawProject = data.projects.find((item) => projectSlug(item.title) === slug);
+  const rawProject = data.projects.find((item) => item.title !== "Mangas MaxDy" && projectSlug(item.title) === slug);
 
   if (!rawProject) {
     return <Navigate to="/404" replace />;
@@ -20,8 +20,8 @@ export function ProjectDetailPage() {
 
   const project = projectPresentationFor(rawProject);
   const hasLive = isValidUrl(project.liveUrl);
-  const hasGithub = isValidUrl(project.githubUrl);
-  const hasDocs = isValidUrl(project.docsUrl);
+  const hasGithub = project.title !== "PrismaERP" && isValidUrl(project.githubUrl);
+  const hasDocs = project.title !== "PrismaERP" && isValidUrl(project.docsUrl);
   const evidenceCount = 1 + Number(hasLive) + Number(hasGithub);
   const themeStyle = {
     "--project-accent": project.accent,
@@ -55,7 +55,7 @@ export function ProjectDetailPage() {
                     Ver repositorio
                   </a>
                 )}
-                {hasDocs ? (
+                {project.title === "PrismaERP" ? null : hasDocs ? (
                   <a className="button button--ghost" href={project.docsUrl} target="_blank" rel="noreferrer noopener">
                     {project.docsLabel || "Leer documentación"}
                   </a>
