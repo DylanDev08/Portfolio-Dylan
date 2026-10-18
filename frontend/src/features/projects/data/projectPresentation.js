@@ -56,7 +56,7 @@ const projectPresentation = {
     docsLabel: "Caso documentado",
   },
   "Innova Click": {
-    coverImage: "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/https://innovaclick.com.ar",
+    coverImage: "/projects/innova-click-real.webp",
     coverFallback: "/projects/innova-click.svg",
     accent: "#8b5cf6",
     accentRgb: "139,92,246",
@@ -85,6 +85,16 @@ const projectPresentation = {
     value: "Ofrece una base comercial clara y extensible para transformar la presencia digital en un canal de captación y futura gestión de turnos.",
     deploymentNote: "La arquitectura está preparada para incorporar reservas, disponibilidad, gestión de turnos y automatizaciones comerciales como siguientes capacidades del producto.",
     docsLabel: "README del proyecto",
+  },
+  "PrismaERP": {
+    coverImage: "/projects/prisma-erp-real.webp",
+    coverFallback: "/projects/prisma-erp.svg",
+    coverLabel: "Vista real del acceso a la plataforma · Repositorio privado",
+    statusLabel: "Proyecto privado",
+    githubUrl: "",
+    docsUrl: "",
+    repositoryNote: "Repositorio privado. Se presenta únicamente una captura de la interfaz, sin acceso al código fuente.",
+    previewNote: "Captura del acceso a FZAC ERP. Repositorio privado y sin acceso público al código.",
   },
   Budgetly: {
     accent: "#35c78a",
