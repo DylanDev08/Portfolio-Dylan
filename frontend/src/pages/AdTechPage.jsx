@@ -104,9 +104,19 @@ export function AdTechPage() {
         <div className="container">
           <span className="eyebrow">Proyectos reales</span>
           <h2 id="adtech-casos">Conocé trabajos que podés visitar</h2>
-          <div className="route-card-grid">
-            <article className="route-card"><span>E-commerce y catálogo</span><h3>Materiales FZAC</h3><p>Proyecto comercial con catálogo de productos y herramientas de gestión.</p><a href="https://www.fzacmateriales.store" target="_blank" rel="noreferrer noopener">Visitar proyecto ↗</a></article>
-            <article className="route-card"><span>Web empresarial</span><h3>Portfolio FZAC</h3><p>Presentación de servicios y obras con gestión de contenido.</p><a href="https://fzac-portfolio-1.onrender.com" target="_blank" rel="noreferrer noopener">Visitar proyecto ↗</a></article>
+          <div className="route-card-grid adtech-work-grid">
+            {data.projects.filter(project => ["Materiales FZAC","Portfolio FZAC","FuckTheSys","Innova Click","BarberHouse"].includes(project.title)).map(project => (
+              <article className="route-card adtech-work-card" key={project.id}>
+                <div className="adtech-work-card__image">
+                  <img src={project.liveUrl ? "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/" + project.liveUrl : project.coverImage} alt={"Vista de " + project.title} loading="lazy" onError={event => { const image = event.currentTarget; if (image.dataset.fallback !== "true") { image.dataset.fallback = "true"; image.src = project.coverImage; } }} />
+                </div>
+                <span>{project.category}</span>
+                <h3>{project.title}</h3>
+                <p>{project.problem}</p>
+                {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">Visitar proyecto ↗</a>}
+                <Link to="/proyectos">Ver caso en el portfolio →</Link>
+              </article>
+            ))}
           </div>
         </div>
       </section>
