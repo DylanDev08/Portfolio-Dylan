@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 const links = [["Inicio","/"],["Proyectos","/proyectos"],["Servicios","/servicios"],["Habilidades","/skills"],["Automatización","/automatizaciones"],["Contacto","/contacto"]];
-const adtechSections = [["Acerca de nosotros","nosotros"],["Trabajos","trabajos"],["Servicios","servicios"],["Precios y planes","precios"],["Redes sociales","redes"],["Solicitar presupuesto","presupuesto"]];
+const adtechSections = [["Acerca de nosotros","nosotros"],["Trabajos","trabajos"],["Automatizaciones","automatizaciones"],["Servicios","servicios"],["Precios y planes","precios"],["Redes sociales","redes"],["Solicitar presupuesto","presupuesto"]];
 
 export function Header() {
   const [open, setOpen] = useState(false);
