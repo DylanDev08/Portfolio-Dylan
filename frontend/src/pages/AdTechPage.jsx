@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { projectSlug } from "../features/projects/utils/projectSlug";
 import { PageShell } from "../components/layout/PageShell";
 import { usePortfolio } from "../features/portfolio/hooks/usePortfolio";
 
@@ -36,9 +37,9 @@ export function AdTechPage() {
             <div className="adtech-page__intro">
               <span className="eyebrow">AdTech · Soluciones digitales · Rosario</span>
               <div className="adtech-brand-lockup"><span className="adtech-brand-symbol" aria-hidden="true">A+</span><h1>AdTech<span style={{color:"#3478f6"}}>.</span></h1></div>
-              <h2>Tu negocio no necesita más tecnología: necesita una solución que funcione.</h2>
-              <p>Desarrollamos páginas web, tiendas online, sistemas y automatizaciones para que emprendedores y empresas puedan mostrar mejor lo que hacen, recibir consultas y organizar su trabajo.</p>
-              <p>Elegimos la tecnología según tu objetivo y presupuesto: desde plataformas listas para administrar hasta desarrollos completamente personalizados.</p>
+              <h2>Sitios y sistemas que ayudan a tu negocio a crecer.</h2>
+              <p>Creamos páginas web, tiendas online y herramientas digitales para que tus clientes te encuentren, consulten y compren con facilidad.</p>
+              <p>Desde Tiendanube y WordPress hasta desarrollo a medida. Te ayudamos a elegir según lo que necesitás y cuánto querés invertir.</p>
               <div className="hero-actions">
                 <a className="button button--primary" href="#presupuesto">Solicitar presupuesto</a>
                 <a className="button button--secondary" href="#servicios">Explorar servicios</a><Link className="button button--ghost" to="/proyectos">Portfolio personal</Link>
@@ -68,9 +69,9 @@ export function AdTechPage() {
       <section className="section" id="servicios" aria-labelledby="adtech-servicios-title">
         <div className="container">
           <span className="eyebrow">Opciones según tu presupuesto y necesidad</span>
-          <h2 id="adtech-servicios-title">Tres caminos para tener tu web o tienda online</h2>
+          <h2 id="adtech-servicios-title">Elegí cómo querés llevar tu negocio a internet</h2>
           <p>Una solución basada en plataforma suele requerir menos desarrollo inicial. Un producto programado a medida demanda más trabajo y una inversión mayor, pero permite personalizar procesos y funcionalidades.</p>
-          <div className="route-card-grid">
+          <div className="route-card-grid adtech-service-grid">
             {offers.map((offer) => (
               <article className="route-card" key={offer.name}>
                 <span>{offer.level}</span>
@@ -103,18 +104,19 @@ export function AdTechPage() {
       <section className="section" id="trabajos" aria-labelledby="adtech-casos">
         <div className="container">
           <span className="eyebrow">Proyectos reales</span>
-          <h2 id="adtech-casos">Conocé trabajos que podés visitar</h2>
+          <h2 id="adtech-casos">Trabajos reales, resultados que podés explorar</h2>
+          <p className="adtech-section-intro">Explorá las webs y tiendas desarrolladas, su enfoque y las tecnologías utilizadas. Algunas siguen evolucionando.</p>
           <div className="route-card-grid adtech-work-grid">
             {data.projects.filter(project => ["Materiales FZAC","Portfolio FZAC","FuckTheSys","Innova Click","BarberHouse"].includes(project.title)).map(project => (
               <article className="route-card adtech-work-card" key={project.id}>
                 <div className="adtech-work-card__image">
-                  <img src={project.liveUrl ? "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/" + project.liveUrl : project.coverImage} alt={"Vista de " + project.title} loading="lazy" onError={event => { const image = event.currentTarget; if (image.dataset.fallback !== "true") { image.dataset.fallback = "true"; image.src = project.coverImage; } }} />
+                  <img src={project.liveUrl ? "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/" + project.liveUrl : project.coverImage} alt={"Portada del proyecto " + project.title} width="1200" height="675" decoding="async" loading="lazy" onError={event => { const image = event.currentTarget; if (image.dataset.fallback !== "true") { image.dataset.fallback = "true"; image.src = project.coverImage; } }} />
                 </div>
                 <span>{project.category}</span>
                 <h3>{project.title}</h3>
                 <p>{project.problem}</p>
                 {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">Visitar proyecto ↗</a>}
-                <Link to="/proyectos">Ver caso en el portfolio →</Link>
+                <Link to={"/proyectos/" + projectSlug(project.title)}>Ver caso completo →</Link>
               </article>
             ))}
           </div>
@@ -131,7 +133,7 @@ export function AdTechPage() {
             <article className="route-card"><span>Para vender</span><h3>Tiendanube / WordPress</h3><p>Catálogo, configuración y personalización dentro de una plataforma existente.</p><a href="#presupuesto">Solicitar cotización →</a></article>
             <article className="route-card"><span>Para escalar</span><h3>Desarrollo a medida</h3><p>Funcionalidades específicas, integraciones y sistemas propios con mayor inversión.</p><a href="#presupuesto">Solicitar cotización →</a></article>
           </div>
-          <p>Dominio, hosting, abonos de plataformas y servicios externos se detallan por separado en cada propuesta.</p>
+          <p className="adtech-pricing-note">El dominio, hosting, abonos de plataformas y servicios externos se detallan por separado en cada propuesta.</p>
         </div>
       </section>
       <section className="section" id="redes" aria-labelledby="adtech-redes-title">
