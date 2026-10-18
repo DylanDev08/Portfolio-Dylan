@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { projectSlug } from "../features/projects/utils/projectSlug";
+import { projectPresentationFor } from "../features/projects/data/projectPresentation";
 import { PageShell } from "../components/layout/PageShell";
 import { usePortfolio } from "../features/portfolio/hooks/usePortfolio";
 
@@ -20,6 +21,7 @@ const ask = (topic) => "https://wa.me/5493417415857?text=" + encodeURIComponent(
 export function AdTechPage() {
   const { data } = usePortfolio();
   const venture = data.venture;
+  const featuredProjects = data.projects.filter(project => ["Materiales FZAC","Portfolio FZAC","FuckTheSys","Innova Click","BarberHouse"].includes(project.title)).map(projectPresentationFor);
   const [lead, setLead] = useState({ name: "", business: "", service: "Web empresarial", budget: "A definir", details: "" });
   const change = (key, value) => setLead(prev => ({...prev, [key]: value}));
   const send = (event) => {
@@ -42,7 +44,7 @@ export function AdTechPage() {
               <p>Desde Tiendanube y WordPress hasta desarrollo a medida. Te ayudamos a elegir según lo que necesitás y cuánto querés invertir.</p>
               <div className="hero-actions">
                 <a className="button button--primary" href="#presupuesto">Solicitar presupuesto</a>
-                <a className="button button--secondary" href="#servicios">Explorar servicios</a><Link className="button button--ghost" to="/proyectos">Portfolio personal</Link>
+                <a className="button button--secondary" href="#trabajos">Ver trabajos</a><Link className="button button--ghost" to="/proyectos">Portfolio personal</Link>
               </div>
             </div>
             <aside className="adtech-page__contact">
@@ -107,10 +109,10 @@ export function AdTechPage() {
           <h2 id="adtech-casos">Trabajos reales, resultados que podés explorar</h2>
           <p className="adtech-section-intro">Explorá las webs y tiendas desarrolladas, su enfoque y las tecnologías utilizadas. Algunas siguen evolucionando.</p>
           <div className="route-card-grid adtech-work-grid">
-            {data.projects.filter(project => ["Materiales FZAC","Portfolio FZAC","FuckTheSys","Innova Click","BarberHouse"].includes(project.title)).map(project => (
+            {featuredProjects.map(project => (
               <article className="route-card adtech-work-card" key={project.id}>
                 <div className="adtech-work-card__image">
-                  <img src={project.liveUrl ? "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/" + project.liveUrl : project.coverImage} alt={"Portada del proyecto " + project.title} width="1200" height="675" decoding="async" loading="lazy" onError={event => { const image = event.currentTarget; if (image.dataset.fallback !== "true") { image.dataset.fallback = "true"; image.src = project.coverImage; } }} />
+                  <img src={project.coverImage || project.coverFallback} alt={"Portada del proyecto " + project.title} width="1200" height="675" decoding="async" loading="lazy" onError={event => { const image = event.currentTarget; if (image.dataset.fallback !== "true" && project.coverFallback) { image.dataset.fallback = "true"; image.src = project.coverFallback; } else { image.style.display = "none"; } }} />
                 </div>
                 <span>{project.category}</span>
                 <h3>{project.title}</h3>
