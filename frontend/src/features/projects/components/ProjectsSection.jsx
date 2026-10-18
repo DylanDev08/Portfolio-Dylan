@@ -35,7 +35,7 @@ export function ProjectsSection({ projects }) {
 
         <div className="project-sections">
           {sections.map((section) => {
-            const sectionProjects = projects.filter((project) => project.portfolioSection === section.id);
+            const sectionProjects = projects.filter((project) => project.portfolioSection === section.id && project.title !== "Mangas MaxDy");
             if (!sectionProjects.length) return null;
 
             return (
