@@ -118,8 +118,8 @@ export function projectPresentationFor(project) {
   return {
     ...project,
     ...presentation,
-    accent: presentation.accent || "#60a5fa",
-    accentRgb: presentation.accentRgb || "96,165,250",
-    surface: presentation.surface || "#0b1524",
+    accent: presentation.accent || "#f4e6b7",
+    accentRgb: presentation.accentRgb || "244,230,183",
+    surface: presentation.surface || "#141414",
   };
 }
