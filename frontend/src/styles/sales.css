@@ -125,3 +125,56 @@
 .adtech-work-card>a:last-child{margin-top:8px}
 @media(max-width:920px){.adtech-work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.adtech-work-grid{grid-template-columns:1fr}}
+
+/* AdTech UX refinement: readable typography, clear card hierarchy and touch layouts */
+.adtech-page,.adtech-lead-section{overflow:clip}
+.adtech-page__intro,.adtech-page__contact,.adtech-lead-layout>div{min-width:0}
+.adtech-page__intro h1{overflow-wrap:anywhere}
+.adtech-page__intro h2{max-width:19ch;text-wrap:balance}
+.adtech-page__intro>p{max-width:64ch}
+.adtech-page .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:26px}
+.adtech-page .hero-actions .button{min-height:48px}
+.adtech-page__contact{min-width:0}
+.adtech-page__contact .button{white-space:normal;overflow-wrap:anywhere;text-align:center}
+.adtech-section-intro{max-width:68ch;color:var(--muted);line-height:1.7}
+.adtech-service-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.adtech-service-grid .route-card{min-height:0}
+.adtech-service-grid .route-card ul{padding-left:18px;color:#cbd9eb;font-size:.9rem;line-height:1.65}
+.adtech-service-grid .route-card li+li{margin-top:6px}
+.adtech-service-grid .route-card>a{margin-top:auto;padding-top:20px;font-weight:750;color:#9cc7ff}
+.adtech-work-card{min-width:0}
+.adtech-work-card__image img{transition:transform .25s ease}
+.adtech-work-card:hover .adtech-work-card__image img{transform:scale(1.025)}
+.adtech-work-card>h3{font-size:clamp(1.2rem,2vw,1.5rem);overflow-wrap:anywhere}
+.adtech-work-card>p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden;line-height:1.6}
+.adtech-work-card>a{min-height:36px;align-items:center;overflow-wrap:anywhere}
+.adtech-work-card>a:first-of-type{margin-top:auto;padding-top:15px}
+.adtech-pricing-note{margin-top:22px;max-width:70ch;color:var(--muted)}
+.adtech-lead-form{min-width:0}
+.adtech-lead-form input,.adtech-lead-form select,.adtech-lead-form textarea{max-width:100%;font-size:16px}
+.adtech-lead-form .button{min-height:50px;white-space:normal;text-align:center}
+.adtech-page~.section h2,.adtech-lead-layout h2{text-wrap:balance;overflow-wrap:break-word}
+#nosotros,#trabajos,#servicios,#precios,#redes,#presupuesto{scroll-margin-top:100px}
+@media(max-width:1080px){.adtech-service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:920px){.adtech-page__layout{gap:28px}.adtech-page__contact{padding:24px}.adtech-page__intro h2{max-width:24ch}}
+@media(max-width:680px){
+  .adtech-page{padding-top:48px;padding-bottom:48px}
+  .adtech-brand-lockup{gap:12px}
+  .adtech-page__intro h1{font-size:clamp(2.8rem,12vw,4.6rem)}
+  .adtech-page__intro h2{font-size:clamp(1.55rem,7vw,2.2rem);line-height:1.17;max-width:100%}
+  .adtech-page__intro>p{font-size:1rem;line-height:1.65}
+  .adtech-page .hero-actions{display:grid;grid-template-columns:1fr}
+  .adtech-page .hero-actions .button{width:100%;justify-content:center;text-align:center}
+  .adtech-page__contact{padding:20px}
+  .adtech-service-grid,.adtech-work-grid{grid-template-columns:1fr}
+  .adtech-service-grid .route-card{padding:22px}
+  .adtech-work-card{padding:0 0 18px}
+  .adtech-work-card__image{aspect-ratio:16/10}
+  .adtech-work-card>span,.adtech-work-card>h3,.adtech-work-card>p,.adtech-work-card>a{margin-left:18px;margin-right:18px}
+  .adtech-lead-layout{gap:22px}
+  .adtech-lead-form{padding:20px 16px}
+  .adtech-lead-layout h2{font-size:clamp(1.9rem,8vw,2.6rem)}
+  .adtech-page~.section h2{line-height:1.2}
+}
+@media(max-width:360px){.adtech-brand-symbol{width:48px;height:48px;font-size:1.3rem}.adtech-page__intro h1{font-size:2.6rem}}
+@media(prefers-reduced-motion:reduce){.adtech-work-card__image img{transition:none}.adtech-work-card:hover .adtech-work-card__image img{transform:none}}
