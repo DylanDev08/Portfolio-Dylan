@@ -112,3 +112,16 @@
 .adtech-lead-form small{color:var(--muted);line-height:1.6}
 @media(max-width:820px){.adtech-lead-layout{grid-template-columns:1fr}.adtech-brand-symbol{width:58px;height:58px;font-size:1.6rem}}
 @media(max-width:420px){.adtech-brand-lockup{gap:10px}.adtech-brand-lockup h1{font-size:clamp(2.7rem,13vw,4rem)}}
+
+/* Portfolio AdTech: consistent responsive covers for showcased projects */
+.adtech-work-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.adtech-work-card{overflow:hidden;padding:0 0 22px;min-height:0}
+.adtech-work-card__image{aspect-ratio:16/9;overflow:hidden;background:#10233d;border-bottom:1px solid var(--border)}
+.adtech-work-card__image img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.adtech-work-card>span,.adtech-work-card>h3,.adtech-work-card>p,.adtech-work-card>a{margin-left:20px;margin-right:20px}
+.adtech-work-card>span{margin-top:18px}
+.adtech-work-card>h3{margin-top:9px}
+.adtech-work-card>a{display:inline-flex;margin-top:15px;color:#8cbaff;font-weight:750}
+.adtech-work-card>a:last-child{margin-top:8px}
+@media(max-width:920px){.adtech-work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.adtech-work-grid{grid-template-columns:1fr}}
