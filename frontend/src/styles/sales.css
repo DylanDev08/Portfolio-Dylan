@@ -192,3 +192,17 @@
 .adtech-page .button--secondary,.adtech-page .button--ghost{background:#191919;color:#f5f5f5;border-color:rgba(255,255,255,.25)}
 .adtech-page .button--secondary:hover,.adtech-page .button--ghost:hover{border-color:#f4e6b7}
 .adtech-lead-form input,.adtech-lead-form select,.adtech-lead-form textarea{background:#0c0c0c;border-color:rgba(255,255,255,.2);color:#fff}
+
+/* Real workflow case-study gallery */
+.adtech-workflow-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:32px}
+.adtech-workflow-card{min-width:0;overflow:hidden;background:#141414;border:1px solid rgba(255,255,255,.17);border-radius:18px;display:flex;flex-direction:column}
+.adtech-workflow-media{aspect-ratio:16/9;background:#0e0e0e;border-bottom:1px solid rgba(255,255,255,.12);overflow:hidden;display:grid;place-items:center}
+.adtech-workflow-media img{width:100%;height:100%;object-fit:contain}
+.adtech-workflow-fallback{height:100%;width:100%;padding:24px;display:flex;flex-direction:column;justify-content:center;gap:10px;background:linear-gradient(135deg,#171717,#0a0a0a);color:#f4e6b7}
+.adtech-workflow-fallback span{font-size:.7rem;letter-spacing:.16em}.adtech-workflow-fallback strong{font-size:clamp(1.15rem,2vw,1.65rem);color:#eee}.adtech-workflow-fallback small{color:#aaa}
+.adtech-workflow-body{padding:24px;display:flex;flex-direction:column;align-items:flex-start;flex:1}
+.adtech-workflow-body h3{margin:10px 0;font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.25;text-wrap:balance}
+.adtech-workflow-body p{color:#c4c4c4;line-height:1.65}
+.adtech-workflow-body ol{padding-left:20px;margin:4px 0 24px;color:#ddd;line-height:1.8}
+.adtech-workflow-body a{margin-top:auto;color:#f4e6b7;font-weight:750}
+@media(max-width:760px){.adtech-workflow-grid{grid-template-columns:1fr;gap:18px}.adtech-workflow-body{padding:20px}}
