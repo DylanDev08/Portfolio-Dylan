@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 const links = [["Inicio","/"],["Proyectos","/proyectos"],["Servicios","/servicios"],["Habilidades","/skills"],["Automatización","/automatizaciones"],["Contacto","/contacto"]];
@@ -8,6 +8,8 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [adtechOpen, setAdtechOpen] = useState(false);
   const location = useLocation();
+  const dropdownRef = useRef(null);
+  const headerRef = useRef(null);
   useEffect(() => { setOpen(false); setAdtechOpen(false); }, [location.pathname, location.hash]);
   useEffect(() => {
     if (location.pathname !== "/adtech" || !location.hash) return;
@@ -21,8 +23,17 @@ export function Header() {
     window.addEventListener("keydown", escape);
     return () => window.removeEventListener("keydown", escape);
   }, [open, adtechOpen]);
+  useEffect(() => {
+    if (!open && !adtechOpen) return;
+    const closeOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) setAdtechOpen(false);
+      if (headerRef.current && !headerRef.current.contains(event.target)) setOpen(false);
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    return () => document.removeEventListener("pointerdown", closeOutside);
+  }, [open, adtechOpen]);
   return (
-    <header className="site-header">
+    <header ref={headerRef} className="site-header">
       <div className="container navbar">
         <Link className="brand" to="/" aria-label="Dylan Salcedo - Inicio">
           <img className="brand__mark" src="/brand/ds-logo.svg" alt="" width="44" height="44" />
@@ -31,9 +42,9 @@ export function Header() {
         <button className="menu-button" type="button" onClick={() => setOpen(value => !value)} aria-expanded={open} aria-controls="primary-navigation" aria-label={open ? "Cerrar menú" : "Abrir menú"}>{open ? "Cerrar" : "Menú"}</button>
         <nav id="primary-navigation" className={open ? "navigation navigation--open" : "navigation"} aria-label="Navegación principal">
           {links.slice(0,5).map(([label,href]) => <NavLink key={href} to={href} end={href === "/"} className={({isActive}) => isActive ? "active" : undefined} onClick={() => setOpen(false)}>{label}</NavLink>)}
-          <div className="navigation-dropdown">
+          <div ref={dropdownRef} className="navigation-dropdown">
             <NavLink to="/adtech" className={({isActive}) => isActive ? "active" : undefined} onClick={() => { setOpen(false); setAdtechOpen(false); }}>AdTech</NavLink>
-            <button type="button" className="navigation-dropdown__toggle" aria-expanded={adtechOpen} aria-controls="adtech-subnav" aria-label="Desplegar secciones de AdTech" onClick={() => setAdtechOpen(value => !value)}>{adtechOpen ? "⌃" : "⌄"}</button>
+            <button type="button" className="navigation-dropdown__toggle" aria-expanded={adtechOpen} aria-controls="adtech-subnav" aria-label={adtechOpen ? "Cerrar secciones de AdTech" : "Mostrar secciones de AdTech"} onClick={() => setAdtechOpen(value => !value)}>{adtechOpen ? "⌃" : "⌄"}</button>
             {adtechOpen && <div id="adtech-subnav" className="navigation-dropdown__menu">
               {adtechSections.map(([label,id]) => <Link key={id} to={"/adtech#"+id} onClick={() => { setOpen(false); setAdtechOpen(false); }}>{label}</Link>)}
             </div>}
