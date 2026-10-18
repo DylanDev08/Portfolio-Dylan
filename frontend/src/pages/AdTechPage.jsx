@@ -16,6 +16,16 @@ const extra = [
   ["Catálogos y landing pages", "Páginas comerciales enfocadas en consultas y contacto."],
   ["Integraciones y chatbots", "Conexiones entre servicios y flujos de atención, según disponibilidad de cada plataforma."],
 ];
+const workflowCases = [
+  { id: "jefe", title: "Asistente administrativo FZAC", image: "/workflows/fzac-entrada-jefe.webp", label: "Webhook · IA · Validación", description: "Recibe solicitudes del responsable, normaliza la entrada, interpreta texto o foto, comprueba datos obligatorios y deriva la respuesta al registro contable o a revisión.", steps: ["Entrada y normalización", "Interpretación con IA", "Validación y derivación"] },
+  { id: "operaciones", title: "Consolidación operativa y reportes", image: "/workflows/fzac-reportes.webp", label: "Hojas de cálculo · Transformaciones · Reportes", description: "Orquesta varias fuentes de datos, las transforma y prepara salidas de seguimiento y reportes. El flujo incluye distintas ramas y controles de procesamiento.", steps: ["Fuentes de datos", "Consolidación", "Salidas y reportes"] },
+  { id: "meta", title: "Captación y seguimiento de contactos", image: "/workflows/fzac-meta.webp", label: "Meta · Webhooks · Notificaciones", description: "Integra eventos entrantes de Meta, normalización de mensajes, derivación de contactos y notificaciones. La captura muestra etapas de verificación y configuración.", steps: ["Recepción de eventos", "Normalización", "Derivación y avisos"] },
+  { id: "whatsapp", title: "Asistente de WhatsApp y domótica", image: "/workflows/fzac-whatsapp.webp", label: "WhatsApp · Comandos · CRM opcional", description: "Organiza mensajes y comandos rápidos mediante un motor de decisión que prepara respuestas de texto, menús interactivos y un registro de leads opcional.", steps: ["Mensaje entrante", "Motor de decisión", "Respuesta o registro"] },
+];
+function WorkflowScreenshot({ item }) {
+  const [failed, setFailed] = useState(false);
+  return <div className="adtech-workflow-media">{!failed ? <img src={item.image} alt={"Captura real del editor n8n: " + item.title} loading="lazy" decoding="async" onError={() => setFailed(true)} /> : <div className="adtech-workflow-fallback" role="img" aria-label={"Captura de " + item.title + " pendiente de publicación"}><span>n8n / WORKFLOW</span><strong>{item.title}</strong><small>Captura pendiente de cargar</small></div>}</div>;
+}
 const ask = (topic) => "https://wa.me/5493417415857?text=" + encodeURIComponent("Hola, vi AdTech en el portfolio y quiero consultar por " + topic + ".");
 
 export function AdTechPage() {
@@ -99,6 +109,26 @@ export function AdTechPage() {
                 <a href={ask(title.toLowerCase())} target="_blank" rel="noreferrer noopener">Consultar servicio →</a>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--alt" id="automatizaciones" aria-labelledby="adtech-automation-title">
+        <div className="container">
+          <span className="eyebrow">04 / Workflows reales · n8n</span>
+          <h2 id="adtech-automation-title">Automatizaciones desarrolladas para operaciones reales</h2>
+          <p className="adtech-section-intro">Estos ejemplos corresponden a flujos de trabajo implementados o configurados en n8n. Las capturas muestran su arquitectura visual, no una garantía de que todas las integraciones estén activas en producción.</p>
+          <div className="adtech-workflow-grid">
+            {workflowCases.map(item => <article className="adtech-workflow-card" key={item.id}>
+              <WorkflowScreenshot item={item} />
+              <div className="adtech-workflow-body">
+                <span className="eyebrow">{item.label}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <ol>{item.steps.map(step => <li key={step}>{step}</li>)}</ol>
+                <a href={ask("una automatización similar a " + item.title)} target="_blank" rel="noopener noreferrer">Consultar una solución similar ↗</a>
+              </div>
+            </article>)}
           </div>
         </div>
       </section>
