@@ -20,8 +20,8 @@ export function ProjectDetailPage() {
 
   const project = projectPresentationFor(rawProject);
   const hasLive = isValidUrl(project.liveUrl);
-  const hasGithub = project.title !== "PrismaERP" && isValidUrl(project.githubUrl);
-  const hasDocs = project.title !== "PrismaERP" && isValidUrl(project.docsUrl);
+  const hasGithub = isValidUrl(project.githubUrl);
+  const hasDocs = isValidUrl(project.docsUrl);
   const evidenceCount = 1 + Number(hasLive) + Number(hasGithub);
   const themeStyle = {
     "--project-accent": project.accent,
@@ -55,7 +55,7 @@ export function ProjectDetailPage() {
                     Ver repositorio
                   </a>
                 )}
-                {project.title === "PrismaERP" ? null : hasDocs ? (
+                {hasDocs ? (
                   <a className="button button--ghost" href={project.docsUrl} target="_blank" rel="noreferrer noopener">
                     {project.docsLabel || "Leer documentación"}
                   </a>

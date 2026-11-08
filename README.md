@@ -58,6 +58,13 @@ Portfolio institucional administrable con galerías de obras, panel privado, CRU
 - Repositorio: https://github.com/DylanDev08/FZAC-Portfolio
 - Documentación: README del repositorio
 
+#### Viagelato
+E-commerce para distribuidora, con catálogo, carrito, solicitudes por WhatsApp, panel de administración y controles de acceso. Se presenta como **proyecto en preparación**, sin enlazar todavía un checkout o lanzamiento comercial público.
+
+- Repositorio: https://github.com/DylanDev08/Viagelato
+- Documentación: README del repositorio
+- Estado: en preparación para publicación
+
 #### Mangas MaxDy
 Plataforma Full Stack con usuarios, autenticación, mangas, capítulos, favoritos, progreso, rankings, comentarios, roles y administración.
 
