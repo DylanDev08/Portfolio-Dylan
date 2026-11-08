@@ -1,0 +1,104 @@
+/* Editorial refresh: clear personal positioning, project evidence and mobile-first hierarchy. */
+:root { --container: 1200px; --section-space: clamp(64px, 7vw, 104px); }
+.hero--professional { overflow: hidden; padding-block: clamp(68px, 8vw, 116px); background: radial-gradient(circle at 85% 36%, rgba(244,230,183,.095), transparent 32%), linear-gradient(165deg, #0b0b0b, #101010 58%, #090909); }
+.hero--professional .hero-grid { grid-template-columns: minmax(0,1.4fr) minmax(250px,.7fr); gap: clamp(30px,5vw,76px); align-items:center; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:9px; font-size:.72rem; font-weight:800; color:#f4e6b7; }
+.hero-eyebrow__dot { width:7px; height:7px; flex:none; border-radius:50%; background:#f4e6b7; box-shadow:0 0 0 5px rgba(244,230,183,.09); }
+.hero--professional h1 { max-width:none; margin:22px 0 14px; font-size:clamp(3.8rem,7.5vw,7.3rem); line-height:.94; letter-spacing:-.075em; }
+.hero--professional h1 em { color:#f4e6b7; }
+.hero-role { max-width:21ch; margin:0 0 20px; color:#fff; font-size:clamp(1.55rem,3.1vw,2.55rem); font-weight:750; line-height:1.15; letter-spacing:-.035em; }
+.hero-role span { color:#f4e6b7; }
+.hero--professional .hero-lead { max-width:60ch; margin:0; color:#bdbdbd; font-size:clamp(.98rem,1.35vw,1.08rem); line-height:1.7; }
+.hero--professional .hero-actions { margin-top:28px; gap:10px; }
+.hero--professional .hero-actions .button { min-height:48px; }
+.hero--professional .hero-proof { margin-top:26px; padding-top:18px; gap:9px 18px; }
+.hero--professional .hero-proof span { font-size:.78rem; color:#ddd; }
+.hero-availability { margin:17px 0 0; color:#9d9d9d; font-size:.8rem; }
+.hero--professional .portrait { width:min(100%,350px); justify-self:end; }
+.hero--professional .portrait__frame { aspect-ratio:4/5; border-radius:28px; background:#131313; }
+.hero--professional .portrait__frame img { object-fit:cover; }
+.hero--professional .portrait__glow { opacity:.12; }
+.hero--professional .portrait__card { right:-12px; bottom:18px; }
+.home-featured-projects { border-top:1px solid var(--border); }
+.home-featured-projects .home-section-heading { max-width:830px; }
+.home-featured-projects .home-project-teaser-grid { gap:16px; }
+.home-project-teaser__body p { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.home-project-teaser { border-color:rgba(255,255,255,.17); background:#141414; border-radius:20px; }
+.home-project-teaser:hover { border-color:rgba(244,230,183,.52); transform:translateY(-3px); }
+.home-project-teaser__links a { color:#f4e6b7; }
+.home-routing .route-card-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.home-routing .route-card { min-height:205px; padding:22px; background:#141414; }
+.home-routing .route-card h3 { margin:11px 0; font-size:1.23rem; }
+.home-routing .route-card strong { color:#f4e6b7; }
+.home-automation-spotlight { border-block:1px solid var(--border); }
+.home-automation-spotlight__grid { display:grid; grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr); align-items:center; gap:clamp(28px,5vw,66px); }
+.home-automation-spotlight__copy h2 { max-width:21ch; margin:12px 0 16px; font-size:clamp(1.9rem,3.8vw,3.2rem); line-height:1.1; letter-spacing:-.035em; }
+.home-automation-spotlight__copy p { color:#bbb; font-size:1rem; line-height:1.7; }
+.home-automation-spotlight__copy .button { margin-top:12px; }
+.home-automation-spotlight__visual { display:block; min-width:0; overflow:hidden; border:1px solid rgba(244,230,183,.22); border-radius:18px; background:#101010; transition:border-color .2s,transform .2s; }
+.home-automation-spotlight__visual:hover { border-color:rgba(244,230,183,.55); transform:translateY(-3px); }
+.home-automation-spotlight__visual img { width:100%; aspect-ratio:1280/560; object-fit:contain; }
+.home-automation-spotlight__visual span { display:flex; flex-wrap:wrap; justify-content:space-between; gap:9px; padding:12px 16px; border-top:1px solid var(--border); color:#dedede; font-size:.82rem; }
+.home-automation-spotlight__visual strong { color:#f4e6b7; }
+.project-sections { gap:clamp(56px,6vw,90px); }
+.project-section-group { gap:24px; }
+.project-section-group__heading { max-width:850px; margin:0; text-align:left; }
+.project-section-group__heading h2 { max-width:26ch; font-size:clamp(1.7rem,3vw,2.7rem); }
+.project-section-group__heading p { margin:0; max-width:66ch; line-height:1.65; }
+.project-section-group .projects-grid { gap:20px; }
+.project-card--editorial { border-radius:20px; border-color:rgba(255,255,255,.19); background:#141414; }
+.project-card--editorial:hover { border-color:rgba(244,230,183,.5); transform:translateY(-3px); }
+.project-card--editorial .project-card__body { padding:clamp(20px,2.4vw,27px); }
+.project-card--editorial .project-meta span { color:#e2d6b6; }
+.project-card--editorial .project-card__title { margin:10px 0 6px; font-size:clamp(1.5rem,2.25vw,1.82rem); }
+.project-card--editorial .project-card__role { margin:0 0 13px; color:#a4a4a4; font-size:.79rem; }
+.project-card__summary { margin:0; color:#cecece; font-size:.94rem; line-height:1.65; }
+.project-card--editorial .project-card__badges { margin-top:17px; }
+.project-card--editorial .project-card__badges span { color:#dedede; border-color:rgba(255,255,255,.16); background:rgba(255,255,255,.025); }
+.project-card__footer { display:flex; flex-wrap:wrap; align-items:center; gap:12px 16px; margin-top:auto; padding-top:21px; }
+.project-card__footer .button { min-height:42px; background:#f4e6b7; color:#161616; padding:0 14px; font-size:.85rem; }
+.project-card__footer>a:not(.button) { color:#f4e6b7; font-size:.83rem; font-weight:750; }
+.project-card__footer>a:not(.button):hover { text-decoration:underline; text-underline-offset:4px; }
+.project-card--editorial .project-card__status { border-color:rgba(255,255,255,.25); color:#f4e6b7; }
+.adtech-brand-symbol { width:70px; height:70px; border-radius:18px; background:linear-gradient(135deg,#29251a,#111); border-color:rgba(244,230,183,.52); color:#f4e6b7; font-size:1.65rem; letter-spacing:-.09em; box-shadow:none; }
+.adtech-page__intro h2 { color:#f4f4f4; }
+.adtech-page__intro>p { max-width:62ch; line-height:1.72; }
+.adtech-page__contact { border-color:rgba(244,230,183,.24); background:linear-gradient(155deg,#222018,#121212); }
+.adtech-page__contact h2 { color:#fff; }
+.adtech-page .route-card { background:#161616; }
+.adtech-page .route-card:hover { background:#1d1d1d; }
+.adtech-lead-form { background:linear-gradient(155deg,#1d1d1d,#101010); border-color:rgba(244,230,183,.22); }
+.adtech-lead-form input,.adtech-lead-form select,.adtech-lead-form textarea { background:#101010; border-color:rgba(255,255,255,.2); }
+.adtech-workflow-card { border-color:rgba(255,255,255,.19); }
+.adtech-workflow-card:hover { border-color:rgba(244,230,183,.38); }
+.adtech-workflow-grid { align-items:stretch; }
+.adtech-workflow-media { background:#0a0a0a; }
+.adtech-workflow-body h3,.adtech-workflow-body h2 { line-height:1.2; }
+.button--primary:hover { background:#fff; color:#090909; }
+.button--secondary:hover { background:rgba(244,230,183,.1); border-color:rgba(244,230,183,.45); }
+@media(max-width:1050px) {
+  .hero--professional .hero-grid { grid-template-columns:minmax(0,1.2fr) minmax(245px,.8fr); gap:32px; }
+  .home-routing .route-card-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:920px) {
+  .hero--professional .hero-grid,.home-automation-spotlight__grid { grid-template-columns:1fr; }
+  .hero--professional .portrait { justify-self:start; width:min(100%,330px); }
+}
+@media(max-width:680px) {
+  .hero--professional { padding-block:54px 66px; }
+  .hero--professional h1 { margin:16px 0 14px; font-size:clamp(3.15rem,12.6vw,5rem); }
+  .hero-role { max-width:23ch; font-size:clamp(1.5rem,6.3vw,2.1rem); }
+  .hero--professional .hero-actions { display:grid; grid-template-columns:1fr; }
+  .hero--professional .hero-actions .button { width:100%; }
+  .hero--professional .hero-proof { gap:8px 12px; }
+  .hero--professional .portrait { width:min(100%,290px); justify-self:center; }
+  .hero--professional .portrait__card { right:0; bottom:0; }
+  .home-routing .route-card-grid { grid-template-columns:1fr; }
+  .home-automation-spotlight__visual span { font-size:.78rem; }
+  .project-section-group__heading { text-align:left; margin:0; }
+  .project-card__footer .button { width:100%; }
+  .project-card__footer>a:not(.button) { padding-block:8px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .home-automation-spotlight__visual,.project-card--editorial { transition:none; }
+}

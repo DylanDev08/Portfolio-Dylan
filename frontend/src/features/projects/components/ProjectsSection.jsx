@@ -5,19 +5,19 @@ const sections = [
   {
     id: "custom",
     eyebrow: "Código propio",
-    title: "Sistemas y productos desarrollados a medida",
+    title: "Software desarrollado a medida",
     description: "Proyectos donde trabajo arquitectura, frontend, backend, datos y operación. Cada caso reúne portada, producto, repositorio y documentación técnica cuando esos recursos están disponibles públicamente.",
   },
   {
     id: "platform",
     eyebrow: "WordPress / TiendaNube",
-    title: "Sitios y e-commerce construidos sobre plataformas",
+    title: "Sitios y tiendas sobre plataformas",
     description: "Soluciones enfocadas en presencia, venta, navegación y conversión utilizando la plataforma más adecuada para el negocio. Se muestra la web publicada y la documentación del trabajo realizado.",
   },
   {
     id: "development",
     eyebrow: "Productos en evolución",
-    title: "Productos con desarrollo activo y base técnica definida",
+    title: "Productos que siguen evolucionando",
     description: "Proyectos que continúan incorporando funcionalidades y mejoras sobre una arquitectura ya planteada. Se presenta el alcance actual, la identidad del producto, el código y la documentación disponible.",
   },
 ];
@@ -28,8 +28,8 @@ export function ProjectsSection({ projects }) {
       <div className="container">
         <SectionTitle
           eyebrow="Proyectos"
-          title="Problemas reales convertidos en productos y soluciones digitales."
-          description="Cada caso explica la necesidad, la solución desarrollada, el valor que aporta y los recursos disponibles para revisar el trabajo: web, repositorio y documentación."
+          title="Una selección de lo que construí."
+          description="Proyectos con una necesidad concreta, decisiones técnicas y evidencia del producto. Entrá a cada caso para ver más detalles."
           headingLevel="h1"
         />
 

@@ -11,32 +11,32 @@ const featuredProjectNames = ["Materiales FZAC", "Portfolio FZAC", "Innova Click
 
 const routeCards = [
   {
-    eyebrow: "Trabajo realizado",
-    title: "Proyectos",
-    description: "Casos reales con problema, solución, impacto, acceso al producto y documentación técnica cuando corresponde.",
-    to: "/proyectos",
-    cta: "Ver proyectos",
-  },
-  {
-    eyebrow: "Soluciones para negocios",
-    title: "Servicios",
-    description: "Desarrollo web, e-commerce, sistemas internos, automatizaciones e integraciones orientadas a resultados concretos.",
-    to: "/servicios",
-    cta: "Ver servicios",
-  },
-  {
-    eyebrow: "Capacidad técnica",
-    title: "Habilidades",
-    description: "Frontend, backend, bases de datos, automatización y herramientas aplicadas a productos y operaciones reales.",
-    to: "/skills",
-    cta: "Ver habilidades",
-  },
-  {
-    eyebrow: "Eficiencia operativa",
-    title: "Automatización",
-    description: "Flujos para conectar atención, datos y operación, reducir tareas manuales y mejorar el seguimiento.",
+    eyebrow: "Automatización aplicada",
+    title: "Workflows e IA",
+    description: "Flujos con n8n, validaciones, APIs y documentación de arquitectura.",
     to: "/automatizaciones",
-    cta: "Ver soluciones",
+    cta: "Ver workflows",
+  },
+  {
+    eyebrow: "Herramientas",
+    title: "Stack técnico",
+    description: "Tecnologías que utilizo para construir, integrar y mantener productos.",
+    to: "/skills",
+    cta: "Ver tecnologías",
+  },
+  {
+    eyebrow: "Trayectoria",
+    title: "Experiencia",
+    description: "Cómo aplico desarrollo y análisis de datos en proyectos de negocio.",
+    to: "/experiencia",
+    cta: "Conocer experiencia",
+  },
+  {
+    eyebrow: "Servicios digitales",
+    title: "AdTech",
+    description: "Mi propuesta comercial para sitios web, tiendas y software a medida.",
+    to: "/adtech",
+    cta: "Conocer AdTech",
   },
 ];
 
@@ -55,33 +55,12 @@ export function HomePage() {
       <main id="main-content">
         <HeroSection profile={data.profile} />
 
-        <section className="section section--compact home-routing" aria-labelledby="home-routing-title">
-          <div className="container">
-            <div className="home-section-heading home-section-heading--compact">
-              <span className="eyebrow">Soluciones, productos y experiencia</span>
-              <h2 id="home-routing-title">Elegí qué necesitás resolver o qué querés revisar.</h2>
-              <p>El portfolio está organizado por áreas para que clientes, empresas y equipos técnicos puedan encontrar rápido servicios, proyectos, capacidades y soluciones de automatización.</p>
-            </div>
-
-            <div className="route-card-grid">
-              {routeCards.map((item) => (
-                <Link className="route-card" to={item.to} key={item.to}>
-                  <span>{item.eyebrow}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                  <strong>{item.cta} →</strong>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className="section section--alt home-featured-projects" aria-labelledby="featured-projects-title">
           <div className="container">
             <div className="home-section-heading home-section-heading--compact">
-              <span className="eyebrow">Casos destacados</span>
-              <h2 id="featured-projects-title">Proyectos que muestran cómo convierto una necesidad en una solución.</h2>
-              <p>Cada caso incluye contexto, decisiones, resultado, portada real y accesos directos al producto, repositorio o documentación cuando están disponibles.</p>
+              <span className="eyebrow">Proyectos seleccionados</span>
+              <h2 id="featured-projects-title">Proyectos reales, no solo ejercicios de código.</h2>
+              <p>Una selección de productos con capturas, contexto de negocio y acceso al caso completo.</p>
             </div>
 
             <div className="home-project-teaser-grid">
@@ -114,6 +93,42 @@ export function HomePage() {
             </div>
 
             <Link className="button button--secondary" to="/proyectos">Ver todos los proyectos</Link>
+          </div>
+        </section>
+
+        <section className="section section--compact home-automation-spotlight" aria-labelledby="home-automation-title">
+          <div className="container home-automation-spotlight__grid">
+            <div className="home-automation-spotlight__copy">
+              <span className="eyebrow">IA aplicada · Procesos reales</span>
+              <h2 id="home-automation-title">Automatizar también es diseñar buenas decisiones.</h2>
+              <p>Documenté flujos de n8n para atención por Instagram, validación de datos y cierres semanales. Se pueden revisar las capturas y los JSON de arquitectura anonimizados, sin exponer sistemas internos.</p>
+              <Link className="button button--secondary" to="/automatizaciones">Explorar workflows y JSON ↗</Link>
+            </div>
+            <Link className="home-automation-spotlight__visual" to="/automatizaciones" aria-label="Conocer workflows de n8n para FZAC">
+              <img src="/workflows/fzac-instagram-dm.webp" alt="Diagrama real de n8n para Instagram: webhooks, procesamiento y derivación humana" loading="lazy" decoding="async" width="1280" height="560"/>
+              <span>Instagram DM · Relevamiento y derivación humana <strong>Ver caso ↗</strong></span>
+            </Link>
+          </div>
+        </section>
+
+        <section className="section section--compact home-routing" aria-labelledby="home-routing-title">
+          <div className="container">
+            <div className="home-section-heading home-section-heading--compact">
+              <span className="eyebrow">Más sobre mi trabajo</span>
+              <h2 id="home-routing-title">Explorá mi experiencia, herramientas y servicios.</h2>
+              <p>Una mirada rápida a mi forma de trabajar y a las soluciones que desarrollo.</p>
+            </div>
+
+            <div className="route-card-grid">
+              {routeCards.map((item) => (
+                <Link className="route-card" to={item.to} key={item.to}>
+                  <span>{item.eyebrow}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <strong>{item.cta} →</strong>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
