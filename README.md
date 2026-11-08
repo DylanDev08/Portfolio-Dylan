@@ -130,6 +130,18 @@ Canales:
 - TikTok: https://www.tiktok.com/@adtech.ros
 - WhatsApp: +54 9 341 741 5857
 
+## Casos reales de automatización n8n
+
+La página `/automatizaciones` documenta tres flujos con capturas optimizadas y diagramas JSON anonimizados almacenados en `frontend/public/workflows/`:
+
+- Instagram DM: recepción, respuesta y derivación a atención humana.
+- Carga inteligente del responsable: normalización y validación de información operativa.
+- Cierre semanal de mano de obra: consolidación de fuentes y preparación de reportes.
+
+Las capturas corresponden a flujos de n8n. Un workflow diseñado o publicado en n8n no implica que todas sus integraciones hayan sido verificadas en producción.
+
+**FZAC-AI** es un proyecto independiente. Su repositorio privado es https://github.com/DylanDev08/FZAC-AI y solo las cuentas autorizadas pueden acceder. Su fase documentada funciona localmente en modo DRY_RUN, sin integraciones reales.
+
 ## Automatización de procesos
 
 El portfolio presenta arquitecturas funcionales para resolver necesidades como:

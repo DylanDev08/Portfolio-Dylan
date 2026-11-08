@@ -8,7 +8,7 @@ export function WorkflowsPage() {
 
   return (
     <PageShell>
-      <AutomationSection automations={data.workflows} />
+      <AutomationSection automations={data.workflows} repository={data.automationRepository} />
       <ConversionCta
         eyebrow="Automatización aplicada"
         title="Automatizá procesos repetitivos sin perder control sobre la operación."
