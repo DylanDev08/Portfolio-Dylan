@@ -206,3 +206,26 @@
 .adtech-workflow-body ol{padding-left:20px;margin:4px 0 24px;color:#ddd;line-height:1.8}
 .adtech-workflow-body a{margin-top:auto;color:#f4e6b7;font-weight:750}
 @media(max-width:760px){.adtech-workflow-grid{grid-template-columns:1fr;gap:18px}.adtech-workflow-body{padding:20px}}
+
+
+/* Portfolio workflows: real n8n screenshots and private repository case */
+.adtech-workflow-media{position:relative;display:block;aspect-ratio:1280/560;cursor:zoom-in}
+.adtech-workflow-media img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .25s ease}
+.adtech-workflow-media:hover img,.adtech-workflow-media:focus-visible img{transform:scale(1.035)}
+.adtech-workflow-media:focus-visible{outline:2px solid var(--accent-light);outline-offset:-2px}
+.adtech-workflow-media__zoom{position:absolute;right:14px;bottom:14px;padding:8px 12px;border-radius:8px;background:rgba(0,0,0,.86);color:#fff;font-size:.78rem;font-weight:700;opacity:0;transition:opacity .2s}
+.adtech-workflow-media:hover .adtech-workflow-media__zoom,.adtech-workflow-media:focus-visible .adtech-workflow-media__zoom{opacity:1}
+.adtech-workflow-body h2{margin:10px 0 12px;font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.25;text-wrap:balance}
+.adtech-workflow-status{display:inline-flex;margin:0 0 10px;padding:5px 10px;border:1px solid rgba(244,230,183,.2);border-radius:999px;color:#f4e6b7;font-size:.72rem;font-weight:700}
+.adtech-workflow-caption{margin:0 0 14px;color:#999!important;font-size:.78rem;line-height:1.4!important}
+.adtech-workflow-body p strong{color:#f3f3f3}
+.adtech-workflow-body .badges{margin-top:auto;padding-top:16px}
+.automation-repository{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;margin-top:30px;padding:clamp(22px,3vw,36px);border:1px solid rgba(255,255,255,.18);border-radius:18px;background:linear-gradient(140deg,#171717,#0c0c0c)}
+.automation-repository h2{margin:10px 0;font-size:clamp(1.6rem,3vw,2.3rem)}
+.automation-repository p{max-width:74ch;margin:12px 0;color:#ccc;line-height:1.7}
+.automation-repository .automation-repository__note{color:#a9a9a9;font-size:.88rem}
+.automation-repository__access{display:flex;flex-direction:column;align-items:flex-start;gap:12px;max-width:250px}
+.automation-repository__access>span{font-size:.8rem;color:#eee;font-weight:700}
+.automation-repository__access small{color:#aaa;line-height:1.5}
+@media(max-width:760px){.automation-repository{grid-template-columns:1fr;gap:20px}.adtech-workflow-media__zoom{opacity:1}.automation-repository__access{max-width:none}.automation-repository__access .button{width:100%;text-align:center}}
+@media(prefers-reduced-motion:reduce){.adtech-workflow-media img,.adtech-workflow-media__zoom{transition:none}}

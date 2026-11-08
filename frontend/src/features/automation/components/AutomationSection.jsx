@@ -1,26 +1,80 @@
 import { SectionTitle } from "../../../components/common/SectionTitle";
 
-const realCases = [
-  { id:"jefe", title:"Asistente administrativo FZAC", category:"Validación de datos · IA", image:"/workflows/fzac-entrada-jefe.webp", problem:"Recibir datos operativos enviados por el responsable sin incorporar registros incompletos.", solution:"Webhook, normalización de entrada, interpretación de texto y fotos, validaciones y bifurcación entre registro y revisión.", tools:["n8n","Webhooks","IA","Validación"] },
-  { id:"reportes", title:"Consolidación operativa y reportes", category:"Datos · Reportes", image:"/workflows/fzac-reportes.webp", problem:"Consolidar información que proviene de múltiples fuentes y estructuras.", solution:"Lectura y transformación de datos, unificación de ramas y preparación de salidas y reportes.", tools:["n8n","Google Sheets","Google Drive","Transformaciones"] },
-  { id:"meta", title:"Integración de mensajería Meta", category:"Mensajería · Integraciones", image:"/workflows/fzac-meta.webp", problem:"Procesar eventos de mensajería y responder o derivar según la información recibida.", solution:"Webhooks de verificación y recepción, normalización de mensajes y rutas para respuestas y notificaciones.", tools:["n8n","Meta","Webhooks","Gmail"] },
-  { id:"whatsapp", title:"Asistente WhatsApp FZAC", category:"Atención · Domótica", image:"/workflows/fzac-whatsapp.webp", problem:"Organizar respuestas y comandos rápidos sin depender de operaciones manuales repetitivas.", solution:"Motor de decisión que prepara texto, botones o listas interactivas; incluye una rama opcional para leads.", tools:["n8n","WhatsApp","APIs","Automatización"] },
-];
-export function AutomationSection() {
+export function AutomationSection({ automations = [], repository }) {
   return (
     <section className="section automation-section" id="automatizaciones">
       <div className="container">
-        <SectionTitle eyebrow="Automatización aplicada · Casos reales" title="Workflows diseñados para operaciones reales." description="Una selección de mis flujos en n8n: captura, transformación, validación y comunicación entre sistemas. Las capturas muestran la estructura de los flujos; algunas integraciones pueden estar en configuración o evolución." headingLevel="h1" />
+        <SectionTitle
+          eyebrow="Automatización aplicada · n8n"
+          title="Workflows diseñados para operaciones reales."
+          description="Capturas reales de mis flujos: mensajería, validación de entradas y consolidación de reportes. La publicación del workflow no implica que todas sus integraciones estén activas en producción."
+          headingLevel="h1"
+        />
+
         <div className="adtech-workflow-grid">
-          {realCases.map(item => <article className="adtech-workflow-card" key={item.id}>
-            <div className="adtech-workflow-media"><img src={item.image} alt={"Captura del workflow n8n: " + item.title} loading="lazy" onError={event => { event.currentTarget.style.display="none"; event.currentTarget.parentElement.classList.add("adtech-workflow-media--pending"); }} /></div>
-            <div className="adtech-workflow-body">
-              <span className="eyebrow">{item.category}</span><h2>{item.title}</h2>
-              <p><strong>Necesidad:</strong> {item.problem}</p><p><strong>Implementación:</strong> {item.solution}</p>
-              <div className="badges">{item.tools.map(tool=><span key={tool}>{tool}</span>)}</div>
-            </div>
-          </article>)}
+          {automations.map((item) => (
+            <article className="adtech-workflow-card" key={item.id}>
+              <a
+                className="adtech-workflow-media"
+                href={item.image}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Abrir captura completa de ${item.title}`}
+              >
+                <img
+                  src={item.image}
+                  alt={item.imageAlt || `Workflow de n8n: ${item.title}`}
+                  loading="lazy"
+                  decoding="async"
+                  width="1280"
+                  height="560"
+                />
+                <span className="adtech-workflow-media__zoom" aria-hidden="true">Ampliar captura ↗</span>
+              </a>
+              <div className="adtech-workflow-body">
+                <span className="eyebrow">{item.category}</span>
+                <h2>{item.title}</h2>
+                <span className="adtech-workflow-status">{item.statusLabel}</span>
+                <p className="adtech-workflow-caption">{item.imageCaption}</p>
+                <p><strong>Necesidad:</strong> {item.problem}</p>
+                <p><strong>Implementación:</strong> {item.solution}</p>
+                <p><strong>Objetivo:</strong> {item.result}</p>
+                <div className="badges">
+                  {(item.tools || []).map((tool) => <span key={tool}>{tool}</span>)}
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
+
+        {repository && (
+          <aside className="automation-repository" aria-labelledby="automation-repository-title">
+            <div className="automation-repository__copy">
+              <span className="eyebrow">{repository.category}</span>
+              <h2 id="automation-repository-title">{repository.title}</h2>
+              <span className="adtech-workflow-status">{repository.statusLabel}</span>
+              <p>{repository.description}</p>
+              <p className="automation-repository__note">{repository.scopeNote}</p>
+              <div className="badges">
+                {(repository.tools || []).map((tool) => <span key={tool}>{tool}</span>)}
+              </div>
+            </div>
+            <div className="automation-repository__access">
+              <span>GitHub · {repository.repositoryVisibility === "private" ? "Repositorio privado" : "Repositorio público"}</span>
+              <a
+                className="button button--secondary"
+                href={repository.repositoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver repositorio ↗
+              </a>
+              {repository.repositoryVisibility === "private" && (
+                <small>Solo usuarios con acceso autorizado pueden ver el código.</small>
+              )}
+            </div>
+          </aside>
+        )}
       </div>
     </section>
   );
