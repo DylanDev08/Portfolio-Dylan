@@ -39,6 +39,12 @@ export function AutomationSection({ automations = [], repository }) {
                 <p><strong>Necesidad:</strong> {item.problem}</p>
                 <p><strong>Implementación:</strong> {item.solution}</p>
                 <p><strong>Objetivo:</strong> {item.result}</p>
+                {item.jsonUrl && (
+                  <a className="adtech-workflow-json" href={item.jsonUrl} download>
+                    Descargar JSON de arquitectura (sanitizado) ↓
+                  </a>
+                )}
+                <small className="adtech-workflow-json-note">Diagrama de referencia: no ejecutable y sin datos internos.</small>
                 <div className="badges">
                   {(item.tools || []).map((tool) => <span key={tool}>{tool}</span>)}
                 </div>

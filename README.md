@@ -132,7 +132,7 @@ Canales:
 
 ## Casos reales de automatización n8n
 
-La página `/automatizaciones` documenta tres flujos con capturas optimizadas y almacenadas en `frontend/public/workflows/`:
+La página `/automatizaciones` documenta tres flujos con capturas optimizadas y diagramas JSON anonimizados almacenados en `frontend/public/workflows/`:
 
 - Instagram DM: recepción, respuesta y derivación a atención humana.
 - Carga inteligente del responsable: normalización y validación de información operativa.

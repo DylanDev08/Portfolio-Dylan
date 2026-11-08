@@ -229,3 +229,12 @@
 .automation-repository__access small{color:#aaa;line-height:1.5}
 @media(max-width:760px){.automation-repository{grid-template-columns:1fr;gap:20px}.adtech-workflow-media__zoom{opacity:1}.automation-repository__access{max-width:none}.automation-repository__access .button{width:100%;text-align:center}}
 @media(prefers-reduced-motion:reduce){.adtech-workflow-media img,.adtech-workflow-media__zoom{transition:none}}
+
+.adtech-workflow-json{display:inline-block;margin:15px 0 0;color:#f4e6b7;font-size:.85rem;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.adtech-workflow-json:hover,.adtech-workflow-json:focus-visible{color:#fff}
+.adtech-workflow-json-note{display:block;margin:8px 0 0;color:#aaa;font-size:.76rem;line-height:1.5}
+.adtech-workflow-links{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;margin-top:auto;padding-top:18px}
+.adtech-workflow-links a{margin:0;font-size:.85rem;text-decoration:underline;text-underline-offset:3px}
+.adtech-automation-disclaimer{margin-top:18px;color:#aaa;line-height:1.6;font-size:.84rem}
+.adtech-ai-repository h3{font-size:clamp(1.5rem,2.7vw,2rem);margin:10px 0}
+@media(max-width:760px){.adtech-workflow-links{flex-direction:column;align-items:flex-start;gap:12px}}

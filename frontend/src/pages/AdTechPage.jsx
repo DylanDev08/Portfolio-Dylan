@@ -16,16 +16,6 @@ const extra = [
   ["Catálogos y landing pages", "Páginas comerciales enfocadas en consultas y contacto."],
   ["Integraciones y chatbots", "Conexiones entre servicios y flujos de atención, según disponibilidad de cada plataforma."],
 ];
-const workflowCases = [
-  { id: "jefe", title: "Asistente administrativo FZAC", image: "/workflows/fzac-entrada-jefe.webp", label: "Webhook · IA · Validación", description: "Recibe solicitudes del responsable, normaliza la entrada, interpreta texto o foto, comprueba datos obligatorios y deriva la respuesta al registro contable o a revisión.", steps: ["Entrada y normalización", "Interpretación con IA", "Validación y derivación"] },
-  { id: "operaciones", title: "Consolidación operativa y reportes", image: "/workflows/fzac-reportes.webp", label: "Hojas de cálculo · Transformaciones · Reportes", description: "Orquesta varias fuentes de datos, las transforma y prepara salidas de seguimiento y reportes. El flujo incluye distintas ramas y controles de procesamiento.", steps: ["Fuentes de datos", "Consolidación", "Salidas y reportes"] },
-  { id: "meta", title: "Captación y seguimiento de contactos", image: "/workflows/fzac-meta.webp", label: "Meta · Webhooks · Notificaciones", description: "Integra eventos entrantes de Meta, normalización de mensajes, derivación de contactos y notificaciones. La captura muestra etapas de verificación y configuración.", steps: ["Recepción de eventos", "Normalización", "Derivación y avisos"] },
-  { id: "whatsapp", title: "Asistente de WhatsApp y domótica", image: "/workflows/fzac-whatsapp.webp", label: "WhatsApp · Comandos · CRM opcional", description: "Organiza mensajes y comandos rápidos mediante un motor de decisión que prepara respuestas de texto, menús interactivos y un registro de leads opcional.", steps: ["Mensaje entrante", "Motor de decisión", "Respuesta o registro"] },
-];
-function WorkflowScreenshot({ item }) {
-  const [failed, setFailed] = useState(false);
-  return <div className="adtech-workflow-media">{!failed ? <img src={item.image} alt={"Captura real del editor n8n: " + item.title} loading="lazy" decoding="async" onError={() => setFailed(true)} /> : <div className="adtech-workflow-fallback" role="img" aria-label={"Captura de " + item.title + " pendiente de publicación"}><span>n8n / WORKFLOW</span><strong>{item.title}</strong><small>Captura pendiente de cargar</small></div>}</div>;
-}
 const ask = (topic) => "https://wa.me/5493417415857?text=" + encodeURIComponent("Hola, vi AdTech en el portfolio y quiero consultar por " + topic + ".");
 
 export function AdTechPage() {
@@ -119,17 +109,56 @@ export function AdTechPage() {
           <h2 id="adtech-automation-title">Automatizaciones desarrolladas para operaciones reales</h2>
           <p className="adtech-section-intro">Estos ejemplos corresponden a flujos de trabajo implementados o configurados en n8n. Las capturas muestran su arquitectura visual, no una garantía de que todas las integraciones estén activas en producción.</p>
           <div className="adtech-workflow-grid">
-            {workflowCases.map(item => <article className="adtech-workflow-card" key={item.id}>
-              <WorkflowScreenshot item={item} />
-              <div className="adtech-workflow-body">
-                <span className="eyebrow">{item.label}</span>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-                <ol>{item.steps.map(step => <li key={step}>{step}</li>)}</ol>
-                <a href={ask("una automatización similar a " + item.title)} target="_blank" rel="noopener noreferrer">Consultar una solución similar ↗</a>
-              </div>
-            </article>)}
+            {data.workflows.map((item) => (
+              <article className="adtech-workflow-card" key={item.id}>
+                <a
+                  className="adtech-workflow-media"
+                  href={item.image}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Ampliar imagen del workflow ${item.title}`}
+                >
+                  <img src={item.image} alt={item.imageAlt} loading="lazy" decoding="async" width="1280" height="560" />
+                  <span className="adtech-workflow-media__zoom" aria-hidden="true">Ampliar ↗</span>
+                </a>
+                <div className="adtech-workflow-body">
+                  <span className="eyebrow">{item.category}</span>
+                  <h3>{item.title}</h3>
+                  <span className="adtech-workflow-status">{item.statusLabel}</span>
+                  <p>{item.problem}</p>
+                  <p><strong>Solución:</strong> {item.solution}</p>
+                  <p><strong>Objetivo:</strong> {item.result}</p>
+                  <div className="badges">
+                    {(item.tools || []).map((tool) => <span key={tool}>{tool}</span>)}
+                  </div>
+                  <div className="adtech-workflow-links">
+                    <a href={item.jsonUrl} download>JSON de referencia ↓</a>
+                    <a href={ask("una automatización similar a " + item.title)} target="_blank" rel="noopener noreferrer">Consultar algo similar ↗</a>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
+          <p className="adtech-automation-disclaimer">
+            Los JSON son versiones anonimizadas del diagrama, sin credenciales, lógica operativa ni acceso a sistemas reales. No son flujos ejecutables.
+          </p>
+          {data.automationRepository && (
+            <div className="automation-repository adtech-ai-repository">
+              <div className="automation-repository__copy">
+                <span className="eyebrow">IA aplicada · Proyecto técnico</span>
+                <h3>FZAC-AI · Asistente interno</h3>
+                <span className="adtech-workflow-status">{data.automationRepository.statusLabel}</span>
+                <p>{data.automationRepository.description}</p>
+                <p className="automation-repository__note">{data.automationRepository.scopeNote}</p>
+              </div>
+              <div className="automation-repository__access">
+                <span>GitHub · Repositorio privado</span>
+                <a className="button button--secondary" href={data.automationRepository.repositoryUrl} target="_blank" rel="noopener noreferrer">Ver FZAC-AI ↗</a>
+                <small>Disponible solo para cuentas autorizadas.</small>
+                <Link to="/automatizaciones">Ver detalles y workflows →</Link>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
