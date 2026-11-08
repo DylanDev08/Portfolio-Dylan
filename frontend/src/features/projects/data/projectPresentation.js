@@ -15,7 +15,7 @@ const projectPresentation = {
   },
   "Portfolio FZAC": {
     coverImage: "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/https://fzac-portfolio-1.onrender.com",
-    coverFallback: "/projects/portfolio-fzac.svg",
+    coverFallback: "https://raw.githubusercontent.com/DylanDev08/FZAC-Portfolio/main/frontend/public/assets/img/obras/marvel-pellegrini/marvel-pellegrini-02.jpg",
     accent: "#d8ad52",
     accentRgb: "216,173,82",
     surface: "#15120c",
@@ -56,7 +56,7 @@ const projectPresentation = {
     docsLabel: "Caso documentado",
   },
   "Innova Click": {
-    coverImage: "/projects/innova-click-real.webp",
+    coverImage: "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/https://innovaclick.com.ar",
     coverFallback: "/projects/innova-click.svg",
     accent: "#8b5cf6",
     accentRgb: "139,92,246",
@@ -86,15 +86,14 @@ const projectPresentation = {
     deploymentNote: "La arquitectura está preparada para incorporar reservas, disponibilidad, gestión de turnos y automatizaciones comerciales como siguientes capacidades del producto.",
     docsLabel: "README del proyecto",
   },
-  "PrismaERP": {
-    coverImage: "/projects/prisma-erp-real.webp",
-    coverFallback: "/projects/prisma-erp.svg",
-    coverLabel: "Vista real del acceso a la plataforma · Repositorio privado",
-    statusLabel: "Proyecto privado",
-    githubUrl: "",
-    docsUrl: "",
-    repositoryNote: "Repositorio privado. Se presenta únicamente una captura de la interfaz, sin acceso al código fuente.",
-    previewNote: "Captura del acceso a FZAC ERP. Repositorio privado y sin acceso público al código.",
+  Viagelato: {
+    accent: "#d8d8d8",
+    accentRgb: "216,216,216",
+    surface: "#111111",
+    coverPosition: "center center",
+    coverFit: "cover",
+    coverLabel: "Vista conceptual · en preparación",
+    docsLabel: "README del proyecto",
   },
   Budgetly: {
     accent: "#35c78a",
