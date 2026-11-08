@@ -1,0 +1,212 @@
+{
+  "name": "DEMO PUBLICA | Carga inteligente y validacion de datos (SOLO ARQUITECTURA)",
+  "nodes": [
+    {
+      "id": "public-demo-node-001",
+      "name": "webhook 01",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -900,
+        0
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-002",
+      "name": "code 01",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -680,
+        0
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-003",
+      "name": "code 02",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -440,
+        0
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-004",
+      "name": "http Request 01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -180,
+        0
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-005",
+      "name": "code 03",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        80,
+        0
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-006",
+      "name": "if 01",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        300,
+        0
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-007",
+      "name": "http Request 02",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        540,
+        -120
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-008",
+      "name": "respond To Webhook 01",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        780,
+        -120
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-009",
+      "name": "respond To Webhook 02",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        540,
+        140
+      ],
+      "parameters": {},
+      "disabled": true
+    }
+  ],
+  "connections": {
+    "webhook 01": {
+      "main": [
+        [
+          {
+            "node": "code 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "code 01": {
+      "main": [
+        [
+          {
+            "node": "code 02",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "code 02": {
+      "main": [
+        [
+          {
+            "node": "http Request 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "http Request 01": {
+      "main": [
+        [
+          {
+            "node": "code 03",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "code 03": {
+      "main": [
+        [
+          {
+            "node": "if 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "if 01": {
+      "main": [
+        [
+          {
+            "node": "http Request 02",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "respond To Webhook 02",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "http Request 02": {
+      "main": [
+        [
+          {
+            "node": "respond To Webhook 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "tags": [],
+  "meta": {
+    "referenceOnly": true,
+    "nonExecutable": true,
+    "sourceApp": "n8n",
+    "privacy": "Los parametros, credenciales, URLs, IDs y codigo operativo original fueron eliminados.",
+    "warning": "Archivo de arquitectura de referencia. NO es un workflow listo para ejecutar ni una copia funcional del sistema real."
+  }
+}

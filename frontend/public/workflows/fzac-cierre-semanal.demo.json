@@ -1,0 +1,1275 @@
+{
+  "name": "DEMO PUBLICA | Consolidacion de reportes semanales (SOLO ARQUITECTURA)",
+  "nodes": [
+    {
+      "id": "public-demo-node-001",
+      "name": "schedule Trigger 01",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1880,
+        0
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-002",
+      "name": "set 01",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1640,
+        80
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-003",
+      "name": "google Sheets 01",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        -720
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-004",
+      "name": "set 02",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1140,
+        -720
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-005",
+      "name": "google Sheets 02",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        -540
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-006",
+      "name": "set 03",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1140,
+        -540
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-007",
+      "name": "google Sheets 03",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        -360
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-008",
+      "name": "set 04",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1140,
+        -360
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-009",
+      "name": "google Sheets 04",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        -120
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-010",
+      "name": "set 05",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1140,
+        -120
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-011",
+      "name": "google Sheets 05",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        60
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-012",
+      "name": "set 06",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1140,
+        60
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-013",
+      "name": "google Sheets 06",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        240
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-014",
+      "name": "set 07",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1140,
+        240
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-015",
+      "name": "google Sheets 07",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        480
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-016",
+      "name": "set 08",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1140,
+        480
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-017",
+      "name": "google Sheets 08",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        660
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-018",
+      "name": "set 09",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1140,
+        660
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-019",
+      "name": "google Sheets 09",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        840
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-020",
+      "name": "set 10",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1140,
+        840
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-021",
+      "name": "merge 01",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -840,
+        -600
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-022",
+      "name": "merge 02",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -620,
+        -480
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-023",
+      "name": "merge 03",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -400,
+        -360
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-024",
+      "name": "merge 04",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -180,
+        -240
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-025",
+      "name": "merge 05",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        40,
+        -120
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-026",
+      "name": "merge 06",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        260,
+        0
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-027",
+      "name": "merge 07",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        480,
+        120
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-028",
+      "name": "merge 08",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        700,
+        240
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-029",
+      "name": "code 01",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2500,
+        200
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-030",
+      "name": "code 02",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2740,
+        200
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-031",
+      "name": "google Drive 01",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2540,
+        200
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-032",
+      "name": "google Drive 02",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3040,
+        40
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-033",
+      "name": "sticky Note 01",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1880,
+        -980
+      ],
+      "parameters": {
+        "content": "Diagrama de referencia. Los datos, credenciales, endpoints, IDs y reglas de negocio fueron retirados."
+      },
+      "disabled": false
+    },
+    {
+      "id": "public-demo-node-034",
+      "name": "sticky Note 02",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        780,
+        -100
+      ],
+      "parameters": {
+        "content": "Diagrama de referencia. Los datos, credenciales, endpoints, IDs y reglas de negocio fueron retirados."
+      },
+      "disabled": false
+    },
+    {
+      "id": "public-demo-node-035",
+      "name": "manual Trigger 01",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1880,
+        180
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-036",
+      "name": "google Drive 03",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2780,
+        200
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-037",
+      "name": "http Request 01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3040,
+        360
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-038",
+      "name": "sticky Note 03",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        560
+      ],
+      "parameters": {
+        "content": "Diagrama de referencia. Los datos, credenciales, endpoints, IDs y reglas de negocio fueron retirados."
+      },
+      "disabled": false
+    },
+    {
+      "id": "public-demo-node-039",
+      "name": "sticky Note 04",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        520
+      ],
+      "parameters": {
+        "content": "Diagrama de referencia. Los datos, credenciales, endpoints, IDs y reglas de negocio fueron retirados."
+      },
+      "disabled": false
+    },
+    {
+      "id": "public-demo-node-040",
+      "name": "sticky Note 05",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        520
+      ],
+      "parameters": {
+        "content": "Diagrama de referencia. Los datos, credenciales, endpoints, IDs y reglas de negocio fueron retirados."
+      },
+      "disabled": false
+    },
+    {
+      "id": "public-demo-node-041",
+      "name": "sticky Note 06",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1800,
+        800
+      ],
+      "parameters": {
+        "content": "Diagrama de referencia. Los datos, credenciales, endpoints, IDs y reglas de negocio fueron retirados."
+      },
+      "disabled": false
+    },
+    {
+      "id": "public-demo-node-042",
+      "name": "google Sheets 10",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        1040
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-043",
+      "name": "google Sheets 11",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        1220
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-044",
+      "name": "google Sheets 12",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        1400
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-045",
+      "name": "google Sheets 13",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        1580
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-046",
+      "name": "merge 09",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        920,
+        240
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-047",
+      "name": "merge 10",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1140,
+        240
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-048",
+      "name": "merge 11",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1360,
+        240
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-049",
+      "name": "merge 12",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1580,
+        240
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-050",
+      "name": "code 03",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2260,
+        200
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-051",
+      "name": "sticky Note 07",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2040,
+        620
+      ],
+      "parameters": {
+        "content": "Diagrama de referencia. Los datos, credenciales, endpoints, IDs y reglas de negocio fueron retirados."
+      },
+      "disabled": false
+    },
+    {
+      "id": "public-demo-node-052",
+      "name": "google Sheets 14",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        1760
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-053",
+      "name": "google Sheets 15",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1400,
+        1940
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-054",
+      "name": "merge 13",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1800,
+        240
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-055",
+      "name": "merge 14",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2020,
+        240
+      ],
+      "parameters": {},
+      "disabled": true
+    }
+  ],
+  "connections": {
+    "schedule Trigger 01": {
+      "main": [
+        [
+          {
+            "node": "set 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set 01": {
+      "main": [
+        [
+          {
+            "node": "google Sheets 01",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 02",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 03",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 04",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 05",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 06",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 07",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 08",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 09",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 10",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 11",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 12",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 13",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 14",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "google Sheets 15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 01": {
+      "main": [
+        [
+          {
+            "node": "set 02",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 02": {
+      "main": [
+        [
+          {
+            "node": "set 03",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 03": {
+      "main": [
+        [
+          {
+            "node": "set 04",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 04": {
+      "main": [
+        [
+          {
+            "node": "set 05",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 05": {
+      "main": [
+        [
+          {
+            "node": "set 06",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 06": {
+      "main": [
+        [
+          {
+            "node": "set 07",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 07": {
+      "main": [
+        [
+          {
+            "node": "set 08",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 08": {
+      "main": [
+        [
+          {
+            "node": "set 09",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 09": {
+      "main": [
+        [
+          {
+            "node": "set 10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set 02": {
+      "main": [
+        [
+          {
+            "node": "merge 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set 03": {
+      "main": [
+        [
+          {
+            "node": "merge 01",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 01": {
+      "main": [
+        [
+          {
+            "node": "merge 02",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set 04": {
+      "main": [
+        [
+          {
+            "node": "merge 02",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 02": {
+      "main": [
+        [
+          {
+            "node": "merge 03",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set 05": {
+      "main": [
+        [
+          {
+            "node": "merge 03",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 03": {
+      "main": [
+        [
+          {
+            "node": "merge 04",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set 06": {
+      "main": [
+        [
+          {
+            "node": "merge 04",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 04": {
+      "main": [
+        [
+          {
+            "node": "merge 05",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set 07": {
+      "main": [
+        [
+          {
+            "node": "merge 05",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 05": {
+      "main": [
+        [
+          {
+            "node": "merge 06",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set 08": {
+      "main": [
+        [
+          {
+            "node": "merge 06",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 06": {
+      "main": [
+        [
+          {
+            "node": "merge 07",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set 09": {
+      "main": [
+        [
+          {
+            "node": "merge 07",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 07": {
+      "main": [
+        [
+          {
+            "node": "merge 08",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set 10": {
+      "main": [
+        [
+          {
+            "node": "merge 08",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 08": {
+      "main": [
+        [
+          {
+            "node": "merge 09",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "code 01": {
+      "main": [
+        [
+          {
+            "node": "code 02",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "code 02": {
+      "main": [
+        [
+          {
+            "node": "google Drive 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Drive 01": {
+      "main": [
+        [
+          {
+            "node": "google Drive 03",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "manual Trigger 01": {
+      "main": [
+        [
+          {
+            "node": "set 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Drive 03": {
+      "main": [
+        [
+          {
+            "node": "google Drive 02",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "http Request 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 10": {
+      "main": [
+        [
+          {
+            "node": "merge 09",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 09": {
+      "main": [
+        [
+          {
+            "node": "merge 10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 11": {
+      "main": [
+        [
+          {
+            "node": "merge 10",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 10": {
+      "main": [
+        [
+          {
+            "node": "merge 11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 12": {
+      "main": [
+        [
+          {
+            "node": "merge 11",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 11": {
+      "main": [
+        [
+          {
+            "node": "merge 12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 13": {
+      "main": [
+        [
+          {
+            "node": "merge 12",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 12": {
+      "main": [
+        [
+          {
+            "node": "merge 13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 14": {
+      "main": [
+        [
+          {
+            "node": "merge 13",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 13": {
+      "main": [
+        [
+          {
+            "node": "merge 14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google Sheets 15": {
+      "main": [
+        [
+          {
+            "node": "merge 14",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "merge 14": {
+      "main": [
+        [
+          {
+            "node": "code 03",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "code 03": {
+      "main": [
+        [
+          {
+            "node": "code 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "tags": [],
+  "meta": {
+    "referenceOnly": true,
+    "nonExecutable": true,
+    "sourceApp": "n8n",
+    "privacy": "Los parametros, credenciales, URLs, IDs y codigo operativo original fueron eliminados.",
+    "warning": "Archivo de arquitectura de referencia. NO es un workflow listo para ejecutar ni una copia funcional del sistema real."
+  }
+}

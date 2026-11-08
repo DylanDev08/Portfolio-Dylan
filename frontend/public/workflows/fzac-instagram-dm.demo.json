@@ -1,0 +1,353 @@
+{
+  "name": "DEMO PUBLICA | Atencion y derivacion de Instagram (SOLO ARQUITECTURA)",
+  "nodes": [
+    {
+      "id": "public-demo-node-001",
+      "name": "sticky Note 01",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1120,
+        -520
+      ],
+      "parameters": {
+        "content": "Diagrama de referencia. Los datos, credenciales, endpoints, IDs y reglas de negocio fueron retirados."
+      },
+      "disabled": false
+    },
+    {
+      "id": "public-demo-node-002",
+      "name": "webhook 01",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -900,
+        -120
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-003",
+      "name": "code 01",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -650,
+        -120
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-004",
+      "name": "respond To Webhook 01",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -400,
+        -120
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-005",
+      "name": "webhook 02",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -900,
+        180
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-006",
+      "name": "code 02",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -650,
+        180
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-007",
+      "name": "code 03",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -360,
+        180
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-008",
+      "name": "code 04",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -60,
+        80
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-009",
+      "name": "http Request 01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        260,
+        80
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-010",
+      "name": "code 05",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -60,
+        340
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-011",
+      "name": "gmail 01",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        260,
+        340
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-012",
+      "name": "code 06",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        500
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-013",
+      "name": "sticky Note 02",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        500,
+        460
+      ],
+      "parameters": {
+        "content": "Diagrama de referencia. Los datos, credenciales, endpoints, IDs y reglas de negocio fueron retirados."
+      },
+      "disabled": false
+    },
+    {
+      "id": "public-demo-node-014",
+      "name": "sticky Note 03",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        500,
+        -500
+      ],
+      "parameters": {
+        "content": "Diagrama de referencia. Los datos, credenciales, endpoints, IDs y reglas de negocio fueron retirados."
+      },
+      "disabled": false
+    },
+    {
+      "id": "public-demo-node-015",
+      "name": "manual Trigger 01",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -900,
+        650
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-016",
+      "name": "http Request 02",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -650,
+        650
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-017",
+      "name": "http Request 03",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -380,
+        650
+      ],
+      "parameters": {},
+      "disabled": true
+    },
+    {
+      "id": "public-demo-node-018",
+      "name": "sticky Note 04",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        610
+      ],
+      "parameters": {
+        "content": "Diagrama de referencia. Los datos, credenciales, endpoints, IDs y reglas de negocio fueron retirados."
+      },
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "webhook 01": {
+      "main": [
+        [
+          {
+            "node": "code 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "code 01": {
+      "main": [
+        [
+          {
+            "node": "respond To Webhook 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "webhook 02": {
+      "main": [
+        [
+          {
+            "node": "code 02",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "code 02": {
+      "main": [
+        [
+          {
+            "node": "code 03",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "code 03": {
+      "main": [
+        [
+          {
+            "node": "code 04",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "code 05",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "code 04": {
+      "main": [
+        [
+          {
+            "node": "http Request 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "code 05": {
+      "main": [
+        [
+          {
+            "node": "gmail 01",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "code 06",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "manual Trigger 01": {
+      "main": [
+        [
+          {
+            "node": "http Request 02",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "http Request 02": {
+      "main": [
+        [
+          {
+            "node": "http Request 03",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "tags": [],
+  "meta": {
+    "referenceOnly": true,
+    "nonExecutable": true,
+    "sourceApp": "n8n",
+    "privacy": "Los parametros, credenciales, URLs, IDs y codigo operativo original fueron eliminados.",
+    "warning": "Archivo de arquitectura de referencia. NO es un workflow listo para ejecutar ni una copia funcional del sistema real."
+  }
+}
