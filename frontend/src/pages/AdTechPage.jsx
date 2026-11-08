@@ -38,13 +38,13 @@ export function AdTechPage() {
           <div className="adtech-page__layout">
             <div className="adtech-page__intro">
               <span className="eyebrow">01 / AdTech · Soluciones digitales · Rosario</span>
-              <div className="adtech-brand-lockup"><span className="adtech-brand-symbol" aria-hidden="true">A+</span><h1>AdTech<span style={{color:"#f4e6b7"}}>.</span></h1></div>
-              <h2>Sitios y sistemas que ayudan a tu negocio a crecer.</h2>
-              <p>Creamos páginas web, tiendas online y herramientas digitales para que tus clientes te encuentren, consulten y compren con facilidad.</p>
-              <p>Desde Tiendanube y WordPress hasta desarrollo a medida. Te ayudamos a elegir según lo que necesitás y cuánto querés invertir.</p>
+              <div className="adtech-brand-lockup"><span className="adtech-brand-symbol" aria-hidden="true">ad.</span><h1>AdTech<span style={{color:"#f4e6b7"}}>.</span></h1></div>
+              <h2>Una web clara. Un negocio más conectado.</h2>
+              <p>Diseñamos sitios, tiendas online y sistemas que ayudan a presentar tu negocio, recibir consultas y ordenar tareas.</p>
+              <p>Elegimos la tecnología en función de tus objetivos: Tiendanube, WordPress o desarrollo a medida.</p>
               <div className="hero-actions">
                 <a className="button button--primary" href="#presupuesto">Solicitar presupuesto</a>
-                <a className="button button--secondary" href="#trabajos">Ver trabajos</a><Link className="button button--ghost" to="/proyectos">Portfolio personal</Link>
+                <a className="button button--secondary" href="#trabajos">Ver casos reales</a><a className="button button--ghost" href="#automatizaciones">Automatizaciones ↓</a>
               </div>
             </div>
             <aside className="adtech-page__contact">
@@ -105,7 +105,7 @@ export function AdTechPage() {
 
       <section className="section section--alt" id="automatizaciones" aria-labelledby="adtech-automation-title">
         <div className="container">
-          <span className="eyebrow">04 / Workflows reales · n8n</span>
+          <span className="eyebrow">04 / Automatizaciones · n8n</span>
           <h2 id="adtech-automation-title">Automatizaciones desarrolladas para operaciones reales</h2>
           <p className="adtech-section-intro">Estos ejemplos corresponden a flujos de trabajo implementados o configurados en n8n. Las capturas muestran su arquitectura visual, no una garantía de que todas las integraciones estén activas en producción.</p>
           <div className="adtech-workflow-grid">
