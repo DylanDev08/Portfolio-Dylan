@@ -1,5 +1,26 @@
 const projectPresentation = {
   "Materiales FZAC": {
+    decisions: [
+        {
+            "title": "Validación del lado servidor",
+            "detail": "Los datos sensibles de pedidos, precios y disponibilidad se verifican en el backend en lugar de confiar en los valores enviados por el navegador."
+        },
+        {
+            "title": "Operación y administración separadas",
+            "detail": "El catálogo público y las tareas de gestión usan permisos distintos, con autenticación y controles de acceso para operaciones administrativas."
+        },
+        {
+            "title": "Flujo comercial adaptable",
+            "detail": "El recorrido de compra prioriza el pedido y la coordinación por WhatsApp, sin confundir una solicitud con un pago confirmado."
+        }
+    ],
+    galleryItems: [
+        {
+            "src": "https://raw.githubusercontent.com/DylanDev08/Materiales-FZAC/main/public/products/cemento-50kg.svg",
+            "label": "Catálogo de materiales",
+            "description": "Recurso gráfico público utilizado para ilustrar una ficha de producto. No es una captura de la interfaz."
+        }
+    ],
     accent: "#f4b942",
     accentRgb: "244,185,66",
     surface: "#17130b",
@@ -14,6 +35,32 @@ const projectPresentation = {
     docsLabel: "README técnico",
   },
   "Portfolio FZAC": {
+    decisions: [
+        {
+            "title": "Contenido editable sin programar",
+            "detail": "El panel administra obras, descripciones y galerías para que el equipo actualice el portfolio sin editar el código fuente."
+        },
+        {
+            "title": "Control de acceso a la gestión",
+            "detail": "Las operaciones administrativas están separadas del sitio público y requieren una sesión autorizada."
+        },
+        {
+            "title": "Imágenes organizadas por obra",
+            "detail": "Las galerías agrupan material visual por proyecto y permiten mostrar tanto locales comerciales como obras residenciales."
+        }
+    ],
+    galleryItems: [
+        {
+            "src": "https://raw.githubusercontent.com/DylanDev08/FZAC-Portfolio/main/frontend/public/assets/img/obras/marvel-pellegrini/marvel-pellegrini-02.jpg",
+            "label": "Galería de una obra",
+            "description": "Foto real incluida en las galerías públicas del portfolio de Fortaleza Construcciones."
+        },
+        {
+            "src": "https://raw.githubusercontent.com/DylanDev08/FZAC-Portfolio/main/frontend/public/assets/img/obras/sliders-jujuy/sliders-jujuy-final-01.jpg",
+            "label": "Obra comercial · Sliders",
+            "description": "Fotografía publicada del resultado de una de las obras comerciales."
+        }
+    ],
     coverImage: "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/https://fzac-portfolio-1.onrender.com",
     coverFallback: "https://raw.githubusercontent.com/DylanDev08/FZAC-Portfolio/main/frontend/public/assets/img/obras/marvel-pellegrini/marvel-pellegrini-02.jpg",
     accent: "#d8ad52",
@@ -41,6 +88,16 @@ const projectPresentation = {
     docsLabel: "README técnico",
   },
   "FuckTheSys": {
+    decisions: [
+        {
+            "title": "Plataforma elegida según el objetivo",
+            "detail": "La solución usa TiendaNube para priorizar catálogo, recorrido de compra y administración comercial, sin construir un checkout propio innecesario."
+        },
+        {
+            "title": "Recorrido simple desde mobile",
+            "detail": "La estructura organiza la navegación del catálogo y facilita el paso desde descubrir productos a iniciar una compra."
+        }
+    ],
     coverImage: "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/https://fuckthesys.mitiendanube.com",
     coverFallback: "/projects/fuckthesys.svg",
     accent: "#f04444",
@@ -56,6 +113,16 @@ const projectPresentation = {
     docsLabel: "Caso documentado",
   },
   "Innova Click": {
+    decisions: [
+        {
+            "title": "Jerarquía de servicios",
+            "detail": "La información se agrupa para que quienes visitan la web entiendan las propuestas de marketing sin recorrer páginas innecesarias."
+        },
+        {
+            "title": "Llamadas a la acción visibles",
+            "detail": "Se priorizan accesos de contacto y una navegación responsive que acompaña el recorrido comercial."
+        }
+    ],
     coverImage: "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/https://innovaclick.com.ar",
     coverFallback: "/projects/innova-click.svg",
     accent: "#8b5cf6",
@@ -71,6 +138,16 @@ const projectPresentation = {
     docsLabel: "Caso documentado",
   },
   "BarberHouse": {
+    decisions: [
+        {
+            "title": "Prototipo antes de sumar complejidad",
+            "detail": "Se desarrolló una interfaz React enfocada en presentación de servicios e identidad, sin anunciar como operativas futuras reservas."
+        },
+        {
+            "title": "Componentes que pueden evolucionar",
+            "detail": "La estructura permite ampliar el sitio con nuevas funciones cuando se definan las necesidades del negocio."
+        }
+    ],
     coverImage: "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/https://barber-house-pi.vercel.app",
     coverFallback: "/projects/barberhouse.svg",
     accent: "#d6a15c",
@@ -87,6 +164,32 @@ const projectPresentation = {
     docsLabel: "README del proyecto",
   },
   Viagelato: {
+    decisions: [
+        {
+            "title": "Solicitudes, no pagos simulados",
+            "detail": "El carrito prepara la solicitud por WhatsApp y deja la coordinación comercial a una persona; abrir el enlace no equivale a confirmar un pedido o un pago."
+        },
+        {
+            "title": "Validación de datos en el servidor",
+            "detail": "El sistema comprueba productos, cantidades y condiciones comerciales antes de registrar una solicitud."
+        },
+        {
+            "title": "Acceso administrativo protegido",
+            "detail": "Las operaciones de productos y gestión están separadas de la navegación pública mediante roles y políticas de base de datos."
+        }
+    ],
+    galleryItems: [
+        {
+            "src": "https://raw.githubusercontent.com/DylanDev08/Viagelato/main/public/catalogo/alfajor-helado-1.webp",
+            "label": "Fotografía de catálogo",
+            "description": "Imagen de producto utilizada por el proyecto. No es una captura de la aplicación ni evidencia de stock."
+        },
+        {
+            "src": "https://raw.githubusercontent.com/DylanDev08/Viagelato/main/public/catalogo/balde-3lts-bn-fl-gr.webp",
+            "label": "Presentación de producto",
+            "description": "Imagen pública de otra presentación de catálogo; no refleja disponibilidad actual."
+        }
+    ],
     accent: "#d8d8d8",
     accentRgb: "216,216,216",
     surface: "#111111",
@@ -96,6 +199,16 @@ const projectPresentation = {
     docsLabel: "README del proyecto",
   },
   Budgetly: {
+    decisions: [
+        {
+            "title": "Módulos financieros independientes",
+            "detail": "El diseño separa las áreas de información financiera y objetivos para evolucionar el producto por etapas."
+        },
+        {
+            "title": "Alcance transparente",
+            "detail": "La ficha distingue la base actual del desarrollo de las funcionalidades previstas, evitando mostrar un roadmap como producto terminado."
+        }
+    ],
     accent: "#35c78a",
     accentRgb: "53,199,138",
     surface: "#091812",
