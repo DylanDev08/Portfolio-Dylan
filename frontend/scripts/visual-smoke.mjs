@@ -91,6 +91,31 @@ for (const device of widths) {
     }
     return { buttons: await buttons.count() };
   });
+  if (device.width === 390 || device.width === 1440) {
+    await check(device.name + ": workflow images loaded", async () => {
+      await page.goto(baseUrl + "/automatizaciones", { waitUntil: "domcontentloaded" });
+      const images = page.locator(".adtech-workflow-card img");
+      assert((await images.count()) === 3, "Expected three workflow images");
+      await images.evaluateAll((nodes) => nodes.forEach((image) => { image.loading = "eager"; }));
+      await page.waitForFunction(() => {
+        const images = [...document.querySelectorAll(".adtech-workflow-card img")];
+        return images.length === 3 && images.every((image) => image.complete && image.naturalWidth > 0);
+      }, null, { timeout: 20000 });
+      return { images: await images.count() };
+    });
+    await check(device.name + ": FZAC gallery images loaded", async () => {
+      await page.goto(baseUrl + "/proyectos/portfolio-fzac", { waitUntil: "domcontentloaded" });
+      await page.locator(".project-case-gallery__counter").waitFor();
+      for (const nth of [0, 1, 2]) {
+        await page.locator(".project-case-gallery__thumbnails button").nth(nth).click();
+        await page.waitForFunction(() => {
+          const img = document.querySelector(".project-case-gallery__image img");
+          return Boolean(img && img.complete && img.naturalWidth > 0);
+        }, null, { timeout: 20000 });
+      }
+      return { images: 3 };
+    });
+  }
   if (device.width <= 768) {
     await check(device.name + ": mobile navigation", async () => {
       await page.goto(baseUrl, { waitUntil: "domcontentloaded" });
