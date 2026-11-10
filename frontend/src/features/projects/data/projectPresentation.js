@@ -61,7 +61,7 @@ const projectPresentation = {
             "description": "Fotografía publicada del resultado de una de las obras comerciales."
         }
     ],
-    coverImage: "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/https://fzac-portfolio-1.onrender.com",
+    coverImage: "/projects/portfolio-fzac-real.webp",
     coverFallback: "https://raw.githubusercontent.com/DylanDev08/FZAC-Portfolio/main/frontend/public/assets/img/obras/marvel-pellegrini/marvel-pellegrini-02.jpg",
     accent: "#d8ad52",
     accentRgb: "216,173,82",
@@ -98,7 +98,7 @@ const projectPresentation = {
             "detail": "La estructura organiza la navegación del catálogo y facilita el paso desde descubrir productos a iniciar una compra."
         }
     ],
-    coverImage: "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/https://fuckthesys.mitiendanube.com",
+    coverImage: "/projects/fuckthesys-real.webp",
     coverFallback: "/projects/fuckthesys.svg",
     accent: "#f04444",
     accentRgb: "240,68,68",
@@ -123,7 +123,7 @@ const projectPresentation = {
             "detail": "Se priorizan accesos de contacto y una navegación responsive que acompaña el recorrido comercial."
         }
     ],
-    coverImage: "https://image.thum.io/get/width/1200/crop/675/maxAge/24/noanimate/https://innovaclick.com.ar",
+    coverImage: "/projects/innova-click-real.webp",
     coverFallback: "/projects/innova-click.svg",
     accent: "#8b5cf6",
     accentRgb: "139,92,246",
@@ -193,9 +193,11 @@ const projectPresentation = {
     accent: "#d8d8d8",
     accentRgb: "216,216,216",
     surface: "#111111",
-    coverPosition: "center center",
+    coverImage: "/projects/viagelato-real.webp",
+    coverFallback: "/projects/ecommerce.svg",
+    coverPosition: "center top",
     coverFit: "cover",
-    coverLabel: "Vista conceptual · en preparación",
+    coverLabel: "Captura real del e-commerce",
     docsLabel: "README del proyecto",
   },
   Budgetly: {
