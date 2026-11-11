@@ -89,3 +89,35 @@
   .project-resources>a,.project-resources>span{min-height:58px}
   .home-project-view__copy{padding:20px}
 }
+
+
+/* Editorial project gallery: restrained, image-first and accessible. */
+.project-card--editorial{position:relative;isolation:isolate;border:1px solid rgba(255,255,255,.12);border-radius:22px;background:linear-gradient(160deg,#191919,#101010 72%);box-shadow:0 12px 38px rgba(0,0,0,.22);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.project-card--editorial:hover{transform:translateY(-5px);border-color:rgba(244,230,183,.48);box-shadow:0 24px 65px rgba(0,0,0,.36)}
+.project-card--editorial:focus-within{border-color:var(--accent-light)}
+.project-card--editorial .project-preview__browser{height:34px;background:#101010;border-bottom-color:rgba(255,255,255,.1)}
+.project-card--editorial .project-preview__browser small{color:#b4b4b4;font-size:.7rem}
+.project-card--editorial .project-preview__viewport{aspect-ratio:16/10;background:#181818}
+.project-card--editorial .project-preview__viewport img{transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .3s ease}
+.project-card--editorial:hover .project-preview__viewport img{transform:scale(1.045);filter:brightness(1.06)}
+.project-card--editorial .project-preview__caption{background:#111;border-top-color:rgba(255,255,255,.1);color:#bdbdbd}
+.project-card--editorial .project-preview__caption a{color:#f4e6b7}
+.project-card--editorial .project-card__status{top:49px;right:13px;padding:7px 11px;border:1px solid rgba(255,255,255,.24);background:rgba(10,10,10,.78);backdrop-filter:blur(14px);color:#f5f2eb;font-size:.65rem;letter-spacing:.1em}
+.project-card--editorial .project-card__body{padding:clamp(22px,2.6vw,30px);gap:0}
+.project-card--editorial .project-meta{gap:7px}
+.project-card--editorial .project-meta span{padding:5px 9px;border:1px solid rgba(244,230,183,.2);border-radius:7px;background:rgba(244,230,183,.055);color:#e4d5ad;font-size:.65rem}
+.project-card--editorial .project-card__title{margin:16px 0 9px;font-size:clamp(1.55rem,2.2vw,2rem);letter-spacing:-.045em}
+.project-card--editorial .project-card__title a{color:#faf8f3}
+.project-card--editorial .project-card__title a:hover{color:#e4c786}
+.project-card--editorial .project-card__role{margin:0 0 10px;color:#c3ae84;font-size:.78rem}
+.project-card--editorial .project-card__summary{margin:0;color:#c4c4c4;line-height:1.7;font-size:.93rem;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.project-card--editorial .project-card__badges{margin:19px 0 0;gap:7px}
+.project-card--editorial .project-card__badges span{padding:6px 10px;background:#242424;border:1px solid rgba(255,255,255,.1);border-radius:7px;color:#e2e2e2;font-size:.71rem}
+.project-card--editorial .project-card__footer{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:auto;padding-top:24px}
+.project-card--editorial .project-card__footer .button{flex:1;min-width:155px;background:#f0e5c8;color:#151515;border:1px solid #f0e5c8;border-radius:10px;font-weight:800;transition:background .2s ease,transform .2s ease}
+.project-card--editorial .project-card__footer .button:hover{background:#fff4d6;transform:translateY(-2px)}
+.project-card--editorial .project-card__footer>a:not(.button){font-size:.82rem;font-weight:750;color:#e5d5ad;text-decoration:none}
+.project-card--editorial .project-card__footer>a:not(.button):hover{text-decoration:underline;text-underline-offset:4px}
+.project-card--editorial a:focus-visible{outline:2px solid #f0d68e;outline-offset:4px}
+@media(max-width:680px){.project-card--editorial{border-radius:16px}.project-card--editorial .project-card__body{padding:20px}.project-card--editorial .project-card__footer{gap:12px}.project-card--editorial .project-card__footer .button{flex-basis:100%}}
+@media(prefers-reduced-motion:reduce){.project-card--editorial,.project-card--editorial .project-preview__viewport img,.project-card--editorial .project-card__footer .button{transition:none}.project-card--editorial:hover,.project-card--editorial:hover .project-preview__viewport img{transform:none}}
